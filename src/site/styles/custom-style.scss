@@ -36,7 +36,7 @@ body {
     .theme-toggle {
         background: var(--background-secondary);
         border: none;
-        color: var(--text-normal);
+        color: inherit;
         padding: 6px;
         cursor: pointer;
         display: inline-flex;
@@ -53,6 +53,7 @@ body {
 
         &:hover {
             background: var(--background-modifier-hover);
+            color: inherit;
         }
 
         &:active {
