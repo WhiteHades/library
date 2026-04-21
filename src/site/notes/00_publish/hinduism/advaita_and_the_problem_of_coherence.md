@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/00-publish/hinduism/advaita-and-the-problem-of-coherence/","title":"Advaita and the problem of coherence","dg-note-properties":{"type":"note","created":"2026-04-21T10:49","ideas":[],"contexts":[],"project":null,"title":"Advaita and the problem of coherence"}}
+{"dg-publish":true,"dg-path":"hinduism/advaita_and_the_problem_of_coherence.md","permalink":"/hinduism/advaita-and-the-problem-of-coherence/","title":"Advaita and the problem of coherence","dg-note-properties":{"type":"note","created":"2026-04-21T10:49","ideas":[],"contexts":[],"project":null,"title":"Advaita and the problem of coherence"}}
 ---
 
 

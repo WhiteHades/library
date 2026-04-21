@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/00-publish/hinduism/hinduism-and-the-problem-of-universality/","title":"Hinduism and the problem of universality","dg-note-properties":{"type":"note","created":"2026-04-21T10:49","ideas":[],"contexts":[],"project":null,"title":"Hinduism and the problem of universality"}}
+{"dg-publish":true,"dg-path":"hinduism/hinduism_and_the_problem_of_universality.md","permalink":"/hinduism/hinduism-and-the-problem-of-universality/","title":"Hinduism and the problem of universality","dg-note-properties":{"type":"note","created":"2026-04-21T10:49","ideas":[],"contexts":[],"project":null,"title":"Hinduism and the problem of universality"}}
 ---
 
 

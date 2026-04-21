@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/00-publish/hinduism/caste-and-the-limits-of-hindu-universality/","title":"Caste and the limits of Hindu universality","dg-note-properties":{"type":"note","created":"2026-04-21T10:49","ideas":[],"contexts":[],"project":null,"title":"Caste and the limits of Hindu universality"}}
+{"dg-publish":true,"dg-path":"hinduism/caste_and_the_limits_of_hindu_universality.md","permalink":"/hinduism/caste-and-the-limits-of-hindu-universality/","title":"Caste and the limits of Hindu universality","dg-note-properties":{"type":"note","created":"2026-04-21T10:49","ideas":[],"contexts":[],"project":null,"title":"Caste and the limits of Hindu universality"}}
 ---
 
 

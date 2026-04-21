@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/00-publish/hinduism/mission-and-the-problem-of-hindu-universality/","title":"Mission and the problem of Hindu universality","dg-note-properties":{"type":"note","created":"2026-04-21T10:49","ideas":[],"contexts":[],"project":null,"title":"Mission and the problem of Hindu universality"}}
+{"dg-publish":true,"dg-path":"hinduism/mission_and_the_problem_of_hindu_universality.md","permalink":"/hinduism/mission-and-the-problem-of-hindu-universality/","title":"Mission and the problem of Hindu universality","dg-note-properties":{"type":"note","created":"2026-04-21T10:49","ideas":[],"contexts":[],"project":null,"title":"Mission and the problem of Hindu universality"}}
 ---
 
 
