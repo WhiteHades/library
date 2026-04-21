@@ -7,16 +7,26 @@
 
 ## quick read
 
-- If Hinduism is true for everyone, why was so little of it clearly offered to everyone?
-- Hindu influence abroad is not denied. The distinction is between export of practice and spread of creed.
-- Yoga, meditation, breathwork, and cultural atmosphere travel much more easily than a stable doctrinal invitation does.
+- Hinduism does not have a clear missionary tradition. Some schools say it does not need one. One notable exception — ISKCON — is actively missionary, but that only highlights how unusual it is within the wider Hindu world.
+- Yoga, meditation, and breathwork have spread much further than the creed behind them. The techniques travel. The theology stays behind. `Bhagavad Gita 3.13` says that food not offered in sacrifice is "eating sin" — the framework requires ritual context, but what gets exported is technique stripped of that context.
+- A religion that influences the world without plainly naming itself is exporting atmosphere, not conviction.
 
-A religion can stay local simply because it does not push itself outward with enough clarity. A common defence is that Hinduism is not missionary by nature, that it does not need to convert outsiders. The Gaudiya Vaishnava tradition — ISKCON — insists otherwise, claiming explicit missionary and global reach. That matters, but it only partially relieves the problem. It shows that missionary Hinduism exists. It also shows that the missionary impulse is not straightforwardly pan-Hindu.
+---
 
-That difference is important. A sect can travel strongly while the wider religious umbrella remains unstable in definition and weak in common mission. The question is not whether some Hindus preach. The question is whether Hinduism, taken as a universal truth claim, has historically moved with the force and clarity that such a claim would normally produce.
+If `sanatan dharma` (the "eternal way") is true for everyone on earth, why was so little of it clearly offered to everyone on earth?
 
-Yoga is the clearest example of partial export. Yoga travels. Meditation travels. Breathwork travels. But these often travel as techniques, therapies, or softened spiritual ambience. This becomes a serious point rather than a cheap one. A technique can move into offices, wellness culture, and self-help spaces without bringing with it the whole metaphysical or scriptural world from which it came.
+Some traditions hold that Hinduism is not missionary by nature. It does not proselytise. It does not send preachers. You are born into it or you are not. That position has a certain dignity to it — truth does not need a sales team. But it also means that a religion calling itself universal has never developed a stable, consensus mechanism for crossing cultural borders. That is a structural weakness, not a virtue.
 
-That is why the phrase `Trojan horse` keeps surfacing in this context. The issue is not that every teacher is consciously deceptive. The issue is that Hindu influence often spreads through fragments first and creed second, if creed arrives at all. A universal truth, by contrast, should be able to name itself plainly.
+The exception proves the problem. ISKCON — the Gaudiya Vaishnava tradition, founded by Swami Prabhupada (who left India in 1965 and travelled the world fourteen times) — is explicitly missionary. It has temples in over 170 countries. It has a clear method: distribute books, chant the `maha-mantra` (the "great chant" — Hare Krishna, Hare Krishna, Krishna Krishna, Hare Hare), invite people to temple life. That works. But notice what it means: the only stable Hindu missionary movement comes from one sect, one lineage, one founder. The wider Hindu umbrella has no equivalent. The missionary impulse is not pan-Hindu. It is a sectarian exception.
+
+And then there is yoga.
+
+Yoga is the real story of Hindu export, and it is a complicated one. Yoga has reached everywhere — offices, gyms, wellness retreats, stress management programmes, military training. Breathwork exercises drawn from yogic principles enter professional development spaces under the label of "mindfulness." Meditation enters corporate culture as a productivity tool. These are genuinely Hindu in origin. But they travel as techniques, not as theology. They arrive without the Vedas, without the Bhagavad Gita, without the caste system, without the temple traditions, without the 84 lakh yonis (the traditional Hindu teaching from the `Padma Purana, Srsti-khanda 36.7-8` that the soul passes through 8.4 million forms of life before reaching human birth). The yoga arrives. The religion does not.
+
+That is why the word "Trojan horse" keeps appearing. The pattern is not always conscious deception. But the effect is that Hindu influence spreads through fragments — posture, breath, a vague sense of "oneness" — while the full metaphysical system remains behind. `Bhagavad Gita 3.13` is relevant here: "The righteous who partake of the remnants of sacrifice are freed from all sins; but those sinful ones who cook food for their own sake verily eat sin." The framework requires ritual context, sacrifice, and surrender. What gets exported is stripped of all that.
+
+Islam and Christianity did not spread by technique. They spread by invitation — a single God, a single message, a single path, walked across borders with a clear statement: this is for you. Hinduism has not done that as a whole. Where it has been offered abroad, it has usually come wrapped in a school, a guru, a sect — not as a clear pan-Hindu public message.
+
+The `Srimad Bhagavatam 11.9.29` says: "After many, many births and deaths one achieves the rare human form of life, which, although temporary, affords one the opportunity to attain the highest perfection." That text treats human life as the unique window for `Krishna consciousness` (focused devotion to God). But if the religion built on that teaching never clearly offers itself to the humans it claims to serve, the window stays shut for most of the world.
 
 **Source:** [Part 1](https://www.youtube.com/watch?v=_p_YEcEVs-4), [Part 2](https://www.youtube.com/watch?v=jsfQULwDvU4)
