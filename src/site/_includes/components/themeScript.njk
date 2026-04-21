@@ -7,7 +7,7 @@
       if (savedTheme === 'dark' || savedTheme === 'light') {
         return savedTheme;
       }
-      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      return 'dark';
     }
 
     function applyTheme(theme) {
@@ -19,15 +19,18 @@
       body.setAttribute('data-theme', theme);
       localStorage.setItem(STORAGE_KEY, theme);
 
-      const iconElements = document.querySelectorAll('.theme-toggle i[data-lucide]');
-      iconElements.forEach((iconEl) => {
-        iconEl.setAttribute('data-lucide', theme === 'dark' ? 'sun' : 'moon');
+      // Update toggle icons
+      document.querySelectorAll('.theme-toggle').forEach((toggle) => {
+        if (theme === 'dark') {
+          toggle.classList.remove('theme-light-active');
+          toggle.classList.add('theme-dark-active');
+        } else {
+          toggle.classList.remove('theme-dark-active');
+          toggle.classList.add('theme-light-active');
+        }
       });
 
-      if (window.lucide && typeof window.lucide.createIcons === 'function') {
-        window.lucide.createIcons({ attrs: { class: ['svg-icon'] } });
-      }
-
+      // Rerender graph if available
       if (window.__graph && typeof window.__graph.rerenderLocal === 'function') {
         window.__graph.rerenderLocal();
       }
@@ -39,6 +42,7 @@
       applyTheme(current === 'dark' ? 'light' : 'dark');
     };
 
+    // Apply theme immediately to prevent flash
     const preferredTheme = getPreferredTheme();
     document.addEventListener('DOMContentLoaded', function() {
       applyTheme(preferredTheme);
