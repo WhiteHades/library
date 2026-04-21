@@ -8,8 +8,10 @@
 ## quick read
 
 - The question narrows from history to philosophy here.
-- The central complaint is not merely that Advaita is abstract. It is that its key terms seem to shift level whenever contradiction appears.
+- The central complaint is that Advaita's It is that its key terms seem to shift level whenever contradiction appears.
 - A universal truth should become clearer under pressure, not harder to state plainly.
+
+---
 
 After caste and spread, the question narrows around a handful of words: Brahman, self, ego, karma, witness, reality. That is where the argument becomes exacting. The problem with Advaita is that it wants two things at once. It wants to say that Brahman alone is ultimately real, and yet it still needs karma, experience, perception, agency, and different states of awareness in order to talk about ordinary life.
 
