@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="{{ meta.mainLanguage }}">
     <head>
-        <title>Nothing here</title>
+        <title>Nothing here{% if meta.siteName %} | {{ meta.siteName }}{% endif %}</title>
         <link href="/styles/digital-garden-base.css" rel="stylesheet">
         {%-if meta.themeStyle%}
             <link href="/styles/obsidian-base.css" rel="stylesheet">

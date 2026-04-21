@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ meta.mainLanguage }}">
   <head>
-    <title>{% if title %}{{ title }}{% else %}{{ page.fileSlug }}{% endif %}</title>
+    <title>{% set pageTitle %}{% if title %}{{ title }}{% else %}{{ page.fileSlug }}{% endif %}{% endset %}{{ pageTitle | trim }}{% if meta.siteName and (pageTitle | trim) != meta.siteName %} | {{ meta.siteName }}{% endif %}</title>
     {%include "components/pageheader.njk"%}
     {% for imp in dynamics.common.head %}
       {% include imp %}
@@ -74,6 +74,7 @@
     {% for imp in dynamics.index.footer %}
       {% include imp %}
     {% endfor %}
+    {%include "components/themeScript.njk"%}
     {%include "components/lucideIcons.njk"%}
     {%include "components/basesScript.njk"%}
     </body>

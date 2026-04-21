@@ -9,14 +9,17 @@
                 {% endif %}
             </a>
         </div>
+        {% include "components/siteMetaLinks.njk" %}
         {% if settings.dgEnableSearch === true%}
             {% include "components/searchButton.njk" %}
         {%endif%}
+        {% include "components/themeToggle.njk" %}
     </nav>
     {%else%}
     <div class="empty-navbar" >
         {% if settings.dgEnableSearch === true%}
             {% include "components/searchButton.njk" %}
         {%endif%}
+        {% include "components/themeToggle.njk" %}
     </div>
 {%endif%}

@@ -1,0 +1,16 @@
+{% if meta.authorName or meta.githubUrl %}
+  <div class="site-meta-links">
+    {% if meta.authorName %}
+      {% if meta.authorUrl %}
+        <a class="site-meta-link site-author-link" href="{{ meta.authorUrl }}" target="_blank" rel="noopener noreferrer">by {{ meta.authorName }}</a>
+      {% else %}
+        <span class="site-meta-link site-author-link">by {{ meta.authorName }}</span>
+      {% endif %}
+    {% endif %}
+    {% if meta.githubUrl %}
+      <a class="site-meta-link site-github-link" href="{{ meta.githubUrl }}" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+        <i data-lucide="github"></i>
+      </a>
+    {% endif %}
+  </div>
+{% endif %}

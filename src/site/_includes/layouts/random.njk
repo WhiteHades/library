@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="{{ meta.mainLanguage }}">
   <head>
-    <title>Random Page</title>
+    <title>Random Page{% if meta.siteName %} | {{ meta.siteName }}{% endif %}</title>
     {% include "components/pageheader.njk" %}
+    {% include "components/themeScript.njk" %}
     <script>
       // Get all published notes and redirect to a random one
       const publishedNotes = [

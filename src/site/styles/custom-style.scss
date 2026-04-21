@@ -3,11 +3,84 @@ body {
       ADD YOUR CUSTOM STYLING HERE. (INSIDE THE body {...} section.)
       IT WILL TAKE PRECEDENCE OVER THE STYLING IN THE STYLE.CSS FILE.
    ***/
-    //  background-color: white;
-    //  .content {
-    //   font-size: 14px;
-    //  }
-    //  h1 {
-    //   color: black;
-    //  }
+
+    /* Theme toggle button */
+    .theme-toggle {
+        background: transparent;
+        border: 1px solid var(--background-modifier-border, rgba(255,255,255,0.1));
+        color: var(--text-muted);
+        border-radius: 6px;
+        padding: 6px 10px;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 0.85rem;
+        transition: all 0.2s ease;
+
+        &:hover {
+            border-color: var(--text-muted);
+            color: var(--text-normal);
+        }
+
+        i, svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        .theme-toggle-text {
+            @media (max-width: 800px) {
+                display: none;
+            }
+        }
+    }
+
+    /* Site meta links (author, GitHub) */
+    .site-meta-links {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        margin-right: 12px;
+
+        @media (max-width: 800px) {
+            margin-right: 8px;
+        }
+    }
+
+    .site-meta-link {
+        color: var(--text-muted);
+        text-decoration: none;
+        font-size: 0.85rem;
+        transition: color 0.2s ease;
+
+        &:hover {
+            color: var(--text-accent);
+        }
+    }
+
+    .site-github-link {
+        display: inline-flex;
+        align-items: center;
+
+        i, svg {
+            width: 18px;
+            height: 18px;
+        }
+    }
+
+    /* Filetree sidebar meta links */
+    .filetree-sidebar {
+        .site-meta-links {
+            margin: 8px 0;
+            padding: 0 4px;
+        }
+    }
+
+    /* Navbar adjustments for meta links */
+    .navbar-inner {
+        .site-meta-links {
+            margin-left: auto;
+            margin-right: 12px;
+        }
+    }
 }

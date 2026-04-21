@@ -6,6 +6,10 @@ module.exports = async (data) => {
   if (baseUrl && !baseUrl.startsWith("http")) {
     baseUrl = "https://" + baseUrl;
   }
+  const siteName = process.env.SITE_NAME_HEADER || "Digital Garden";
+  const authorName = process.env.SITE_AUTHOR_NAME || "";
+  const authorUrl = process.env.SITE_AUTHOR_URL || "";
+  const githubUrl = process.env.SITE_GITHUB_URL || "";
   let themeStyle = globSync("src/site/styles/_theme.*.css")[0] || "";
 
   // Check for logo file (supports multiple image formats)
@@ -94,7 +98,10 @@ module.exports = async (data) => {
     noteIconsSettings,
     timestampSettings,
     baseTheme: process.env.BASE_THEME || "dark",
-    siteName: process.env.SITE_NAME_HEADER || "Digital Garden",
+    siteName,
+    authorName,
+    authorUrl,
+    githubUrl,
     siteLogoPath: logoPath,
     mainLanguage: process.env.SITE_MAIN_LANGUAGE || "en",
     siteBaseUrl: baseUrl,

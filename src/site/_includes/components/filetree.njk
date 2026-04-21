@@ -31,7 +31,7 @@
         
         <div x-show="showFilesMobile && !isDesktop" @click="showFilesMobile = false" style="display:none;" class="fullpage-overlay"></div>
 
-      <div class="filetree-wrapper" x-show.important="isDesktop || showFilesMobile" style="display: none;">
+        <div class="filetree-wrapper" x-show.important="isDesktop || showFilesMobile" style="display: none;">
       <nav class="filetree-sidebar">
         {% for imp in dynamics.filetree.beforeTitle %}
             {% include imp %}
@@ -48,9 +48,11 @@
          {% for imp in dynamics.filetree.afterTitle %}
             {% include imp %}
         {% endfor %}
+        {% include "components/siteMetaLinks.njk" %}
         {% if settings.dgEnableSearch === true%}
             {% include "components/searchButton.njk" %}
         {%endif%}
+        {% include "components/themeToggle.njk" %}
          <div class="folder" x-data="{isOpen: true}">
                {%- for fileOrFolderName, fileOrFolder in filetree -%}
                   {{menuItem(fileOrFolderName, fileOrFolder, 0, fileOrFolderName)}}
