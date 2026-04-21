@@ -34,9 +34,9 @@ body {
     }
 
     .theme-toggle {
-        background: transparent;
+        background: var(--background-secondary);
         border: none;
-        color: var(--text-muted);
+        color: var(--text-normal);
         padding: 6px;
         cursor: pointer;
         display: inline-flex;
@@ -44,13 +44,19 @@ body {
         justify-content: center;
         width: 32px;
         height: 32px;
+        line-height: 0;
         position: relative;
         overflow: hidden;
-        transition: color 0.2s ease;
+        border-radius: 8px;
+        transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
         flex-shrink: 0;
 
         &:hover {
-            color: var(--text-normal);
+            background: var(--background-modifier-hover);
+        }
+
+        &:active {
+            transform: scale(0.96);
         }
 
         .theme-icon {
