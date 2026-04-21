@@ -1,15 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Geist+Mono:wght@300;400;500;600;700&display=swap');
+
 body {
     /***
       ADD YOUR CUSTOM STYLING HERE. (INSIDE THE body {...} section.)
       IT WILL TAKE PRECEDENCE OVER THE STYLING IN THE STYLE.CSS FILE.
    ***/
 
-    /* Theme toggle button */
+    --font-default: "iA Writer Quattro V", "iA Writer Quattro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    --font-monospace: "Geist Mono", "SF Mono", "Fira Code", monospace;
+
     .theme-toggle {
         background: transparent;
-        border: 1px solid var(--background-modifier-border, rgba(255,255,255,0.1));
+        border: none;
         color: var(--text-muted);
-        border-radius: 6px;
         padding: 6px;
         cursor: pointer;
         display: inline-flex;
@@ -19,10 +22,9 @@ body {
         height: 32px;
         position: relative;
         overflow: hidden;
-        transition: border-color 0.2s ease, color 0.2s ease;
+        transition: color 0.2s ease;
 
         &:hover {
-            border-color: var(--text-muted);
             color: var(--text-normal);
         }
 
@@ -63,16 +65,11 @@ body {
         }
     }
 
-    /* Site meta links (author, GitHub) */
     .site-meta-links {
         display: inline-flex;
         align-items: center;
         gap: 10px;
         margin-right: 12px;
-
-        @media (max-width: 800px) {
-            margin-right: 8px;
-        }
     }
 
     .site-meta-link {
@@ -90,25 +87,9 @@ body {
         display: inline-flex;
         align-items: center;
 
-        svg, i {
+        svg {
             width: 18px;
             height: 18px;
-        }
-    }
-
-    /* Filetree sidebar meta links */
-    .filetree-sidebar {
-        .site-meta-links {
-            margin: 8px 0;
-            padding: 0 4px;
-        }
-    }
-
-    /* Navbar adjustments for meta links */
-    .navbar-inner {
-        .site-meta-links {
-            margin-left: auto;
-            margin-right: 12px;
         }
     }
 }

@@ -48,12 +48,10 @@
          {% for imp in dynamics.filetree.afterTitle %}
             {% include imp %}
         {% endfor %}
-        {% include "components/siteMetaLinks.njk" %}
-        {% if settings.dgEnableSearch === true%}
-            {% include "components/searchButton.njk" %}
-        {%endif%}
-        {% include "components/themeToggle.njk" %}
-         <div class="folder" x-data="{isOpen: true}">
+         {% if settings.dgEnableSearch === true%}
+             {% include "components/searchButton.njk" %}
+         {%endif%}
+          <div class="folder" x-data="{isOpen: true}">
                {%- for fileOrFolderName, fileOrFolder in filetree -%}
                   {{menuItem(fileOrFolderName, fileOrFolder, 0, fileOrFolderName)}}
                {%- endfor -%}

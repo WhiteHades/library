@@ -16,7 +16,7 @@ exports.DEFAULT_NOTE_SETTINGS = {
     dgPassFrontmatter: false,
     dgShowBacklinks: true,
     dgShowLocalGraph: true,
-    dgShowInlineTitle: true,
+    dgShowInlineTitle: false,
     dgShowFileTree: true,
     dgEnableSearch: true,
     dgShowToc: true,

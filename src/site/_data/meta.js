@@ -69,7 +69,6 @@ module.exports = async (data) => {
 
   const meta = {
     env: process.env.ELEVENTY_ENV,
-    theme: "https://raw.githubusercontent.com/seanwcom/Red-Graphite-for-Obsidian/HEAD/theme.css",
     themeStyle,
     bodyClasses: bodyClasses.join(" "),
     noteIconsSettings,
