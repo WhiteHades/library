@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"dg-path":"hinduism/04_mission_and_the_problem_of_spread.md","permalink":"/hinduism/04-mission-and-the-problem-of-spread/","title":"4. Mission and the Problem of Spread","dg-note-properties":{"type":"note","created":"2026-04-21T10:49","ideas":["[[hinduism]]"],"contexts":[],"project":null,"before":"hinduism/03_birth_caste_and_belonging.md","after":"hinduism/05_karma_and_moral_agency.md","title":"4. Mission and the Problem of Spread","sources":[{"label":"Part 1","url":"https://www.youtube.com/watch?v=_p_YEcEVs-4"},{"label":"Part 2","url":"https://www.youtube.com/watch?v=jsfQULwDvU4"}]}}
+{"dg-publish":true,"dg-path":"hinduism/04_mission_and_the_problem_of_spread.md","permalink":"/hinduism/04-mission-and-the-problem-of-spread/","title":"4. Mission and the Problem of Spread","dg-note-properties":{"type":"note","created":"2026-04-21T10:49","ideas":["[[hinduism]]"],"contexts":[],"project":null,"before":"hinduism/03_birth_caste_and_belonging.md","after":"hinduism/05_karma_and_moral_agency.md","title":"4. Mission and the Problem of Spread","sources":[{"title":"If Hinduism is \"Universal Truth\", Why Did the World Reject It? · Part 1","url":"https://www.youtube.com/watch?v=_p_YEcEVs-4"},{"title":"If Hinduism is \"Universal Truth\", Why Did the World Reject It? · Part 2","url":"https://www.youtube.com/watch?v=jsfQULwDvU4"}]}}
 ---
 
 

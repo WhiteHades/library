@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"dg-path":"hinduism/07_scripture_and_selective_reading.md","permalink":"/hinduism/07-scripture-and-selective-reading/","title":"7. Scripture and Selective Reading","dg-note-properties":{"type":"note","created":"2026-04-21T23:30","ideas":["[[hinduism]]"],"contexts":[],"project":null,"before":"hinduism/06_advaita_and_the_non_dual_problem.md","after":null,"title":"7. Scripture and Selective Reading","sources":[{"label":"Part 1","url":"https://www.youtube.com/watch?v=_p_YEcEVs-4"},{"label":"Part 2","url":"https://www.youtube.com/watch?v=jsfQULwDvU4"}]}}
+{"dg-publish":true,"dg-path":"hinduism/07_scripture_and_selective_reading.md","permalink":"/hinduism/07-scripture-and-selective-reading/","title":"7. Scripture and Selective Reading","dg-note-properties":{"type":"note","created":"2026-04-21T23:30","ideas":["[[hinduism]]"],"contexts":[],"project":null,"before":"hinduism/06_advaita_and_the_non_dual_problem.md","after":null,"title":"7. Scripture and Selective Reading","sources":[{"title":"If Hinduism is \"Universal Truth\", Why Did the World Reject It? · Part 1","url":"https://www.youtube.com/watch?v=_p_YEcEVs-4"},{"title":"If Hinduism is \"Universal Truth\", Why Did the World Reject It? · Part 2","url":"https://www.youtube.com/watch?v=jsfQULwDvU4"}]}}
 ---
 
 

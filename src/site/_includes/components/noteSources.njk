@@ -5,59 +5,63 @@
 {% if hasSources or hasIdeas or hasStats %}
   <div class="note-meta-strip" aria-label="Note metadata">
     {% if hasSources %}
-      {% for source in sourceEntries %}
-        <a class="note-meta-pill note-meta-pill-link" href="{{ source.url }}" target="_blank" rel="noopener noreferrer">
-          <span class="note-meta-pill-label">Source</span>
-          <span class="note-meta-pill-value note-meta-pill-value-with-icon">
-            <span class="note-meta-pill-icon" aria-hidden="true">
-              {% if source.platform.key == "youtube" %}
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M21.2 7.2a2.9 2.9 0 0 0-2-2c-1.8-.5-7.2-.5-7.2-.5s-5.4 0-7.2.5a2.9 2.9 0 0 0-2 2C2.3 9 2.3 12 2.3 12s0 3 .5 4.8a2.9 2.9 0 0 0 2 2c1.8.5 7.2.5 7.2.5s5.4 0 7.2-.5a2.9 2.9 0 0 0 2-2c.5-1.8.5-4.8.5-4.8s0-3-.5-4.8Z"></path>
-                  <path d="m10 15.5 4.5-3.5L10 8.5z" fill="currentColor" stroke="none"></path>
-                </svg>
-              {% elif source.platform.key == "x" %}
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M4 4l16 16"></path>
-                  <path d="M20 4 4 20"></path>
-                </svg>
-              {% elif source.platform.key == "github" %}
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M9 18c-4 1.2-4-2-5.5-2.4"></path>
-                  <path d="M15 18v-3.2a2.8 2.8 0 0 0-.8-2.2c2.6-.3 5.3-1.3 5.3-5.8a4.5 4.5 0 0 0-1.2-3.1 4.2 4.2 0 0 0-.1-3.1s-1-.3-3.2 1.2a11 11 0 0 0-6 0C6.8.3 5.8.6 5.8.6a4.2 4.2 0 0 0-.1 3.1 4.5 4.5 0 0 0-1.2 3.1c0 4.5 2.7 5.5 5.3 5.8A2.8 2.8 0 0 0 9 14.8V18"></path>
-                </svg>
-              {% else %}
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                  <circle cx="12" cy="12" r="9"></circle>
-                  <path d="M3 12h18"></path>
-                  <path d="M12 3a15 15 0 0 1 0 18"></path>
-                  <path d="M12 3a15 15 0 0 0 0 18"></path>
-                </svg>
-              {% endif %}
+      <div class="note-source-row">
+        <span class="note-source-row-label">Sources</span>
+        <div class="note-source-list">
+          {% for source in sourceEntries %}
+            <a class="note-source-link note-source-link-{{ source.platform.key }}" href="{{ source.url }}" target="_blank" rel="noopener noreferrer">
+              <span class="note-source-icon" aria-hidden="true">
+                {% if source.platform.key == "youtube" %}
+                  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M23 12.01c0 2.19-.23 4.13-.38 5.09a3.3 3.3 0 0 1-2.7 2.68c-1.06.18-3.92.47-7.92.47-3.99 0-6.85-.29-7.92-.47a3.3 3.3 0 0 1-2.7-2.68C1.24 16.14 1 14.2 1 12.01c0-2.18.24-4.12.38-5.09a3.3 3.3 0 0 1 2.7-2.68c1.07-.18 3.93-.47 7.92-.47 4 0 6.86.29 7.92.47a3.3 3.3 0 0 1 2.7 2.68c.15.97.38 2.91.38 5.09Z" fill="#FF0033"></path>
+                    <path d="M10 8.5v7l6-3.5-6-3.5Z" fill="#fff"></path>
+                  </svg>
+                {% elif source.platform.key == "x" %}
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M18.9 2H22l-6.77 7.74L23.2 22h-6.26l-4.9-7.41L5.56 22H2.45l7.24-8.27L1.8 2h6.42l4.43 6.73L18.9 2Zm-1.1 18h1.73L7.26 3.9H5.4L17.8 20Z"></path>
+                  </svg>
+                {% elif source.platform.key == "github" %}
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M12 .5a12 12 0 0 0-3.79 23.39c.6.11.82-.26.82-.58v-2.03c-3.34.73-4.05-1.42-4.05-1.42-.55-1.38-1.33-1.74-1.33-1.74-1.08-.74.08-.72.08-.72 1.2.08 1.82 1.22 1.82 1.22 1.05 1.81 2.77 1.29 3.45.99.11-.77.41-1.29.74-1.58-2.67-.31-5.47-1.32-5.47-5.9 0-1.31.47-2.39 1.23-3.24-.12-.3-.53-1.56.12-3.25 0 0 1-.32 3.3 1.23a11.6 11.6 0 0 1 6 0c2.3-1.55 3.3-1.23 3.3-1.23.65 1.69.24 2.95.12 3.25.77.85 1.23 1.93 1.23 3.24 0 4.59-2.8 5.58-5.48 5.89.43.37.81 1.1.81 2.22v3.3c0 .32.22.69.83.58A12 12 0 0 0 12 .5Z"></path>
+                  </svg>
+                {% else %}
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <circle cx="12" cy="12" r="9"></circle>
+                    <path d="M3 12h18"></path>
+                    <path d="M12 3a15 15 0 0 1 0 18"></path>
+                    <path d="M12 3a15 15 0 0 0 0 18"></path>
+                  </svg>
+                {% endif %}
+              </span>
+              <span class="note-source-title">{{ source.title or source.label or source.platform.label or source.url }}</span>
+            </a>
+          {% endfor %}
+        </div>
+      </div>
+    {% endif %}
+
+    {% if hasIdeas or hasStats %}
+      <div class="note-stats-row" aria-label="Reading stats">
+        {% if hasIdeas %}
+          {% for idea in ideaLabels %}
+            <span class="note-stat-item">
+              <span class="note-stat-label">Idea</span>
+              <span class="note-stat-value">{{ idea }}</span>
             </span>
-            <span>{{ source.label or source.title or source.platform.label or source.url }}</span>
+          {% endfor %}
+        {% endif %}
+
+        {% if hasStats %}
+          <span class="note-stat-item">
+            <span class="note-stat-label">Words</span>
+            <span class="note-stat-value note-stat-value-numeric">{{ readingStats.wordCountLabel }}</span>
           </span>
-        </a>
-      {% endfor %}
-    {% endif %}
-
-    {% if hasIdeas %}
-      {% for idea in ideaLabels %}
-        <span class="note-meta-pill">
-          <span class="note-meta-pill-label">Idea</span>
-          <span class="note-meta-pill-value">{{ idea }}</span>
-        </span>
-      {% endfor %}
-    {% endif %}
-
-    {% if hasStats %}
-      <span class="note-meta-pill">
-        <span class="note-meta-pill-label">Words</span>
-        <span class="note-meta-pill-value note-meta-pill-value-numeric">{{ readingStats.wordCountLabel }}</span>
-      </span>
-      <span class="note-meta-pill">
-        <span class="note-meta-pill-label">Read time</span>
-        <span class="note-meta-pill-value note-meta-pill-value-numeric">{{ readingStats.readingTimeLabel }}</span>
-      </span>
+          <span class="note-stat-item">
+            <span class="note-stat-label">Read time</span>
+            <span class="note-stat-value note-stat-value-numeric">{{ readingStats.readingTimeLabel }}</span>
+          </span>
+        {% endif %}
+      </div>
     {% endif %}
   </div>
 {% endif %}
