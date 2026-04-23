@@ -1,0 +1,52 @@
+{% if tags and tags.includes("gardenEntry") and publishModel %}
+  <div class="home-sections">
+    {% for section in publishModel.homeConfig.sectionOrder or ["ideas", "channels", "series", "recent"] %}
+      {% if section == "ideas" %}
+        <section class="home-section">
+          <div class="home-section-label">Ideas</div>
+          <div class="home-card-grid">
+            {% for idea in publishModel.featuredIdeas %}
+              <a class="home-card-link" href="{{ idea.url }}">
+                <span class="home-card-title">{{ idea.title }}</span>
+                <span class="home-card-meta">{{ idea.series | length }} series · {{ idea.channels | length }} channels</span>
+              </a>
+            {% endfor %}
+          </div>
+        </section>
+      {% elif section == "channels" %}
+        <section class="home-section">
+          <div class="home-section-label">Channels</div>
+          <div class="home-card-grid">
+            {% for channel in publishModel.featuredChannels %}
+              <a class="home-card-link" href="/channels/{{ channel.key }}/">
+                <span class="home-card-title">{{ channel.name }}</span>
+                <span class="home-card-meta">{{ channel.ideas | length }} ideas</span>
+              </a>
+            {% endfor %}
+          </div>
+        </section>
+      {% elif section == "series" %}
+        <section class="home-section">
+          <div class="home-section-label">Series</div>
+          <div class="home-card-grid">
+            {% for series in publishModel.featuredSeries %}
+              <a class="home-card-link" href="{{ series.url }}">
+                <span class="home-card-title">{{ series.title }}</span>
+                <span class="home-card-meta">{{ series.channel.name if series.channel else "" }}</span>
+              </a>
+            {% endfor %}
+          </div>
+        </section>
+      {% elif section == "recent" %}
+        <section class="home-section">
+          <div class="home-section-label">Recent Notes</div>
+          <div class="home-list">
+            {% for note in publishModel.recentNotes %}
+              <a class="home-list-link" href="{{ note.url }}">{{ note.title }}</a>
+            {% endfor %}
+          </div>
+        </section>
+      {% endif %}
+    {% endfor %}
+  </div>
+{% endif %}

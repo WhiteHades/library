@@ -1,0 +1,18 @@
+[
+  {
+    "key": "mohammed-efaz",
+    "name": "Mohammed Efaz",
+    "platform": "website",
+    "url": "/home/",
+    "logo": "/img/channels/mohammed-efaz.svg",
+    "description": "Editorial channel for original overviews, curation, synthesis, and site-owned publishing pages."
+  },
+  {
+    "key": "dawahwise",
+    "name": "DawahWise",
+    "platform": "youtube",
+    "url": "https://www.youtube.com/@DawahWise",
+    "logo": "/img/channels/dawahwise.svg",
+    "description": "DawahWise is the source channel for the current Hinduism series and future sourced notes from its debates, discussions, and lectures."
+  }
+]

@@ -1,0 +1,111 @@
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const copyButton = document.querySelector("[data-copy-markdown]");
+    const printButton = document.querySelector("[data-print-note]");
+    const markdownPayload = document.getElementById("note-markdown-payload");
+    const seriesPayloadEl = document.getElementById("series-export-payload");
+
+    if (copyButton && markdownPayload) {
+      copyButton.addEventListener("click", async () => {
+        try {
+          const markdown = JSON.parse(markdownPayload.textContent || "\"\"");
+          await navigator.clipboard.writeText(markdown || "");
+          copyButton.dataset.state = "done";
+          copyButton.textContent = "Copied Markdown";
+          setTimeout(() => {
+            copyButton.dataset.state = "";
+            copyButton.textContent = "Copy note as Markdown";
+          }, 1800);
+        } catch {
+          copyButton.dataset.state = "error";
+          copyButton.textContent = "Copy failed";
+        }
+      });
+    }
+
+    if (printButton) {
+      printButton.addEventListener("click", () => {
+        const url = new URL(window.location.href);
+        url.searchParams.set("export", "print-note");
+        window.open(url.toString(), "_blank", "noopener,noreferrer");
+      });
+    }
+
+    const params = new URLSearchParams(window.location.search);
+    if (params.get("export") === "print-note") {
+      document.body.classList.add("print-note-mode");
+      setTimeout(() => window.print(), 250);
+    }
+
+    if (params.get("export") === "series-print" && seriesPayloadEl) {
+      document.body.classList.add("print-note-mode", "series-print-mode");
+
+      const buildSeriesPrint = async () => {
+        const payload = JSON.parse(seriesPayloadEl.textContent || "{}");
+        const main = document.querySelector("main.content");
+        if (!main || !payload.notes || !payload.notes.length) {
+          setTimeout(() => window.print(), 250);
+          return;
+        }
+
+        const toc = document.createElement("section");
+        toc.className = "series-print-toc";
+        toc.innerHTML = '<h2 id="series-overview">Contents</h2><ol class="series-print-toc-list"></ol>';
+        const tocList = toc.querySelector(".series-print-toc-list");
+
+        const appendTocEntry = (href, label, depth = 0) => {
+          const li = document.createElement("li");
+          li.style.marginLeft = `${depth * 16}px`;
+          const a = document.createElement("a");
+          a.href = href;
+          a.textContent = label;
+          li.appendChild(a);
+          tocList.appendChild(li);
+        };
+
+        appendTocEntry("#series-overview", payload.title || document.title, 0);
+        main.insertBefore(toc, main.children[1] || null);
+
+        for (const [index, note] of payload.notes.entries()) {
+          const response = await fetch(note.url);
+          const html = await response.text();
+          const doc = new DOMParser().parseFromString(html, "text/html");
+          const sourceMain = doc.querySelector("main.content");
+          if (!sourceMain) continue;
+
+          const cloned = sourceMain.cloneNode(true);
+          cloned.querySelector("header")?.remove();
+          cloned.querySelector(".note-context-grid")?.remove();
+          cloned.querySelector(".note-sequence")?.remove();
+          cloned.querySelector(".sidebar-export-actions")?.remove();
+          cloned.querySelector(".toc")?.remove();
+
+          const noteSection = document.createElement("section");
+          noteSection.className = "series-print-note";
+          const noteId = `series-note-${index + 1}`;
+          noteSection.id = noteId;
+
+          const noteTitle = document.createElement("h2");
+          noteTitle.textContent = note.title;
+          noteSection.appendChild(noteTitle);
+          appendTocEntry(`#${noteId}`, note.title, 0);
+
+          const innerHeadings = Array.from(cloned.querySelectorAll("h2, h3, h4"));
+          innerHeadings.forEach((headingEl, headingIndex) => {
+            const level = Number(headingEl.tagName.slice(1));
+            const anchorId = `${noteId}-heading-${headingIndex + 1}`;
+            headingEl.id = anchorId;
+            appendTocEntry(`#${anchorId}`, headingEl.textContent.trim(), Math.max(1, level - 2));
+          });
+
+          noteSection.appendChild(cloned);
+          main.appendChild(noteSection);
+        }
+
+        setTimeout(() => window.print(), 400);
+      };
+
+      buildSeriesPrint();
+    }
+  });
+</script>

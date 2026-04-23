@@ -1,0 +1,38 @@
+{% if pageKind == "note" and ((seriesInfo and moreFromSeries and moreFromSeries.length) or (moreFromChannel and moreFromChannel.length) or (relatedIdeas and relatedIdeas.length)) %}
+  <section class="note-context-grid" aria-label="Related reading">
+    {% if seriesInfo and moreFromSeries and moreFromSeries.length %}
+      <div class="note-context-card">
+        <div class="note-context-label">More from this series</div>
+        <a class="note-context-title" href="{{ seriesInfo.url }}">{{ seriesInfo.title }}</a>
+        <div class="note-context-links">
+          {% for note in moreFromSeries %}
+            <a class="note-context-link" href="{{ note.url }}">{{ note.title }}</a>
+          {% endfor %}
+        </div>
+      </div>
+    {% endif %}
+
+    {% if moreFromChannel and moreFromChannel.length %}
+      <div class="note-context-card">
+        <div class="note-context-label">More from this channel</div>
+        <a class="note-context-title" href="{{ channelInfo.url }}">{{ channelInfo.name }}</a>
+        <div class="note-context-links">
+          {% for note in moreFromChannel %}
+            <a class="note-context-link" href="{{ note.url }}">{{ note.title }}</a>
+          {% endfor %}
+        </div>
+      </div>
+    {% endif %}
+
+    {% if relatedIdeas and relatedIdeas.length %}
+      <div class="note-context-card">
+        <div class="note-context-label">Related ideas</div>
+        <div class="note-context-links">
+          {% for idea in relatedIdeas %}
+            <a class="note-context-link" href="{{ idea.url }}">{{ idea.title }}</a>
+          {% endfor %}
+        </div>
+      </div>
+    {% endif %}
+  </section>
+{% endif %}

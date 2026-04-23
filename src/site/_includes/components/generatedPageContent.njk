@@ -1,0 +1,80 @@
+{% if pageKind == "channel-index" %}
+  <h2 id="quick-read">quick read</h2>
+  <ul>
+    <li>This page indexes all source channels currently represented in the public library.</li>
+    <li>Channels are grouped separately from ideas so a reader can browse by provenance when needed.</li>
+    <li>Each channel page is generated from the channel registry and note metadata.</li>
+  </ul>
+  <h2 id="note">note</h2>
+  <ul>
+    {% for channel in publishModel.channels %}
+      <li><a href="/channels/{{ channel.key }}/">{{ channel.name }}</a></li>
+    {% endfor %}
+  </ul>
+{% elif pageKind == "series-index" %}
+  <h2 id="quick-read">quick read</h2>
+  <ul>
+    <li>This page indexes all reading series currently represented in the public library.</li>
+    <li>Series are grouped separately from ideas and channels so a reader can follow a focused reading path.</li>
+    <li>Each series page is generated from the series registry and note metadata.</li>
+  </ul>
+  <h2 id="note">note</h2>
+  <ul>
+    {% for series in publishModel.series %}
+      <li><a href="{{ series.url }}">{{ series.title }}</a></li>
+    {% endfor %}
+  </ul>
+{% elif pageKind == "channel-page" %}
+  <h2 id="quick-read">quick read</h2>
+  <ul>
+    <li>{{ channelInfo.name }} is one of the source channels represented in this public library.</li>
+    <li>This page groups the channel's work by idea first, then by series and standalone notes.</li>
+    <li>Use this page when you want provenance-first browsing rather than idea-first browsing.</li>
+  </ul>
+  <h2 id="note">note</h2>
+  {% if channelInfo and channelInfo.description %}
+    <p>{{ channelInfo.description }}</p>
+  {% endif %}
+  {% for channelPage in publishModel.channels %}
+    {% if channelPage.key == channelInfo.key %}
+      {% for idea in channelPage.ideas %}
+        <h3>{{ idea.title }}</h3>
+        {% if idea.series and idea.series.length %}
+          <h4>Series</h4>
+          <ul>
+            {% for series in idea.series %}
+              <li><a href="{{ series.url }}">{{ series.title }}</a></li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+        {% if idea.standalone and idea.standalone.length %}
+          <h4>Standalone</h4>
+          <ul>
+            {% for note in idea.standalone %}
+              <li><a href="{{ note.url }}">{{ note.title }}</a></li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+      {% endfor %}
+    {% endif %}
+  {% endfor %}
+{% elif pageKind == "series-page" %}
+  <h2 id="quick-read">quick read</h2>
+  <ul>
+    <li>{{ seriesInfo.title }} is an ordered reading path generated from the series registry and note sequence metadata.</li>
+    <li>This page is the canonical landing page for the series.</li>
+    <li>Use the notes below to read in sequence.</li>
+  </ul>
+  <h2 id="note">note</h2>
+  {% if seriesInfo and seriesInfo.description %}
+    <p>{{ seriesInfo.description }}</p>
+  {% endif %}
+  {% if seriesInfo and seriesInfo.notes and seriesInfo.notes.length %}
+    <h3>Reading Path</h3>
+    <ul>
+      {% for note in seriesInfo.notes %}
+        <li><a href="{{ note.url }}">{{ note.title }}</a></li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+{% endif %}

@@ -2,6 +2,7 @@ require("dotenv").config();
 const settings = require("../../helpers/constants");
 const fs = require("fs");
 const matter = require("gray-matter");
+const { buildPublishModel, getField, parseIdeaKey, humanizeKey } = require("../../helpers/publishUtils");
 
 const allSettings = settings.ALL_NOTE_SETTINGS;
 const defaultSettings = settings.DEFAULT_NOTE_SETTINGS;
@@ -181,6 +182,10 @@ function parseWikilinkLabel(value) {
   return normalized.replace(/\b\w/g, (match) => match.toUpperCase());
 }
 
+function getPageKind(data) {
+  return getField(data, "page_kind") || ((data.tags || []).includes("gardenEntry") ? "home" : "note");
+}
+
 function computeReadingStats(markdown) {
   const readableText = stripMarkdown(markdown);
   const words = extractWords(readableText);
@@ -232,6 +237,12 @@ function computeReadingStats(markdown) {
 module.exports = {
   eleventyComputed: {
     layout: (data) => {
+      if (data.layout === false) {
+        return false;
+      }
+      if (data.layout) {
+        return data.layout;
+      }
       if (data.tags.indexOf("gardenEntry") != -1) {
         return "layouts/index.njk";
       }
@@ -266,6 +277,23 @@ module.exports = {
       });
       return noteSettings;
     },
+    pageKind: (data) => getPageKind(data),
+    primaryIdeaKey: (data) => parseIdeaKey(getField(data, "ideas") || []),
+    primaryIdeaInfo: (data) => {
+      const model = buildPublishModel(data);
+      const ideaKey = parseIdeaKey(getField(data, "ideas") || []);
+      return ideaKey ? (model.ideaMap[ideaKey] || { key: ideaKey, title: humanizeKey(ideaKey), url: `/${ideaKey}/` }) : null;
+    },
+    channelInfo: (data) => {
+      const model = buildPublishModel(data);
+      const channelKey = getField(data, "channel");
+      return channelKey ? (model.channelMap[channelKey] || { key: channelKey, name: humanizeKey(channelKey), url: `/channels/${channelKey}/` }) : null;
+    },
+    seriesInfo: (data) => {
+      const model = buildPublishModel(data);
+      const seriesKey = getField(data, "series");
+      return seriesKey ? (model.seriesMap[seriesKey] || null) : null;
+    },
     ideaLabels: (data) => {
       const ideas = Array.isArray(data.ideas)
         ? data.ideas
@@ -273,7 +301,65 @@ module.exports = {
       return ideas.map(parseWikilinkLabel).filter(Boolean);
     },
     sourceEntries: (data) => normalizeSources(data),
-    readingStats: (data) => computeReadingStats(readNoteMarkdown(data.page?.inputPath)),
+    rawNoteMarkdown: (data) => {
+      const pageKind = getPageKind(data);
+      if (!["note", "idea-overview"].includes(pageKind)) return "";
+      return readNoteMarkdown(data.page?.inputPath);
+    },
+    readingStats: (data) => {
+      const pageKind = getPageKind(data);
+      if (!["note", "idea-overview", "home"].includes(pageKind)) return null;
+      return computeReadingStats(readNoteMarkdown(data.page?.inputPath));
+    },
+    moreFromSeries: (data) => {
+      if (getPageKind(data) !== "note") return [];
+      const model = buildPublishModel(data);
+      const seriesKey = getField(data, "series");
+      const currentUrl = data.page && data.page.url;
+      if (!seriesKey || !model.seriesMap[seriesKey]) return [];
+      return model.seriesMap[seriesKey].notes.filter((note) => note.url !== currentUrl).slice(0, 6);
+    },
+    moreFromChannel: (data) => {
+      if (getPageKind(data) !== "note") return [];
+      const model = buildPublishModel(data);
+      const channelKey = getField(data, "channel");
+      const currentUrl = data.page && data.page.url;
+      const channel = channelKey ? model.channelMap[channelKey] : null;
+      if (!channel) return [];
+      const channelPage = model.channels.find((item) => item.key === channelKey);
+      if (!channelPage) return [];
+      return channelPage.notes.filter((note) => note.url !== currentUrl).slice(0, 6);
+    },
+    relatedIdeas: (data) => {
+      if (getPageKind(data) !== "note") return [];
+      const model = buildPublishModel(data);
+      const currentIdeaKey = parseIdeaKey(getField(data, "ideas") || []);
+      const channelKey = getField(data, "channel");
+      const channelPage = model.channels.find((item) => item.key === channelKey);
+      if (!channelPage) return [];
+      return channelPage.ideas.filter((idea) => idea.key !== currentIdeaKey).slice(0, 6);
+    },
+    seriesPrintUrl: (data) => {
+      const model = buildPublishModel(data);
+      const seriesKey = getField(data, "series");
+      if (!seriesKey || !model.seriesMap[seriesKey]) return null;
+      return `/series/${seriesKey}/?export=series-print`;
+    },
+    seriesExportPayload: (data) => {
+      const pageKind = getPageKind(data);
+      const model = buildPublishModel(data);
+      const seriesKey = getField(data, "series");
+      if (!["note", "series-page"].includes(pageKind) || !seriesKey || !model.seriesMap[seriesKey]) return null;
+      const series = model.seriesMap[seriesKey];
+      return {
+        title: series.title,
+        description: series.description || "",
+        notes: (series.notes || []).map((note) => ({
+          title: note.title,
+          url: note.url,
+        })),
+      };
+    },
     beforeNote: (data) => resolveSequenceNote(data.before ?? data["dg-note-properties"]?.before, data),
     afterNote: (data) => resolveSequenceNote(data.after ?? data["dg-note-properties"]?.after, data),
   },

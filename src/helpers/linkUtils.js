@@ -115,7 +115,10 @@ async function getGraph(data) {
     }
 
     const templateContent = await v.template.read();
-    const content = templateContent?.content || "";
+    const rawContent = typeof templateContent === "string"
+      ? templateContent
+      : templateContent?.content;
+    const content = typeof rawContent === "string" ? rawContent : "";
     noteContents.push(content);
 
     nodes[v.url] = {

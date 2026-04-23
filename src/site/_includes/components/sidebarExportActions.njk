@@ -1,0 +1,27 @@
+{% if pageKind in ["note", "idea-overview", "series-page"] %}
+  <div class="sidebar-export-actions" aria-label="Export actions">
+    {% if pageKind in ["note", "idea-overview"] %}
+      <button class="sidebar-export-button" type="button" data-copy-markdown>
+        Copy note as Markdown
+      </button>
+      <button class="sidebar-export-button" type="button" data-print-note>
+        Download note as PDF
+      </button>
+      {% if seriesPrintUrl %}
+        <a class="sidebar-export-button" href="{{ seriesPrintUrl }}">
+          Download series as PDF
+        </a>
+      {% endif %}
+      {% if rawNoteMarkdown %}
+        <script id="note-markdown-payload" type="application/json">{{ rawNoteMarkdown | jsonStringify | safe }}</script>
+      {% endif %}
+    {% elif pageKind == "series-page" and seriesPrintUrl %}
+      <a class="sidebar-export-button" href="{{ seriesPrintUrl }}">
+        Download series as PDF
+      </a>
+      {% if seriesExportPayload %}
+        <script id="series-export-payload" type="application/json">{{ seriesExportPayload | jsonStringify | safe }}</script>
+      {% endif %}
+    {% endif %}
+  </div>
+{% endif %}

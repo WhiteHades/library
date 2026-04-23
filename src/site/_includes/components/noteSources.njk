@@ -1,8 +1,9 @@
 {% set hasSources = sourceEntries and sourceEntries.length %}
+{% set hasChannel = channelInfo %}
 {% set hasIdeas = ideaLabels and ideaLabels.length %}
 {% set hasStats = readingStats and readingStats.wordCount > 0 %}
 
-{% if hasSources or hasIdeas or hasStats %}
+{% if hasSources or hasChannel or hasIdeas or hasStats %}
   <div class="note-meta-strip" aria-label="Note metadata">
     {% if hasSources %}
       <div class="note-source-row">
@@ -40,8 +41,20 @@
       </div>
     {% endif %}
 
-    {% if hasIdeas or hasStats %}
+    {% if hasChannel or hasIdeas or hasStats %}
       <div class="note-stats-row" aria-label="Reading stats">
+        {% if hasChannel %}
+          <a class="note-stat-item note-stat-link" href="{{ channelInfo.url if pageKind != 'channel-page' else channelInfo.sourceUrl }}">
+            <span class="note-stat-label">Channel</span>
+            <span class="note-stat-value note-stat-value-with-avatar">
+              {% if channelInfo.logo %}
+                <img class="note-channel-avatar" src="{{ channelInfo.logo }}" alt="{{ channelInfo.name }}">
+              {% endif %}
+              <span>{{ channelInfo.name }}</span>
+            </span>
+          </a>
+        {% endif %}
+
         {% if hasIdeas %}
           {% for idea in ideaLabels %}
             <span class="note-stat-item">

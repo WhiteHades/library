@@ -8,6 +8,8 @@
                         {%include "components/graphScript.njk"%}
                   {%endif%}
 
+                  {% include "components/sidebarExportActions.njk" %}
+
                   {%if settings.dgShowToc === true%}
                         {%set tocHtml= (content and (content | hideDataview | link | toc)) %}
                         {%if tocHtml %}

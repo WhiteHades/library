@@ -354,6 +354,9 @@ module.exports = function(eleventyConfig) {
   });
 
   eleventyConfig.addFilter("link", function(str) {
+    if (str == null) return "";
+    if (typeof str !== "string" && typeof str.content === "string") str = str.content;
+    if (typeof str !== "string") str = String(str);
     return (
       str &&
       str.replace(/\[\[(.*?\|.*?)\]\]/g, function(match, p1) {
@@ -369,6 +372,9 @@ module.exports = function(eleventyConfig) {
   });
 
   eleventyConfig.addFilter("taggify", function(str) {
+    if (str == null) return "";
+    if (typeof str !== "string" && typeof str.content === "string") str = str.content;
+    if (typeof str !== "string") str = String(str);
     return (
       str &&
       str.replace(tagRegex, function(match, precede, tag) {
@@ -378,6 +384,9 @@ module.exports = function(eleventyConfig) {
   });
 
   eleventyConfig.addFilter("stripForSearch", function(content) {
+    if (content == null) return "";
+    if (typeof content !== "string" && typeof content.content === "string") content = content.content;
+    if (typeof content !== "string") content = String(content);
     return content
       .replace(/<[^>]*>/g, '')
       .replace(/\s+/g, ' ')
@@ -402,6 +411,9 @@ module.exports = function(eleventyConfig) {
   });
 
   eleventyConfig.addFilter("hideDataview", function(str) {
+    if (str == null) return "";
+    if (typeof str !== "string" && typeof str.content === "string") str = str.content;
+    if (typeof str !== "string") str = String(str);
     return (
       str &&
       str.replace(/\(\S+\:\:(.*)\)/g, function(_, value) {
@@ -423,6 +435,28 @@ module.exports = function(eleventyConfig) {
     // Self-close img tags that aren't already self-closed
     str = str.replace(/<img([^>]*?)(?<!\/)>/gi, '<img$1 />');
     return str;
+  });
+
+  eleventyConfig.addFilter("normalizeGeneratedContent", function(value) {
+    if (value == null) return "";
+    if (typeof value === "string") return value;
+    if (typeof value.content === "string") return value.content;
+    if (typeof value.templateContent === "string") return value.templateContent;
+    if (typeof value.html === "string") return value.html;
+    if (typeof value._layoutContent === "string") return value._layoutContent;
+    if (typeof value.toString === "function") {
+      const rendered = value.toString();
+      if (rendered && rendered !== "[object Object]") return rendered;
+    }
+    try {
+      return JSON.stringify(value, null, 2);
+    } catch {
+      return "";
+    }
+  });
+
+  eleventyConfig.addFilter("jsonStringify", function(value) {
+    return JSON.stringify(value);
   });
 
   eleventyConfig.addTransform("dataview-js-links", function(str) {
@@ -631,6 +665,8 @@ module.exports = function(eleventyConfig) {
 
   // Render markdown in canvas text nodes at build time
   eleventyConfig.addTransform("canvas-markdown", function(str) {
+    if (str == null) return "";
+    if (typeof str !== "string") str = String(str);
     if (!str || !str.includes('data-markdown="')) {
       return str;
     }
