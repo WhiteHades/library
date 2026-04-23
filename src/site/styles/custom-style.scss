@@ -171,43 +171,32 @@ body {
         gap: 14px;
     }
 
-    .note-sources {
+    .note-meta-strip {
         display: flex;
         flex-wrap: wrap;
         align-items: center;
-        gap: 10px;
+        gap: 8px;
         margin-top: 14px;
     }
 
-    .note-sources-label {
-        font-size: 11px;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-        color: var(--text-faint);
-        flex-shrink: 0;
-    }
-
-    .note-sources-list {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 8px;
-    }
-
-    .note-source-link {
+    .note-meta-pill {
         display: inline-flex;
         align-items: center;
+        gap: 8px;
         min-height: 32px;
-        padding: 0 12px;
+        padding: 0 12px 0 10px;
         border-radius: 999px;
-        text-decoration: none;
         color: var(--text-muted);
         background: var(--background-primary-alt);
         box-shadow: inset 0 0 0 1px var(--background-modifier-border);
+        text-wrap: nowrap;
+    }
+
+    .note-meta-pill-link {
+        text-decoration: none;
         transition-property: transform, background-color, color, box-shadow;
         transition-duration: 180ms;
         transition-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
-        font-size: 13px;
-        line-height: 1;
 
         &:hover {
             transform: translateY(-1px);
@@ -219,6 +208,25 @@ body {
         &:active {
             transform: scale(0.98);
         }
+    }
+
+    .note-meta-pill-label {
+        font-size: 10px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--text-faint);
+        flex-shrink: 0;
+    }
+
+    .note-meta-pill-value {
+        font-size: 13px;
+        line-height: 1;
+        color: var(--text-normal);
+    }
+
+    .note-meta-pill-value-numeric {
+        font-family: var(--font-monospace-override), "Geist Mono", monospace;
+        font-variant-numeric: tabular-nums;
     }
 
     .note-sequence-single {

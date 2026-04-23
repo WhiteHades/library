@@ -1,8 +1,11 @@
 require("dotenv").config();
 const settings = require("../../helpers/constants");
+const fs = require("fs");
+const matter = require("gray-matter");
 
 const allSettings = settings.ALL_NOTE_SETTINGS;
 const defaultSettings = settings.DEFAULT_NOTE_SETTINGS;
+const NON_FICTION_BASE_WPM = 238;
 
 function normalizeSequenceReference(reference) {
   if (!reference) return null;
@@ -59,6 +62,139 @@ function resolveSequenceNote(reference, data) {
   };
 }
 
+function clamp(value, min, max) {
+  return Math.min(Math.max(value, min), max);
+}
+
+function readNoteMarkdown(inputPath) {
+  if (!inputPath) return "";
+
+  try {
+    const raw = fs.readFileSync(inputPath, "utf8");
+    return matter(raw).content || "";
+  } catch {
+    return "";
+  }
+}
+
+function stripMarkdown(markdown) {
+  return markdown
+    .replace(/```[\s\S]*?```/g, " ")
+    .replace(/`([^`]+)`/g, "$1")
+    .replace(/!\[([^\]]*)\]\([^\)]+\)/g, "$1")
+    .replace(/\[([^\]]+)\]\([^\)]+\)/g, "$1")
+    .replace(/\[\[([^\]|]+)\|([^\]]+)\]\]/g, "$2")
+    .replace(/\[\[([^\]]+)\]\]/g, "$1")
+    .replace(/^>\s?/gm, "")
+    .replace(/^#{1,6}\s+/gm, "")
+    .replace(/^\s*[-*+]\s+/gm, "")
+    .replace(/^\s*\d+\.\s+/gm, "")
+    .replace(/https?:\/\/\S+/g, " ")
+    .replace(/\|/g, " ")
+    .replace(/[*_~>#-]/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function extractWords(text) {
+  return text.match(/[\p{L}\p{N}]+(?:['’-][\p{L}\p{N}]+)*/gu) || [];
+}
+
+function countSentences(text) {
+  const matches = text.match(/[^.!?]+[.!?]+/g);
+  if (matches && matches.length) return matches.length;
+  return text.trim() ? 1 : 0;
+}
+
+function formatCount(value) {
+  return new Intl.NumberFormat("en-US").format(value);
+}
+
+function formatDuration(seconds) {
+  const roundedSeconds = Math.max(15, Math.round(seconds / 5) * 5);
+  const minutes = Math.floor(roundedSeconds / 60);
+  const remainingSeconds = roundedSeconds % 60;
+
+  if (minutes === 0) return `${remainingSeconds} sec`;
+  if (remainingSeconds === 0) return `${minutes} min`;
+  return `${minutes} min ${remainingSeconds} sec`;
+}
+
+function parseWikilinkLabel(value) {
+  if (typeof value !== "string") return null;
+
+  let normalized = value.trim();
+  if (!normalized) return null;
+
+  if (normalized.startsWith("[[") && normalized.endsWith("]]")) {
+    normalized = normalized.slice(2, -2);
+  }
+
+  normalized = normalized.replace(/\\\|/g, "|");
+  if (normalized.includes("|")) {
+    normalized = normalized.split("|")[1] || normalized.split("|")[0];
+  }
+
+  normalized = normalized
+    .replace(/\.md$/i, "")
+    .split("/")
+    .pop()
+    .replace(/[_-]+/g, " ")
+    .trim();
+
+  if (!normalized) return null;
+
+  return normalized.replace(/\b\w/g, (match) => match.toUpperCase());
+}
+
+function computeReadingStats(markdown) {
+  const readableText = stripMarkdown(markdown);
+  const words = extractWords(readableText);
+  const wordCount = words.length;
+
+  if (!wordCount) {
+    return {
+      wordCount: 0,
+      wordCountLabel: "0",
+      sentenceCount: 0,
+      effectiveWpm: NON_FICTION_BASE_WPM,
+      readingSeconds: 0,
+      readingTimeLabel: "0 sec",
+    };
+  }
+
+  const sentenceCount = countSentences(readableText);
+  const headingCount = (markdown.match(/^#{1,6}\s+/gm) || []).length;
+  const listItemCount = (markdown.match(/^\s*(?:[-*+]|\d+\.)\s+/gm) || []).length;
+  const blockquoteCount = (markdown.match(/^>\s?/gm) || []).length;
+  const inlineCodeCount = (markdown.match(/`[^`]+`/g) || []).length;
+  const totalCharacterCount = words.reduce((sum, word) => sum + word.length, 0);
+  const complexWordCount = words.filter((word) => word.length >= 7).length;
+
+  const averageWordLength = totalCharacterCount / wordCount;
+  const averageSentenceLength = wordCount / Math.max(sentenceCount, 1);
+  const technicalDensity = complexWordCount / wordCount;
+
+  let speedFactor = 1;
+  speedFactor -= clamp((averageWordLength - 4.7) * 0.035, 0, 0.16);
+  speedFactor -= clamp((averageSentenceLength - 20) * 0.008, 0, 0.12);
+  speedFactor -= clamp((technicalDensity - 0.18) * 0.6, 0, 0.12);
+  speedFactor -= clamp((inlineCodeCount / Math.max(sentenceCount, 1)) * 0.015, 0, 0.08);
+
+  const effectiveWpm = Math.max(160, Math.round(NON_FICTION_BASE_WPM * speedFactor));
+  const structuralPauseSeconds = (headingCount * 1.8) + (listItemCount * 0.75) + (blockquoteCount * 0.4);
+  const readingSeconds = Math.round((wordCount / effectiveWpm) * 60 + structuralPauseSeconds);
+
+  return {
+    wordCount,
+    wordCountLabel: formatCount(wordCount),
+    sentenceCount,
+    effectiveWpm,
+    readingSeconds,
+    readingTimeLabel: formatDuration(readingSeconds),
+  };
+}
+
 module.exports = {
   eleventyComputed: {
     layout: (data) => {
@@ -96,6 +232,13 @@ module.exports = {
       });
       return noteSettings;
     },
+    ideaLabels: (data) => {
+      const ideas = Array.isArray(data.ideas)
+        ? data.ideas
+        : (Array.isArray(data["dg-note-properties"]?.ideas) ? data["dg-note-properties"].ideas : []);
+      return ideas.map(parseWikilinkLabel).filter(Boolean);
+    },
+    readingStats: (data) => computeReadingStats(readNoteMarkdown(data.page?.inputPath)),
     beforeNote: (data) => resolveSequenceNote(data.before ?? data["dg-note-properties"]?.before, data),
     afterNote: (data) => resolveSequenceNote(data.after ?? data["dg-note-properties"]?.after, data),
   },

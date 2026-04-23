@@ -1,14 +1,38 @@
-{% if sources and sources.length %}
-  <div class="note-sources" aria-label="Sources">
-    <div class="note-sources-label">Sources</div>
-    <div class="note-sources-list">
+{% set hasSources = sources and sources.length %}
+{% set hasIdeas = ideaLabels and ideaLabels.length %}
+{% set hasStats = readingStats and readingStats.wordCount > 0 %}
+
+{% if hasSources or hasIdeas or hasStats %}
+  <div class="note-meta-strip" aria-label="Note metadata">
+    {% if hasSources %}
       {% for source in sources %}
         {% if source.url %}
-          <a class="note-source-link external-link" href="{{ source.url }}" target="_blank" rel="noopener noreferrer">
-            {{ source.label or source.title or source.url }}
+          <a class="note-meta-pill note-meta-pill-link external-link" href="{{ source.url }}" target="_blank" rel="noopener noreferrer">
+            <span class="note-meta-pill-label">Source</span>
+            <span class="note-meta-pill-value">{{ source.label or source.title or source.url }}</span>
           </a>
         {% endif %}
       {% endfor %}
-    </div>
+    {% endif %}
+
+    {% if hasIdeas %}
+      {% for idea in ideaLabels %}
+        <span class="note-meta-pill">
+          <span class="note-meta-pill-label">Idea</span>
+          <span class="note-meta-pill-value">{{ idea }}</span>
+        </span>
+      {% endfor %}
+    {% endif %}
+
+    {% if hasStats %}
+      <span class="note-meta-pill">
+        <span class="note-meta-pill-label">Words</span>
+        <span class="note-meta-pill-value note-meta-pill-value-numeric">{{ readingStats.wordCountLabel }}</span>
+      </span>
+      <span class="note-meta-pill">
+        <span class="note-meta-pill-label">Read time</span>
+        <span class="note-meta-pill-value note-meta-pill-value-numeric">{{ readingStats.readingTimeLabel }}</span>
+      </span>
+    {% endif %}
   </div>
 {% endif %}
