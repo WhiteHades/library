@@ -16,6 +16,7 @@ body {
     --dg-notelink-size: 13px;
     --dg-search-btn-font-size: 13px;
     --dg-backlinks-card-size: 13px;
+    --dg-graph-label-font-size: 12px;
 
     &.theme-light {
         --background-primary: oklch(97.8% 0.006 95);
@@ -159,5 +160,132 @@ body {
     #tooltip-content,
     #tooltip-content .content {
         background: transparent;
+    }
+
+    .note-sequence {
+        margin-top: 48px;
+        padding-top: 20px;
+        border-top: 1px solid var(--background-modifier-border);
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+    }
+
+    .note-sources {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 10px;
+        margin-top: 14px;
+    }
+
+    .note-sources-label {
+        font-size: 11px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--text-faint);
+        flex-shrink: 0;
+    }
+
+    .note-sources-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .note-source-link {
+        display: inline-flex;
+        align-items: center;
+        min-height: 32px;
+        padding: 0 12px;
+        border-radius: 999px;
+        text-decoration: none;
+        color: var(--text-muted);
+        background: var(--background-primary-alt);
+        box-shadow: inset 0 0 0 1px var(--background-modifier-border);
+        transition-property: transform, background-color, color, box-shadow;
+        transition-duration: 180ms;
+        transition-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
+        font-size: 13px;
+        line-height: 1;
+
+        &:hover {
+            transform: translateY(-1px);
+            background: var(--background-secondary);
+            color: var(--text-accent);
+            box-shadow: inset 0 0 0 1px var(--background-modifier-border), 0 8px 18px rgba(0, 0, 0, 0.08);
+        }
+
+        &:active {
+            transform: scale(0.98);
+        }
+    }
+
+    .note-sequence-single {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .note-sequence-link {
+        min-height: 88px;
+        padding: 16px 18px;
+        border-radius: 18px;
+        text-decoration: none;
+        color: var(--text-normal);
+        background: var(--background-primary-alt);
+        box-shadow: inset 0 0 0 1px var(--background-modifier-border), 0 8px 24px rgba(0, 0, 0, 0.06);
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        justify-content: center;
+        transition-property: transform, background-color, box-shadow, color;
+        transition-duration: 180ms;
+        transition-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
+        text-wrap: pretty;
+        -webkit-font-smoothing: antialiased;
+
+        &:hover {
+            transform: translateY(-1px);
+            background: var(--background-secondary);
+            color: var(--text-accent);
+            box-shadow: inset 0 0 0 1px var(--background-modifier-border), 0 14px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        &:active {
+            transform: scale(0.98);
+        }
+    }
+
+    .note-sequence-link-after {
+        text-align: right;
+        align-items: flex-end;
+    }
+
+    .note-sequence-label {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 11px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--text-faint);
+    }
+
+    .note-sequence-title {
+        font-size: 15px;
+        font-weight: 600;
+        line-height: 1.3;
+        text-wrap: balance;
+        color: inherit;
+    }
+
+    @media (max-width: 700px) {
+        .note-sequence {
+            grid-template-columns: minmax(0, 1fr);
+        }
+
+        .note-sequence-link-after {
+            text-align: left;
+            align-items: flex-start;
+        }
     }
 }

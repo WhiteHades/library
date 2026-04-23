@@ -1,9 +1,9 @@
 ---
-{"dg-publish":true,"dg-path":"hinduism/advaita_and_the_problem_of_coherence.md","permalink":"/hinduism/advaita-and-the-problem-of-coherence/","title":"Advaita and the problem of coherence","dg-note-properties":{"type":"note","created":"2026-04-21T10:49","ideas":["[[hinduism]]"],"contexts":[],"project":null,"title":"Advaita and the problem of coherence"}}
+{"dg-publish":true,"dg-path":"hinduism/06_advaita_and_the_non_dual_problem.md","permalink":"/hinduism/6-advaita-and-the-non-dual-problem/","title":"6. Advaita and the Non-Dual Problem","before":"hinduism/05_karma_and_moral_agency.md","after":"hinduism/07_scripture_and_selective_reading.md","sources":[{"label":"Part 1","url":"https://www.youtube.com/watch?v=_p_YEcEVs-4"},{"label":"Part 2","url":"https://www.youtube.com/watch?v=jsfQULwDvU4"}],"dg-note-properties":{"type":"note","created":"2026-04-21T10:49","ideas":["[[hinduism]]"],"contexts":[],"project":null,"before":"hinduism/05_karma_and_moral_agency.md","after":"hinduism/07_scripture_and_selective_reading.md","title":"6. Advaita and the Non-Dual Problem","sources":[{"label":"Part 1","url":"https://www.youtube.com/watch?v=_p_YEcEVs-4"},{"label":"Part 2","url":"https://www.youtube.com/watch?v=jsfQULwDvU4"}]}}
 ---
 
 
-# Advaita and the problem of coherence
+# 6. Advaita and the Non-Dual Problem
 
 ## quick read
 
@@ -11,7 +11,7 @@
 - The core problem: Advaita says only Brahman exists, but it still needs karma, individual souls, multiple states of consciousness, and different "levels of reality" to make its system work. Every time it needs multiplicity, it retreats into a second layer. But that second layer is precisely what Advaita says is not ultimately real.
 - `Bhagavad Gita 16.8` associates the claim "the world is unreal and without God" with `asuric` (demoniac) nature. Whether that applies to sophisticated Advaita is debatable, but the textual tension is real.
 
----
+## note
 
 The Advaita section of any serious examination of Hindu philosophy is where the question stops being about history and geography and starts being about internal logic. And the logic, under pressure, begins to buckle.
 
@@ -30,5 +30,3 @@ The fourth problem — and this is the one that matters most in practice — is 
 That pattern — of retreating into a second level every time a contradiction appears — is the core of the problem. It is not that layered language is always false. Philosophers use it all the time. The problem is that in Advaita, the second level is defined as not-ultimately-real, yet it is the level on which all moral, social, and practical life operates. A system that dismisses ordinary reality as illusion and then relies on ordinary reality to make its own arguments is a system that eats its own foundation.
 
 The `Bhagavad Gita 18.14` adds another layer: five factors produce any action — the body, the doer, the senses, the effort, and the divine (`daiva`). That text insists on real causal plurality. If only Brahman is real, then these five factors are either illusory (in which case the Gita is teaching illusion) or they are real (in which case Advaita is wrong about non-duality). Either way, the system does not close cleanly.
-
-**Source:** [Part 1](https://www.youtube.com/watch?v=_p_YEcEVs-4), [Part 2](https://www.youtube.com/watch?v=jsfQULwDvU4)

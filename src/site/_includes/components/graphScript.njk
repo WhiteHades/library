@@ -126,6 +126,11 @@ function renderGraph(graphData, containerId, isFullScreen) {
     const mutedColor = resolveColor(getCssVar('--dg-graph-node-color-muted') || getCssVar('--graph-muted') || '#ccc');
     const textColor = resolveColor(getCssVar('--dg-graph-label-color') || getCssVar('--text-normal') || '#eee');
     const bodyFont = getComputedStyle(document.body).fontFamily || 'Sans-Serif';
+    const cssLabelFontSize = parseFloat(getCssVar('--dg-graph-label-font-size'));
+    const labelFontSize = Number.isFinite(cssLabelFontSize) ? cssLabelFontSize : (isFullScreen ? 14 : 12);
+    const defaultLabelScale = isFullScreen ? 0.7 : 0.55;
+    const hoverLabelScale = isFullScreen ? 0.9 : 0.72;
+    const labelMaxWidth = isFullScreen ? 220 : 140;
 
     const degreeMap = buildDegreeMap(graphData.links);
 
@@ -207,15 +212,20 @@ function renderGraph(graphData, containerId, isFullScreen) {
         const r = nodeRadius(n.id, degreeMap);
 
         const label = new Text(n.text, {
-            fontSize: 18,
+            fontSize: labelFontSize,
             fill: textColor,
             fontFamily: bodyFont,
-            stroke: resolveColor(getCssVar('--background-primary') || '#000'),
-            strokeThickness: 2,
+            fontStyle: 'normal',
+            fontWeight: '500',
+            align: 'center',
+            wordWrap: true,
+            wordWrapWidth: labelMaxWidth,
+            breakWords: false,
+            lineHeight: labelFontSize * 1.15,
         });
         label.resolution = 2;
         label.anchor.set(0.5, 1);
-        label.scale.set(0.75);
+        label.scale.set(defaultLabelScale);
         label.alpha = 0;
 
         const gfx = new Graphics();
@@ -366,11 +376,13 @@ function renderGraph(graphData, containerId, isFullScreen) {
             n.currentAlpha = lerp(n.currentAlpha, n.targetAlpha, smoothing);
             n.gfx.alpha = n.currentAlpha;
 
+            const zoomAdjustedScale = 1 / Math.max(currentTransform.k, 1);
+
             if (n.simulationData.id === hoveredNodeId) {
                 n.label.alpha = 1;
-                n.label.scale.set(1);
+                n.label.scale.set(hoverLabelScale * zoomAdjustedScale);
             } else {
-                n.label.scale.set(0.75);
+                n.label.scale.set(defaultLabelScale * zoomAdjustedScale);
             }
         }
 

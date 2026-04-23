@@ -1,9 +1,9 @@
 ---
-{"dg-publish":true,"dg-path":"hinduism/caste_and_the_limits_of_hindu_universality.md","permalink":"/hinduism/caste-and-the-limits-of-hindu-universality/","title":"Caste and the limits of Hindu universality","dg-note-properties":{"type":"note","created":"2026-04-21T10:49","ideas":["[[hinduism]]"],"contexts":[],"project":null,"title":"Caste and the limits of Hindu universality"}}
+{"dg-publish":true,"dg-path":"hinduism/03_birth_caste_and_belonging.md","permalink":"/hinduism/3-birth-caste-and-belonging/","title":"3. Birth, Caste, and Belonging","before":"hinduism/02_defining_hinduism.md","after":"hinduism/04_mission_and_the_problem_of_spread.md","sources":[{"label":"Part 1","url":"https://www.youtube.com/watch?v=_p_YEcEVs-4"},{"label":"Part 2","url":"https://www.youtube.com/watch?v=jsfQULwDvU4"}],"dg-note-properties":{"type":"note","created":"2026-04-21T10:49","ideas":["[[hinduism]]"],"contexts":[],"project":null,"before":"hinduism/02_defining_hinduism.md","after":"hinduism/04_mission_and_the_problem_of_spread.md","title":"3. Birth, Caste, and Belonging","sources":[{"label":"Part 1","url":"https://www.youtube.com/watch?v=_p_YEcEVs-4"},{"label":"Part 2","url":"https://www.youtube.com/watch?v=jsfQULwDvU4"}]}}
 ---
 
 
-# Caste and the limits of Hindu universality
+# 3. Birth, Caste, and Belonging
 
 ## quick read
 
@@ -11,7 +11,7 @@
 - `Chandogya Upanishad 5.10.7` — one of the principal Upanishads (ancient philosophical texts forming the concluding portion of the Vedas) — states plainly: those who did good work in their past life are born as Brahmana, Kshatriya, or Vaishya; those who did bad work are born as dog, pig, or Chandala (the outcaste). That is a birth-based system, not a qualities-based system.
 - The `kalapani` taboo (literally "black water" — crossing the ocean could make you casteless) and the convert problem (you enter Hinduism at the bottom) explain why Hinduism stayed geographically concentrated. A religion that penalises outward movement and places the outsider at the lowest rung will struggle to become universal.
 
----
+## note
 
 The caste question is not a side issue. It is one of the clearest reasons Hinduism never became a global religion in the way Christianity or Islam did. Not because individual Hindus are bad people — that would be a cheap argument. But because the system itself builds inequality into its structure of belonging.
 
@@ -30,5 +30,3 @@ But the deeper structural problem is `kalapani` — literally "black water," a t
 The `Manusmrti` (the Laws of Manu, an ancient Dharmasastra — law text — considered authoritative in many Hindu traditions; A. C. Bhaktivedanta Swami Prabhupada himself cited it as "a law book for mankind" in five places in his Bhagavad Gita commentary) reinforces these patterns. Its passages on sacrifice (`Manusmrti 5.39-42`) state that the Self-existent created animals for sacrifice and that sacrificed animals are "reborn into higher existences" — an idea used to justify animal killing in ritual contexts. Its passages on caste reflect the same birth-based hierarchy seen in the Upanishads.
 
 The convert problem sharpens it further. What happens when someone from outside — a European, an African, a South American — decides to become Hindu? They enter as casteless. They are placed at the bottom. One Ukrainian convert was told by his gurus that he was a "dog eater" (Chandala). He accepted it. The system does not give the stranger an equal starting position. That is not a universal invitation. That is a civilisational inheritance with a guest list.
-
-**Source:** [Part 1](https://www.youtube.com/watch?v=_p_YEcEVs-4), [Part 2](https://www.youtube.com/watch?v=jsfQULwDvU4)

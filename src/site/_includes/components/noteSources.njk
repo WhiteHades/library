@@ -1,0 +1,14 @@
+{% if sources and sources.length %}
+  <div class="note-sources" aria-label="Sources">
+    <div class="note-sources-label">Sources</div>
+    <div class="note-sources-list">
+      {% for source in sources %}
+        {% if source.url %}
+          <a class="note-source-link external-link" href="{{ source.url }}" target="_blank" rel="noopener noreferrer">
+            {{ source.label or source.title or source.url }}
+          </a>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+{% endif %}

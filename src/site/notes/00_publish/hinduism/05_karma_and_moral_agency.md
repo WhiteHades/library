@@ -1,9 +1,9 @@
 ---
-{"dg-publish":true,"dg-path":"hinduism/karma_rebirth_and_the_problem_of_moral_agency.md","permalink":"/hinduism/karma-rebirth-and-the-problem-of-moral-agency/","title":"Karma, rebirth, and the problem of moral agency","dg-note-properties":{"type":"note","created":"2026-04-21T23:30","ideas":["[[hinduism]]"],"contexts":[],"project":null,"title":"Karma, rebirth, and the problem of moral agency"}}
+{"dg-publish":true,"dg-path":"hinduism/05_karma_and_moral_agency.md","permalink":"/hinduism/5-karma-and-moral-agency/","title":"5. Karma and Moral Agency","before":"hinduism/04_mission_and_the_problem_of_spread.md","after":"hinduism/06_advaita_and_the_non_dual_problem.md","sources":[{"label":"Part 1","url":"https://www.youtube.com/watch?v=_p_YEcEVs-4"},{"label":"Part 2","url":"https://www.youtube.com/watch?v=jsfQULwDvU4"}],"dg-note-properties":{"type":"note","created":"2026-04-21T23:30","ideas":["[[hinduism]]"],"contexts":[],"project":null,"before":"hinduism/04_mission_and_the_problem_of_spread.md","after":"hinduism/06_advaita_and_the_non_dual_problem.md","title":"5. Karma and Moral Agency","sources":[{"label":"Part 1","url":"https://www.youtube.com/watch?v=_p_YEcEVs-4"},{"label":"Part 2","url":"https://www.youtube.com/watch?v=jsfQULwDvU4"}]}}
 ---
 
 
-# Karma, rebirth, and the problem of moral agency
+# 5. Karma and Moral Agency
 
 ## quick read
 
@@ -11,7 +11,7 @@
 - Human birth is treated as uniquely privileged — the `Srimad Bhagavatam 11.9.29` says sense gratification is available in all species, but `Krishna consciousness` is possible only for humans. `Vivekacudamani 3` (attributed to Adi Shankaracharya) says: "Of all creatures, human birth is rare; rarer still is desire for liberation; rarest is the company of a realised soul."
 - The problem: if non-human births cannot choose between good and bad, most of the karma cycle is morally empty. And if even humans lack true free will — `Bhagavad Gita 3.27` says the `gunas` (the three fundamental qualities of material nature — goodness, passion, ignorance) perform all actions while the soul merely witnesses — the whole system becomes a machine without moral accountability.
 
----
+## note
 
 The karma and rebirth framework is not a decorative doctrine. It is the engine of Hindu ethics. Every action produces a result. Those results accumulate across lifetimes. Your current birth — your family, your caste, your body, your fortune — is the fruit of past-life karma. Your current actions determine your next birth. The system is vast, detailed, and internally coherent on its own terms.
 
@@ -32,5 +32,3 @@ The free will problem goes deeper. `Bhagavad Gita 3.27` says: "All actions are c
 But even compatibilism requires some moral agency. And the Upanishadic "two birds on one tree" metaphor — found in the `Rig Veda 1.164.20`, `Mundaka Upanishad 3.1.1-2`, and `Shvetashvatara Upanishad 4.6-7` — shows the tension clearly. One bird eats the fruit. The other merely watches. The eating bird is the `jiva` (the individual self bound by karma). The watching bird is `Ishvara` (the Lord, the higher Self). If the eating bird eats, it acts. If it acts, it has agency. But Gita 3.27 says the soul is not the doer. The tension is real.
 
 The practical consequence is this. A moral universe is easier to defend when moral agency is available to all beings in the cycle. If only humans have agency, then the vast majority of the cycle is morally empty. And if even humans do not truly have free will, then the whole system becomes a machine producing outcomes without genuine choice — which makes the concept of "deserving" your birth position meaningless.
-
-**Source:** [Part 1](https://www.youtube.com/watch?v=_p_YEcEVs-4), [Part 2](https://www.youtube.com/watch?v=jsfQULwDvU4)

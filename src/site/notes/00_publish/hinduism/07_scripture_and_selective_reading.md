@@ -1,9 +1,9 @@
 ---
-{"dg-publish":true,"dg-path":"hinduism/scripture_authority_and_the_problem_of_selective_reading.md","permalink":"/hinduism/scripture-authority-and-the-problem-of-selective-reading/","title":"Scripture, authority, and the problem of selective reading","dg-note-properties":{"type":"note","created":"2026-04-21T23:30","ideas":["[[hinduism]]"],"contexts":[],"project":null,"title":"Scripture, authority, and the problem of selective reading"}}
+{"dg-publish":true,"dg-path":"hinduism/07_scripture_and_selective_reading.md","permalink":"/hinduism/7-scripture-and-selective-reading/","title":"7. Scripture and Selective Reading","before":"hinduism/06_advaita_and_the_non_dual_problem.md","sources":[{"label":"Part 1","url":"https://www.youtube.com/watch?v=_p_YEcEVs-4"},{"label":"Part 2","url":"https://www.youtube.com/watch?v=jsfQULwDvU4"}],"dg-note-properties":{"type":"note","created":"2026-04-21T23:30","ideas":["[[hinduism]]"],"contexts":[],"project":null,"before":"hinduism/06_advaita_and_the_non_dual_problem.md","after":null,"title":"7. Scripture and Selective Reading","sources":[{"label":"Part 1","url":"https://www.youtube.com/watch?v=_p_YEcEVs-4"},{"label":"Part 2","url":"https://www.youtube.com/watch?v=jsfQULwDvU4"}]}}
 ---
 
 
-# Scripture, authority, and the problem of selective reading
+# 7. Scripture and Selective Reading
 
 ## quick read
 
@@ -11,7 +11,7 @@
 - The `Gita-mahatmya 6` says all the Upanishads are cows and the Gita is their milk. But if the cream can override the cow, what is the cream actually made of? The hierarchy is circular.
 - The `Shrimad Bhagavatam 4.25.42` purport by Prabhupada recommends marrying girls before puberty. The `Shrimad Bhagavatam 8.12` narrates Shiva chasing Vishnu's female form and ejaculating. The `Valmiki Ramayana, Ayodhya-kanda 96.1-2` shows Rama eating meat. `Manusmrti 5.39-42` treats animal sacrifice as elevating the animal. These are not polemic inventions — they are in the texts, and the interpretive method for handling them is the real test.
 
----
+## note
 
 The later material runs into passages that are genuinely difficult for modern Hindu apologetics. Not because the passages are hard to read — they are often quite clear. But because they are hard to reconcile with what many modern Hindus want their religion to say.
 
@@ -33,5 +33,3 @@ The pattern is the same everywhere. A troubling passage appears. One or more of 
 Filter five is particularly interesting. The `Gita-mahatmya 6` (a devotional text praising the Gita) says: "All the Upanishads are the cows, the milker is Krishna, Arjuna is the calf, the wise are the drinkers, the great nectar of the Gita is the milk." This is used to say the Gita clarifies and trumps ambiguous Upanishadic passages. But the Gita is supposed to be the distilled essence of those Upanishads. If the cream can override the cow, what is the cream actually made of? The hierarchy is circular: the Gita depends on the Upanishads for its authority, yet it can also overrule them.
 
 Each person picks whichever text supports the position they already hold, and the hierarchy shifts to match. That is the deeper problem. It is not that Hindu texts contain difficult material — every religion has difficult passages. It is that Hinduism lacks a single, agreed-upon method for resolving contradictions between texts. In Islam, the Quran is primary, hadith secondary, and scholarly consensus (`ijma`) tertiary. In Christianity, creeds and councils settled major disputes. In Hinduism, you can reject one text because another text says something different, and your choice of which text to favour depends on your school, your guru, your sect, or your personal inclination. That is not a stable foundation for a universal truth claim.
-
-**Source:** [Part 1](https://www.youtube.com/watch?v=_p_YEcEVs-4), [Part 2](https://www.youtube.com/watch?v=jsfQULwDvU4)

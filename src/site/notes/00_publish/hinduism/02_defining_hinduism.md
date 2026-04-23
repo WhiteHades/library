@@ -1,9 +1,9 @@
 ---
-{"dg-publish":true,"dg-path":"hinduism/sanatan_dharma_and_the_problem_of_definition.md","permalink":"/hinduism/sanatan-dharma-and-the-problem-of-definition/","title":"Sanatan dharma and the problem of definition","dg-note-properties":{"type":"note","created":"2026-04-21T23:30","ideas":["[[hinduism]]"],"contexts":[],"project":null,"title":"Sanatan dharma and the problem of definition"}}
+{"dg-publish":true,"dg-path":"hinduism/02_defining_hinduism.md","permalink":"/hinduism/2-defining-hinduism/","title":"2. Defining Hinduism","before":"hinduism/01_hinduism_and_the_universal_claim.md","after":"hinduism/03_birth_caste_and_belonging.md","sources":[{"label":"Part 1","url":"https://www.youtube.com/watch?v=_p_YEcEVs-4"},{"label":"Part 2","url":"https://www.youtube.com/watch?v=jsfQULwDvU4"}],"dg-note-properties":{"type":"note","created":"2026-04-21T23:30","ideas":["[[hinduism]]"],"contexts":[],"project":null,"before":"hinduism/01_hinduism_and_the_universal_claim.md","after":"hinduism/03_birth_caste_and_belonging.md","title":"2. Defining Hinduism","sources":[{"label":"Part 1","url":"https://www.youtube.com/watch?v=_p_YEcEVs-4"},{"label":"Part 2","url":"https://www.youtube.com/watch?v=jsfQULwDvU4"}]}}
 ---
 
 
-# Sanatan dharma and the problem of definition
+# 2. Defining Hinduism
 
 ## quick read
 
@@ -11,7 +11,7 @@
 - The Bhagavad Gita says you can worship any god and you will still be worshipping Krishna in the end. That sounds inclusive until you ask whether it applies to worshipping Satan. The philosophy says yes. But a universal truth that cannot distinguish between truth and error is not really universal — it is undefined.
 - Before asking whether Hinduism is universally true, you have to ask what Hinduism actually is. If the definition keeps shifting, the claim to universality is weakened before the larger question even begins.
 
----
+## note
 
 The word `sanatan dharma` carries a strong claim baked into its name. `Sanatan` means eternal, without beginning or end. `Dharma` means the natural order, duty, the way things actually are. The name says: this is not a religion that was founded by someone. This is how reality has always worked. That is a powerful label. The trouble is whether the label can stay attached to a single, clear thing.
 
@@ -24,5 +24,3 @@ The instability keeps recurring at a deeper level too. One moment the supreme au
 The sectarian landscape deepens this. Vaishnavites (followers of Vishnu and his avatars like Krishna and Rama) treat Vishnu as supreme. Shaivites (followers of Shiva) treat Shiva as supreme. Shaktas (followers of the goddess Shakti in her many forms — Durga, Kali, Lakshmi) worship the divine feminine. Smartas (a tradition that worships five major deities equally) try to hold everyone together. Sometimes one sect's supreme god is demoted to a servant of another's. The system holds internally if you accept that different people need different paths. But it does not hold well externally, when you are asking a stranger to believe that this is the one universal truth.
 
 The Bhagavad Gita 4.11 says: "In whatever way people surrender unto Me, I reward them accordingly. Everyone follows My path in all respects." That line has been read as the philosophical basis for Hindu inclusivism — worship anyone, you worship Me. But the inclusivism collapses under its own weight. If worship of any entity counts as worship of the supreme, then the concept of "supreme" stops meaning anything. And if there is no way to distinguish correct worship from incorrect worship, the religion has no public criterion of truth at all.
-
-**Source:** [Part 1](https://www.youtube.com/watch?v=_p_YEcEVs-4), [Part 2](https://www.youtube.com/watch?v=jsfQULwDvU4)

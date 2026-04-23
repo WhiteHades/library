@@ -1,0 +1,23 @@
+{% if beforeNote or afterNote %}
+<nav class="note-sequence{% if not beforeNote or not afterNote %} note-sequence-single{% endif %}" aria-label="Chapter navigation">
+  {% if beforeNote %}
+    <a class="note-sequence-link note-sequence-link-before" href="{{ beforeNote.url }}">
+      <span class="note-sequence-label">
+        <i data-lucide="arrow-left" aria-hidden="true"></i>
+        Previous
+      </span>
+      <span class="note-sequence-title">{{ beforeNote.title }}</span>
+    </a>
+  {% endif %}
+
+  {% if afterNote %}
+    <a class="note-sequence-link note-sequence-link-after" href="{{ afterNote.url }}">
+      <span class="note-sequence-label">
+        Next
+        <i data-lucide="arrow-right" aria-hidden="true"></i>
+      </span>
+      <span class="note-sequence-title">{{ afterNote.title }}</span>
+    </a>
+  {% endif %}
+</nav>
+{% endif %}

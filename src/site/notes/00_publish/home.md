@@ -11,7 +11,7 @@ This is a public notebook of bite sized (yet robust and informative) theological
 
 Anyone is free to read, use, or pass on whatever is useful.
 
-For now, start with [[00_publish/hinduism/hinduism_and_the_problem_of_universality\|Hinduism and the problem of universality]].
+For now, start with [[00_publish/hinduism/01_hinduism_and_the_universal_claim\|1. Hinduism and the Universal Claim]].
 
 In time, this library will grow, إنشاءلله, and will branch into Islam, philosophy, atheism, liberalism, and the like, after I'm done organising my (truthfully messy) copius notes that I've written over the years ever since I started watching ustadh Hamza Tzortzis, Hashim, Mansur, Zeeshan, Mohammed Hijab, Subboor Ahmed, etc. all those years back.
 

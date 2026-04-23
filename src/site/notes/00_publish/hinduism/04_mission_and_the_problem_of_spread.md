@@ -1,9 +1,9 @@
 ---
-{"dg-publish":true,"dg-path":"hinduism/mission_and_the_problem_of_hindu_universality.md","permalink":"/hinduism/mission-and-the-problem-of-hindu-universality/","title":"Mission and the problem of Hindu universality","dg-note-properties":{"type":"note","created":"2026-04-21T10:49","ideas":["[[hinduism]]"],"contexts":[],"project":null,"title":"Mission and the problem of Hindu universality"}}
+{"dg-publish":true,"dg-path":"hinduism/04_mission_and_the_problem_of_spread.md","permalink":"/hinduism/4-mission-and-the-problem-of-spread/","title":"4. Mission and the Problem of Spread","before":"hinduism/03_birth_caste_and_belonging.md","after":"hinduism/05_karma_and_moral_agency.md","sources":[{"label":"Part 1","url":"https://www.youtube.com/watch?v=_p_YEcEVs-4"},{"label":"Part 2","url":"https://www.youtube.com/watch?v=jsfQULwDvU4"}],"dg-note-properties":{"type":"note","created":"2026-04-21T10:49","ideas":["[[hinduism]]"],"contexts":[],"project":null,"before":"hinduism/03_birth_caste_and_belonging.md","after":"hinduism/05_karma_and_moral_agency.md","title":"4. Mission and the Problem of Spread","sources":[{"label":"Part 1","url":"https://www.youtube.com/watch?v=_p_YEcEVs-4"},{"label":"Part 2","url":"https://www.youtube.com/watch?v=jsfQULwDvU4"}]}}
 ---
 
 
-# Mission and the problem of Hindu universality
+# 4. Mission and the Problem of Spread
 
 ## quick read
 
@@ -11,7 +11,7 @@
 - Yoga, meditation, and breathwork have spread much further than the creed behind them. The techniques travel. The theology stays behind. `Bhagavad Gita 3.13` says that food not offered in sacrifice is "eating sin" — the framework requires ritual context, but what gets exported is technique stripped of that context.
 - A religion that influences the world without plainly naming itself is exporting atmosphere, not conviction.
 
----
+## note
 
 If `sanatan dharma` (the "eternal way") is true for everyone on earth, why was so little of it clearly offered to everyone on earth?
 
@@ -28,5 +28,3 @@ That is why the word "Trojan horse" keeps appearing. The pattern is not always c
 Islam and Christianity did not spread by technique. They spread by invitation — a single God, a single message, a single path, walked across borders with a clear statement: this is for you. Hinduism has not done that as a whole. Where it has been offered abroad, it has usually come wrapped in a school, a guru, a sect — not as a clear pan-Hindu public message.
 
 The `Srimad Bhagavatam 11.9.29` says: "After many, many births and deaths one achieves the rare human form of life, which, although temporary, affords one the opportunity to attain the highest perfection." That text treats human life as the unique window for `Krishna consciousness` (focused devotion to God). But if the religion built on that teaching never clearly offers itself to the humans it claims to serve, the window stays shut for most of the world.
-
-**Source:** [Part 1](https://www.youtube.com/watch?v=_p_YEcEVs-4), [Part 2](https://www.youtube.com/watch?v=jsfQULwDvU4)
