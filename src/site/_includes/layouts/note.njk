@@ -28,9 +28,9 @@ permalink: "notes/{{ page.fileSlug | slugify }}/"
 
     <main class="content cm-s-obsidian print {{contentClasses}}">
       <header>
-        {% if settings.dgShowInlineTitle === true %}
-          <h1 data-note-icon="{% if noteIcon %}{{noteIcon}}{% else %}{{meta.noteIconsSettings.default}}{% endif %}">{% if title %}{{ title }}{% else %}{{ page.fileSlug }}{% endif %}</h1>
-        {% endif %}
+        <h1 class="note-display-title" data-note-icon="{% if noteIcon %}{{noteIcon}}{% else %}{{meta.noteIconsSettings.default}}{% endif %}">{% if title %}{{ title }}{% else %}{{ page.fileSlug }}{% endif %}</h1>
+        {% include "components/noteSources.njk" %}
+        {% if (settings.dgShowTags === true and tags) or meta.timestampSettings.showCreated or meta.timestampSettings.showUpdated %}
         <div class="header-meta">
           {% if settings.dgShowTags === true and tags %}
             <div class="header-tags">
@@ -53,8 +53,8 @@ permalink: "notes/{{ page.fileSlug | slugify }}/"
             {%- endif -%}
           </div>
           {%- endif -%}
-          {% include "components/noteSources.njk" %}
         </div>
+        {% endif %}
       {% for imp in dynamics.common.header %}
         {% include imp %}
       {% endfor %}

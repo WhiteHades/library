@@ -7,6 +7,45 @@ const allSettings = settings.ALL_NOTE_SETTINGS;
 const defaultSettings = settings.DEFAULT_NOTE_SETTINGS;
 const NON_FICTION_BASE_WPM = 238;
 
+function getSourcePlatform(url) {
+  if (typeof url !== "string" || !url.trim()) {
+    return { key: "website", label: "Website" };
+  }
+
+  try {
+    const hostname = new URL(url).hostname.replace(/^www\./, "").toLowerCase();
+
+    if (hostname === "youtube.com" || hostname === "youtu.be" || hostname.endsWith("youtube.com")) {
+      return { key: "youtube", label: "YouTube" };
+    }
+
+    if (hostname === "twitter.com" || hostname === "x.com" || hostname.endsWith("twitter.com") || hostname.endsWith("x.com")) {
+      return { key: "x", label: "X" };
+    }
+
+    if (hostname === "github.com" || hostname.endsWith("github.com")) {
+      return { key: "github", label: "GitHub" };
+    }
+
+    return { key: "website", label: hostname.replace(/^m\./, "") };
+  } catch {
+    return { key: "website", label: "Website" };
+  }
+}
+
+function normalizeSources(data) {
+  const rawSources = Array.isArray(data.sources)
+    ? data.sources
+    : (Array.isArray(data["dg-note-properties"]?.sources) ? data["dg-note-properties"].sources : []);
+
+  return rawSources
+    .filter((source) => source && typeof source === "object" && source.url)
+    .map((source) => ({
+      ...source,
+      platform: getSourcePlatform(source.url),
+    }));
+}
+
 function normalizeSequenceReference(reference) {
   if (!reference) return null;
 
@@ -111,13 +150,8 @@ function formatCount(value) {
 }
 
 function formatDuration(seconds) {
-  const roundedSeconds = Math.max(15, Math.round(seconds / 5) * 5);
-  const minutes = Math.floor(roundedSeconds / 60);
-  const remainingSeconds = roundedSeconds % 60;
-
-  if (minutes === 0) return `${remainingSeconds} sec`;
-  if (remainingSeconds === 0) return `${minutes} min`;
-  return `${minutes} min ${remainingSeconds} sec`;
+  const roundedMinutes = Math.max(1, Math.ceil(seconds / 60));
+  return `~${roundedMinutes} min`;
 }
 
 function parseWikilinkLabel(value) {
@@ -238,6 +272,7 @@ module.exports = {
         : (Array.isArray(data["dg-note-properties"]?.ideas) ? data["dg-note-properties"].ideas : []);
       return ideas.map(parseWikilinkLabel).filter(Boolean);
     },
+    sourceEntries: (data) => normalizeSources(data),
     readingStats: (data) => computeReadingStats(readNoteMarkdown(data.page?.inputPath)),
     beforeNote: (data) => resolveSequenceNote(data.before ?? data["dg-note-properties"]?.before, data),
     afterNote: (data) => resolveSequenceNote(data.after ?? data["dg-note-properties"]?.after, data),
