@@ -34,7 +34,7 @@ Since this is a collaborative effort, any contribution notes would from anyone w
 2. Follow the note template and frontmatter rules
 3. Open a pull request or file an issue
 
-## License
+### `License`
 
 MIT. The content is free to read, share, and build upon.
 
