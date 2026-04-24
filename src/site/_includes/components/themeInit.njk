@@ -1,0 +1,11 @@
+<script>
+  (function() {
+    try {
+      var savedTheme = localStorage.getItem('dg-theme');
+      var theme = savedTheme === 'light' || savedTheme === 'dark' ? savedTheme : 'dark';
+      document.body.classList.remove('theme-dark', 'theme-light');
+      document.body.classList.add('theme-' + theme);
+      document.body.setAttribute('data-theme', theme);
+    } catch {}
+  })();
+</script>
