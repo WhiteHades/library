@@ -2,7 +2,7 @@
 
 # The Library
 
-An open knowledge collection on theology, philosophy, and comparative religion.
+An open knowledge collection on islam, philosophy, and comparative religion.
 
 [![Website](https://img.shields.io/badge/website-library.mohammedefaz.com-blue?style=flat-square)](https://library.mohammedefaz.com/)
 [![License](https://img.shields.io/badge/license-MIT-green?style=flat-square)](LICENSE)
