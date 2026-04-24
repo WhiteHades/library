@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"dg-path":"hinduism/02_defining_hinduism.md","permalink":"/hinduism/02-defining-hinduism/","title":"2. Defining Hinduism","dg-note-properties":{"type":"note","created":"2026-04-21T23:30","page_kind":"note","channel":"dawahwise","series":"dawahwise/universal-truth","order":2,"ideas":["[[hinduism]]"],"contexts":[],"project":null,"before":"hinduism/01_hinduism_and_the_universal_claim.md","after":"hinduism/03_birth_caste_and_belonging.md","title":"2. Defining Hinduism","sources":[{"title":"If Hinduism is \"Universal Truth\", Why Did the World Reject It? · Part 1","url":"https://www.youtube.com/watch?v=_p_YEcEVs-4"},{"title":"If Hinduism is \"Universal Truth\", Why Did the World Reject It? · Part 2","url":"https://www.youtube.com/watch?v=jsfQULwDvU4"}]}}
+{"dg-publish":true,"dg-path":"hinduism/02_defining_hinduism.md","permalink":"/hinduism/02-defining-hinduism/","title":"2. Defining Hinduism","dg-note-properties":{"type":"note","created":"2026-04-21T23:30","page_kind":"note","channel":"dawahwise","author":"Mohammed Efaz","series":"dawahwise/universal-truth","order":2,"ideas":["[[hinduism]]"],"contexts":[],"project":null,"before":"hinduism/01_hinduism_and_the_universal_claim.md","after":"hinduism/03_birth_caste_and_belonging.md","title":"2. Defining Hinduism","sources":[{"title":"If Hinduism is \"Universal Truth\", Why Did the World Reject It? · Part 1","url":"https://www.youtube.com/watch?v=_p_YEcEVs-4"},{"title":"If Hinduism is \"Universal Truth\", Why Did the World Reject It? · Part 2","url":"https://www.youtube.com/watch?v=jsfQULwDvU4"}]}}
 ---
 
 
@@ -11,7 +11,7 @@
 - The Bhagavad Gita says you can worship any god and you will still be worshipping Krishna in the end. That sounds inclusive until you ask whether it applies to worshipping Satan. The philosophy says yes. But a universal truth that cannot distinguish between truth and error is not really universal — it is undefined.
 - Before asking whether Hinduism is universally true, you have to ask what Hinduism actually is. If the definition keeps shifting, the claim to universality is weakened before the larger question even begins.
 
-## note
+---
 
 The word `sanatan dharma` carries a strong claim baked into its name. `Sanatan` means eternal, without beginning or end. `Dharma` means the natural order, duty, the way things actually are. The name says: this is not a religion that was founded by someone. This is how reality has always worked. That is a powerful label. The trouble is whether the label can stay attached to a single, clear thing.
 
