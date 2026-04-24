@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"dg-path":"hinduism/05_karma_and_moral_agency.md","permalink":"/hinduism/05-karma-and-moral-agency/","title":"5. Karma and Moral Agency","dg-note-properties":{"type":"note","created":"2026-04-21T23:30","page_kind":"note","channel":"dawahwise","series":"dawahwise/universal-truth","order":5,"ideas":["[[hinduism]]"],"contexts":[],"project":null,"before":"hinduism/04_mission_and_the_problem_of_spread.md","after":"hinduism/06_advaita_and_the_non_dual_problem.md","title":"5. Karma and Moral Agency","sources":[{"title":"If Hinduism is \"Universal Truth\", Why Did the World Reject It? · Part 1","url":"https://www.youtube.com/watch?v=_p_YEcEVs-4"},{"title":"If Hinduism is \"Universal Truth\", Why Did the World Reject It? · Part 2","url":"https://www.youtube.com/watch?v=jsfQULwDvU4"}]}}
+{"dg-publish":true,"dg-path":"hinduism/05_karma_and_moral_agency.md","permalink":"/hinduism/05-karma-and-moral-agency/","title":"5. Karma and Moral Agency","dg-note-properties":{"type":"note","created":"2026-04-21T23:30","page_kind":"note","channel":"dawahwise","author":"Mohammed Efaz","series":"dawahwise/universal-truth","order":5,"ideas":["[[hinduism]]"],"contexts":[],"project":null,"before":"hinduism/04_mission_and_the_problem_of_spread.md","after":"hinduism/06_advaita_and_the_non_dual_problem.md","title":"5. Karma and Moral Agency","sources":[{"title":"If Hinduism is \"Universal Truth\", Why Did the World Reject It? · Part 1","url":"https://www.youtube.com/watch?v=_p_YEcEVs-4"},{"title":"If Hinduism is \"Universal Truth\", Why Did the World Reject It? · Part 2","url":"https://www.youtube.com/watch?v=jsfQULwDvU4"}]}}
 ---
 
 
@@ -11,7 +11,7 @@
 - Human birth is treated as uniquely privileged — the `Srimad Bhagavatam 11.9.29` says sense gratification is available in all species, but `Krishna consciousness` is possible only for humans. `Vivekacudamani 3` (attributed to Adi Shankaracharya) says: "Of all creatures, human birth is rare; rarer still is desire for liberation; rarest is the company of a realised soul."
 - The problem: if non-human births cannot choose between good and bad, most of the karma cycle is morally empty. And if even humans lack true free will — `Bhagavad Gita 3.27` says the `gunas` (the three fundamental qualities of material nature — goodness, passion, ignorance) perform all actions while the soul merely witnesses — the whole system becomes a machine without moral accountability.
 
-## note
+---
 
 The karma and rebirth framework is not a decorative doctrine. It is the engine of Hindu ethics. Every action produces a result. Those results accumulate across lifetimes. Your current birth — your family, your caste, your body, your fortune — is the fruit of past-life karma. Your current actions determine your next birth. The system is vast, detailed, and internally coherent on its own terms.
 
