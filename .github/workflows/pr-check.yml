@@ -3,6 +3,7 @@ name: PR Validation Bot
 on:
   pull_request:
     branches: [main]
+    types: [opened, synchronize, reopened]
 
 jobs:
   validate:
@@ -51,11 +52,12 @@ jobs:
 
             const allPass = steps.every((s) => s.result);
             const statusLine = allPass
-              ? "All checks passed. This PR is ready for review and merge."
-              : "Some checks failed. Please review the errors below and push fixes.";
+              ? "All automated checks passed. Copilot review is also required before merge."
+              : "Some automated checks failed. Please review the errors below and push fixes.";
 
             const body = `${botPrefix}\n\n${statusLine}\n\n| Check | Result |\n|-------|--------|\n` +
-              steps.map((s) => `| ${s.name} | ${s.result ? "Pass" : "Fail"} |`).join("\n");
+              steps.map((s) => `| ${s.name} | ${s.result ? "Pass" : "Fail"} |`).join("\n") +
+              `\n\nCopilot will review this PR separately. Address both sets of feedback before requesting a final review.`;
 
             if (existing) {
               await github.rest.issues.updateComment({

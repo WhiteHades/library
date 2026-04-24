@@ -116,11 +116,13 @@ A complete PR for a new idea must include:
 - `fix:` Corrections to existing content
 - `chore:` Registry updates, build artifacts, PDFs
 
-## The PR Bot
+## The PR Review Process
 
-Every PR is checked by an automated bot. It does not block your PR. It comments with a checklist of what is missing. Fix the issues, push new commits, and the bot will update its comment. When everything passes, it will say the PR is ready for merge.
+Every PR goes through two automated reviews before a maintainer gives the final check.
 
-The bot checks:
+### 1. Validation Bot
+
+The validation bot runs immediately when you open or update a PR. It checks:
 - Build passes (`npm run build`)
 - Tests pass (`npm test`, 222 tests)
 - Frontmatter is valid YAML
@@ -130,6 +132,22 @@ The bot checks:
 - `## quick read` section is present
 - No conflicting permalinks
 - PDFs are present for changed notes (or the pre-push hook will generate them)
+
+The bot posts a sticky comment with results. Fix any failures, push new commits, and the bot updates its comment.
+
+### 2. Copilot Code Review
+
+GitHub Copilot also reviews every PR. It acts as a second pair of eyes with reasoning capability. It can catch issues the rigid bot misses:
+- Logic errors in frontmatter or content
+- Style and consistency issues
+- Missing context or incomplete explanations
+- Cross-file problems the bot cannot see
+
+Copilot comments directly on the diff. Address its feedback just as you would a human reviewer's.
+
+### What This Means for You
+
+Both the validation bot and Copilot must pass before a maintainer will merge. If either flags an issue, fix it and push. The checks re-run automatically. When both pass, the PR is ready for final review.
 
 ## What Happens After Merge
 
