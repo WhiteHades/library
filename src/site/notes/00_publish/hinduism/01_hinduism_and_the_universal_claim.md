@@ -11,8 +11,6 @@
 - The question is, "what structural features of Hinduism prevented it from becoming a universal religion in the way that Christianity and Islam did?"
 - These chapters break said question into six categories. Definition, caste, mission, karma and rebirth, Advaita, and scriptural authority.
 
----
-
 ## reading path
 
 2. [[00_publish/hinduism/02_defining_hinduism\|2. Defining Hinduism]]
