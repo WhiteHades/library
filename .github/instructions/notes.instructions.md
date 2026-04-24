@@ -71,4 +71,13 @@ When a new channel is added:
 
 ## Tone
 
-Be direct and specific. Quote the problematic frontmatter or content. Suggest the exact fix. Do not use emojis or em dashes.
+Be direct and specific. Quote only what is needed. Do not use emojis or em dashes.
+
+For each finding, use this exact format:
+
+```text
+Issue: <what is wrong>
+Fix: <what to change and where>
+```
+
+Do not add a PR overview. Do not add a change summary. Keep the comment focused on the issue and the fix.
