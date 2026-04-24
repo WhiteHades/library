@@ -5,6 +5,7 @@
     "platform": "website",
     "url": "/home/",
     "logo": "/img/channels/mohammed-efaz.svg",
+    "hidden": true,
     "description": "Editorial channel for original overviews, curation, synthesis, and site-owned publishing pages."
   },
   {
