@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"dg-path":"hinduism/07_scripture_and_selective_reading.md","permalink":"/hinduism/07-scripture-and-selective-reading/","title":"7. Scripture and Selective Reading","dg-note-properties":{"type":"note","created":"2026-04-21T23:30","page_kind":"note","channel":"dawahwise","series":"dawahwise/universal-truth","order":7,"ideas":["[[hinduism]]"],"contexts":[],"project":null,"before":"hinduism/06_advaita_and_the_non_dual_problem.md","after":null,"title":"7. Scripture and Selective Reading","sources":[{"title":"If Hinduism is \"Universal Truth\", Why Did the World Reject It? · Part 1","url":"https://www.youtube.com/watch?v=_p_YEcEVs-4"},{"title":"If Hinduism is \"Universal Truth\", Why Did the World Reject It? · Part 2","url":"https://www.youtube.com/watch?v=jsfQULwDvU4"}]}}
+{"dg-publish":true,"dg-path":"hinduism/07_scripture_and_selective_reading.md","permalink":"/hinduism/07-scripture-and-selective-reading/","title":"7. Scripture and Selective Reading","dg-note-properties":{"type":"note","created":"2026-04-21T23:30","page_kind":"note","channel":"dawahwise","author":"Mohammed Efaz","series":"dawahwise/universal-truth","order":7,"ideas":["[[hinduism]]"],"contexts":[],"project":null,"before":"hinduism/06_advaita_and_the_non_dual_problem.md","after":null,"title":"7. Scripture and Selective Reading","sources":[{"title":"If Hinduism is \"Universal Truth\", Why Did the World Reject It? · Part 1","url":"https://www.youtube.com/watch?v=_p_YEcEVs-4"},{"title":"If Hinduism is \"Universal Truth\", Why Did the World Reject It? · Part 2","url":"https://www.youtube.com/watch?v=jsfQULwDvU4"}]}}
 ---
 
 
@@ -11,7 +11,7 @@
 - The `Gita-mahatmya 6` says all the Upanishads are cows and the Gita is their milk. But if the cream can override the cow, what is the cream actually made of? The hierarchy is circular.
 - The `Shrimad Bhagavatam 4.25.42` purport by Prabhupada recommends marrying girls before puberty. The `Shrimad Bhagavatam 8.12` narrates Shiva chasing Vishnu's female form and ejaculating. The `Valmiki Ramayana, Ayodhya-kanda 96.1-2` shows Rama eating meat. `Manusmrti 5.39-42` treats animal sacrifice as elevating the animal. These are not polemic inventions — they are in the texts, and the interpretive method for handling them is the real test.
 
-## note
+---
 
 The later material runs into passages that are genuinely difficult for modern Hindu apologetics. Not because the passages are hard to read — they are often quite clear. But because they are hard to reconcile with what many modern Hindus want their religion to say.
 
