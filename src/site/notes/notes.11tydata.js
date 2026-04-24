@@ -1,6 +1,7 @@
 require("dotenv").config();
 const settings = require("../../helpers/constants");
 const fs = require("fs");
+const path = require("path");
 const matter = require("gray-matter");
 const { buildPublishModel, getField, parseIdeaKey, humanizeKey } = require("../../helpers/publishUtils");
 
@@ -8,6 +9,7 @@ const allSettings = settings.ALL_NOTE_SETTINGS;
 const defaultSettings = settings.DEFAULT_NOTE_SETTINGS;
 const NON_FICTION_BASE_WPM = 238;
 const DEFAULT_AUTHOR = "Mohammed Efaz";
+const STATIC_PDF_DIR = path.resolve(__dirname, "../../site/pdf");
 
 function getSourcePlatform(url) {
   if (typeof url !== "string" || !url.trim()) {
@@ -156,10 +158,27 @@ function formatDuration(seconds) {
   return `~${roundedMinutes} min`;
 }
 
+function pdfFileExists(url, prefix = "") {
+  if (typeof url !== "string" || !url.startsWith("/")) return false;
+  const trimmed = url.replace(/\/$/, "");
+  const relativePath = `${prefix}${trimmed || "/index"}.pdf`;
+  try {
+    return fs.existsSync(path.join(STATIC_PDF_DIR, relativePath));
+  } catch {
+    return false;
+  }
+}
+
 function toPdfUrl(url, prefix = "") {
   if (typeof url !== "string" || !url.startsWith("/")) return null;
   const trimmed = url.replace(/\/$/, "");
-  return `/pdf${prefix}${trimmed || "/index"}.pdf`;
+  const pdfPath = `${prefix}${trimmed || "/index"}.pdf`;
+  try {
+    if (!fs.existsSync(path.join(STATIC_PDF_DIR, pdfPath))) return null;
+  } catch {
+    return null;
+  }
+  return `/pdf${pdfPath}`;
 }
 
 function parseWikilinkLabel(value) {
@@ -360,7 +379,13 @@ module.exports = {
       const model = buildPublishModel(data);
       const seriesKey = getField(data, "series");
       if (!seriesKey || !model.seriesMap[seriesKey]) return null;
-      return `/pdf/series/${seriesKey}.pdf`;
+      const pdfPath = `series/${seriesKey}.pdf`;
+      try {
+        if (!fs.existsSync(path.join(STATIC_PDF_DIR, pdfPath))) return null;
+      } catch {
+        return null;
+      }
+      return `/pdf/${pdfPath}`;
     },
     beforeNote: (data) => resolveSequenceNote(data.before ?? data["dg-note-properties"]?.before, data),
     afterNote: (data) => resolveSequenceNote(data.after ?? data["dg-note-properties"]?.after, data),
