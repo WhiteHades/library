@@ -10,8 +10,6 @@
 - Hinduism is the third largest religion by number, but almost entirely concentrated in India. Outside South Asia, there is not a single majority Hindu country.
 - The question is, "what structural features of Hinduism prevented it from becoming a universal religion in the way that Christianity and Islam did?"
 
----
-
 ## reading path
 
 2. [[00_publish/hinduism/02_defining_hinduism\|2. Defining Hinduism]]
