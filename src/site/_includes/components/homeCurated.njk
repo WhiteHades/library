@@ -32,7 +32,9 @@
             {% for series in publishModel.featuredSeries %}
               <a class="home-card-link" href="{{ series.url }}">
                 <span class="home-card-title">{{ series.title }}</span>
-                <span class="home-card-meta">{{ series.channel.name if series.channel else "" }}</span>
+                {% if series.channel and not series.channel.hidden %}
+                  <span class="home-card-meta">{{ series.channel.name }}</span>
+                {% endif %}
               </a>
             {% endfor %}
           </div>
