@@ -3,7 +3,10 @@ name: Sync Published Notes to Knowledge Vault
 on:
   push:
     branches: [main]
-    paths: ['src/site/notes/00_publish/**']
+    paths:
+      - 'src/site/notes/00_publish/**'
+      - 'src/site/_data/publish/**'
+      - 'src/site/img/channels/**'
   workflow_dispatch:
 
 jobs:
@@ -22,14 +25,37 @@ jobs:
 
       - name: Sync Notes
         run: |
-          CHANGED_FILES=$(rsync -acni --delete --out-format='%i %n%L' src/site/notes/00_publish/ knowledge/00_publish/ | grep -E '^(>f|\*deleting|c)' || true)
-          if [ -z "$CHANGED_FILES" ]; then
-            echo "Library and Knowledge notes are already in sync"
+          mkdir -p knowledge/00_publish
+          mkdir -p knowledge/99_meta/publish-data
+          mkdir -p knowledge/99_meta/publish-data/channel-assets
+
+          NOTE_CHANGES=$(rsync -acni --delete --out-format='%i %n%L' src/site/notes/00_publish/ knowledge/00_publish/ | grep -E '^(>f|\*deleting|c)' || true)
+          DATA_CHANGES=$(rsync -acni --delete --out-format='%i %n%L' src/site/_data/publish/ knowledge/99_meta/publish-data/ | grep -E '^(>f|\*deleting|c)' || true)
+          CHANNEL_ASSET_CHANGES=$(rsync -acni --delete --out-format='%i %n%L' src/site/img/channels/ knowledge/99_meta/publish-data/channel-assets/ | grep -E '^(>f|\*deleting|c)' || true)
+
+          if [ -z "$NOTE_CHANGES" ] && [ -z "$DATA_CHANGES" ] && [ -z "$CHANNEL_ASSET_CHANGES" ]; then
+            echo "Library and Knowledge publish files are already in sync"
             exit 0
           fi
 
-          printf '%s\n' "$CHANGED_FILES"
-          rsync -av --delete src/site/notes/00_publish/ knowledge/00_publish/
+          if [ -n "$NOTE_CHANGES" ]; then
+            echo "Note changes:"
+            printf '%s\n' "$NOTE_CHANGES"
+            rsync -av --delete src/site/notes/00_publish/ knowledge/00_publish/
+          fi
+
+          if [ -n "$DATA_CHANGES" ]; then
+            echo "Publish data changes:"
+            printf '%s\n' "$DATA_CHANGES"
+            rsync -av --delete src/site/_data/publish/ knowledge/99_meta/publish-data/
+          fi
+
+          if [ -n "$CHANNEL_ASSET_CHANGES" ]; then
+            echo "Channel asset changes:"
+            printf '%s\n' "$CHANNEL_ASSET_CHANGES"
+            rsync -av --delete src/site/img/channels/ knowledge/99_meta/publish-data/channel-assets/
+          fi
+
           cd knowledge
           git config user.name "Library Bot"
           git config user.email "bot@library.mohammedefaz.com"
