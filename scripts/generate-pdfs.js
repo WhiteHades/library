@@ -2,9 +2,9 @@ const fs = require("fs");
 const path = require("path");
 const http = require("http");
 const { globSync } = require("glob");
-const puppeteer = require("puppeteer");
 
 const distDir = path.resolve(__dirname, "../dist");
+const staticPdfDir = path.resolve(__dirname, "../src/site/pdf");
 
 function contentTypeFor(filePath) {
   const extension = path.extname(filePath).toLowerCase();
@@ -54,7 +54,8 @@ function mapExportFileToPdf(file) {
   return null;
 }
 
-async function main() {
+async function generatePdfs() {
+  const puppeteer = require("puppeteer");
   const exportFiles = globSync(path.join(distDir, "exports/**/index.html"));
   if (!exportFiles.length) return;
 
@@ -103,10 +104,28 @@ async function main() {
         displayHeaderFooter: false,
       });
       await page.close();
+
+      // Persist to src/site/pdf for future Vercel deploys
+      const staticPath = path.join(staticPdfDir, path.relative(path.join(distDir, "pdf"), target.outputPath));
+      fs.mkdirSync(path.dirname(staticPath), { recursive: true });
+      fs.copyFileSync(target.outputPath, staticPath);
     }
   } finally {
     await browser.close();
     await new Promise((resolve) => server.close(resolve));
+  }
+}
+
+async function main() {
+  if (process.env.VERCEL === "1" || process.env.VERCEL_ENV) {
+    console.log("Skipping PDF generation on Vercel (Chromium unavailable). Using pre-built static PDFs.");
+    return;
+  }
+
+  try {
+    await generatePdfs();
+  } catch (error) {
+    console.warn("PDF generation failed, but continuing build. Error:", error.message);
   }
 }
 
