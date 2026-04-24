@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"dg-path":"hinduism/01_hinduism_and_the_universal_claim.md","permalink":"/hinduism/01-hinduism-and-the-universal-claim/","title":"1. Hinduism and the Universal Claim","dg-note-properties":{"type":"note","created":"2026-04-21T10:49","page_kind":"note","channel":"dawahwise","author":"Mohammed Efaz","series":"dawahwise/universal-truth","order":1,"ideas":["[[hinduism]]"],"contexts":[],"project":null,"before":null,"after":"hinduism/02_defining_hinduism.md","title":"1. Hinduism and the Universal Claim","sources":[{"title":"If Hinduism is \"Universal Truth\", Why Did the World Reject It? · Part 1","url":"https://www.youtube.com/watch?v=_p_YEcEVs-4"},{"title":"If Hinduism is \"Universal Truth\", Why Did the World Reject It? · Part 2","url":"https://www.youtube.com/watch?v=jsfQULwDvU4"}]}}
+{"dg-publish":true,"dg-path":"hinduism/01_hinduism_and_the_universal_claim.md","permalink":"/hinduism/01-hinduism-and-the-universal-claim/","title":"1. Hinduism and the Universal Claim","dg-note-properties":{"type":"note","created":"2026-04-21T10:49","page_kind":"note","channel":"dawahwise","author":"Mohammed Efaz","series":"dawahwise/universal-truth","order":1,"sources":[{"title":"If Hinduism is \"Universal Truth\", Why Did the World Reject It? · Part 1","url":"https://www.youtube.com/watch?v=_p_YEcEVs-4"},{"title":"If Hinduism is \"Universal Truth\", Why Did the World Reject It? · Part 2","url":"https://www.youtube.com/watch?v=jsfQULwDvU4"}],"ideas":["[[hinduism]]"],"contexts":[],"project":null,"before":null,"after":"hinduism/02_defining_hinduism.md","title":"1. Hinduism and the Universal Claim"}}
 ---
 
 
@@ -8,8 +8,8 @@
 ## quick read
 
 - Hinduism is the third largest religion by number, but almost entirely concentrated in India. Outside South Asia, there is not a single majority Hindu country.
-- The question is not just "why did Hinduism not spread?" It is "what structural features of Hinduism prevented it from becoming a universal religion in the way that Christianity and Islam did?"
-- These chapters break that question into six hinges: definition, caste, mission, karma and rebirth, Advaita, and scriptural authority.
+- The question is, "what structural features of Hinduism prevented it from becoming a universal religion in the way that Christianity and Islam did?"
+- These chapters break said question into six categories. Definition, caste, mission, karma and rebirth, Advaita, and scriptural authority.
 
 ---
 
@@ -22,9 +22,9 @@
 6. [[00_publish/hinduism/06_advaita_and_the_non_dual_problem\|6. Advaita and the Non-Dual Problem]]
 7. [[00_publish/hinduism/07_scripture_and_selective_reading\|7. Scripture and Selective Reading]]
 
-The question is simple, which is why it bites. Hinduism has been around for three to four thousand years by its own reckoning. It had a head start. It had a civilisation. It had philosophy, mathematics, astronomy, grammar, poetry, epic narrative. It had everything that other religions used to spread. And yet it stayed in India.
+Hinduism has been around for three to four thousand years by its own reckoning. It had a head start and a civilisation. It had philosophy, mathematics, astronomy, grammar and poetry. It had everything that other religions used to spread. And yet it stayed in India.
 
-Not entirely. The Chola dynasty spread east. Hindu temples appeared in Cambodia (Angkor Wat — the largest religious monument in the world), Thailand, Bali, Indonesia. But even in those places, Hinduism morphed. Some communities eat cow. Some worship local gods alongside Hindu ones. Some have a version of the Ramayana that looks nothing like the Indian original. The question is whether a religion that changes this much in transit is still the same religion, or whether it has become something else entirely.
+Well, not entirely. The Chola dynasty spread east. Hindu temples appeared in Cambodia (Angkor Wat, the largest religious monument in the world), Thailand, Bali, Indonesia. But even in those places, Hinduism morphed. Some communities eat cow. Some worship local gods alongside Hindu ones. Some have a version of the Ramayana that looks nothing like the Indian original. The question is whether a religion that changes this much in transit is still the same religion (readers are reminded of the *The Ship of Theseus*), or whether it has become something else entirely.
 
 And the western spread never happened at all.
 

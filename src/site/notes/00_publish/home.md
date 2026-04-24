@@ -4,8 +4,7 @@
 
 
 # Home
-
-﷽
+<div align="center">﷽</div>
 
 This is a public notebook of bite sized (yet robust and informative) theological notes, Islamic notes, philosophical notes, and the better fragments left behind by books, videos, and debates from various sources that I've watched over the years including (but not limited to) [DawahWise](https://www.youtube.com/@DawahWise), [Sapience Institute](https://www.youtube.com/@SapienceInstitute), ustadh [Subboor Ahmed](https://www.youtube.com/@SubboorAhmadAbbasi) et al.
 
