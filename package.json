@@ -9,9 +9,10 @@
         "watch:sass": "sass --watch src/site/styles:dist/styles",
         "watch:eleventy": "cross-env ELEVENTY_ENV=dev eleventy --serve",
         "build:eleventy": "cross-env ELEVENTY_ENV=prod NODE_OPTIONS=--max-old-space-size=4096 eleventy",
+        "build:pdf": "node scripts/generate-pdfs.js",
         "build:sass": "sass src/site/styles:dist/styles --style compressed",
         "get-theme": "node src/site/get-theme.js",
-        "build": "npm-run-all get-theme build:*",
+        "build": "npm-run-all get-theme build:eleventy build:sass build:pdf",
         "test": "vitest run"
     },
     "keywords": [],
@@ -26,6 +27,7 @@
         "cross-env": "^10.1.0",
         "html-minifier-terser": "^7.2.0",
         "node-html-parser": "^7.0.2",
+        "puppeteer-core": "^24.42.0",
         "sass": "^1.49.9",
         "vitest": "^4.1.0"
     },
