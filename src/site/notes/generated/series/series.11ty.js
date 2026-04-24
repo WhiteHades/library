@@ -28,13 +28,7 @@ class SeriesPage {
     const readingPath = (seriesPage?.notes || []).map((note) => `<li><a href="${note.url}">${note.title}</a></li>`).join("");
 
     return `
-<h2 id="quick-read">quick read</h2>
-<ul>
-  <li>${data.seriesEntry.title} is an ordered reading path generated from the series registry and note sequence metadata.</li>
-  <li>This page is the canonical landing page for the series.</li>
-  <li>Use the notes below to read in sequence.</li>
-</ul>
-<h2 id="note">note</h2>
+<p>${data.seriesEntry.title} is an ordered reading path generated from the series registry and note sequence metadata. Use the notes below to read in sequence.</p>
 ${description}
 <h3>Reading Path</h3>
 <ul>${readingPath}</ul>`;
