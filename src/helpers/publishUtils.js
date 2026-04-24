@@ -191,7 +191,8 @@ function buildPublishModel(data) {
 
   for (const idea of Object.values(ideaMap)) {
     const ideaNotes = contentNotes.filter((note) => note.ideaKey === idea.key).sort(sortByOrderTitle);
-    const ideaChannels = Array.from(new Set(ideaNotes.map((note) => note.channelKey))).filter(Boolean);
+    const ideaChannels = Array.from(new Set(ideaNotes.map((note) => note.channelKey)))
+      .filter((channelKey) => channelKey && !channelMap[channelKey]?.hidden);
     const ideaSeries = seriesDefs
       .filter((series) => series.idea === idea.key)
       .map((series) => seriesChains[series.key])
@@ -238,7 +239,7 @@ function buildPublishModel(data) {
     .slice(0, homeConfig.recentLimit || 12);
 
   const featuredIdeas = Object.values(ideaMap).filter((idea) => (homeConfig.featuredIdeas || []).includes(idea.key));
-  const featuredChannels = channels.filter((channel) => (homeConfig.featuredChannels || []).includes(channel.key));
+  const featuredChannels = channels.filter((channel) => !channel.hidden && (homeConfig.featuredChannels || []).includes(channel.key));
   const featuredSeries = Object.values(seriesChains).filter((series) => (homeConfig.featuredSeries || []).includes(series.key));
 
   return {
@@ -265,6 +266,10 @@ function buildPublishModel(data) {
   };
 }
 
+function hasActiveDescendant(children) {
+  return children.some((child) => child.active || hasActiveDescendant(child.children || []));
+}
+
 function makeNode({ key, label, url = null, type, children = [], active = false, defaultOpen = false }) {
   return {
     key,
@@ -274,7 +279,7 @@ function makeNode({ key, label, url = null, type, children = [], active = false,
     children,
     active,
     expandable: children.length > 0,
-    defaultOpen,
+    defaultOpen: defaultOpen || hasActiveDescendant(children),
     stateKey: `nav:${type}:${key}`,
   };
 }
