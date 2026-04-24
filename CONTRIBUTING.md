@@ -1,173 +1,174 @@
 # Contributing to the Library
 
-This guide explains how to contribute notes, series, and channels to the public library. Read it once and you will know exactly what to do.
+This repo is for published notes.
 
-## What This Is
+Keep it simple. Match the format already used in the repo. If you are unsure, copy a nearby file and change only what needs changing.
 
-The library is a curated digital garden for published notes on theology, philosophy, and apologetics. It is built with Eleventy and deployed on Vercel. Notes are written in Markdown with YAML frontmatter. The site owner publishes from a private Obsidian vault. Contributors send pull requests to the public `library` repository.
+### `Start Here`
 
-## The Two-Repo Setup
+- Put published notes in `src/site/notes/00_publish/{idea}/`
+- Keep the existing JSON-in-frontmatter style
+- Use the right format for the page type you are adding
+- Do not add `## reading path` unless a maintainer explicitly asks for it
 
-- `library` (this repo, public): where the site is built and deployed. All PRs go here.
-- `Knowledge` (private): the site owner's Obsidian vault. After your PR merges, a bot syncs your note back to this vault so the owner can edit it later.
+### `What Most Contributors Will Submit`
 
-You only need to interact with `library`.
+Most PRs only need one of these:
 
-## Prerequisites
+1. a normal note
+2. an idea overview page
 
-- Git and a GitHub account
-- Basic Markdown and YAML frontmatter knowledge
-- Node.js 22.x (only if you want to run the build locally)
+The `home.md` page is maintainer territory unless you were specifically asked to edit it.
 
-## How to Contribute
+### `Folder Shape`
 
-### Option A: Pull Request (for technical contributors)
+Example:
 
-1. Fork this repository
-2. Create your note in `src/site/notes/00_publish/{idea}/`
-3. Use the templates below
-4. Run `npm test` and `npm run build` locally (optional but recommended)
-5. Open a PR against `main`
+```text
+src/site/notes/00_publish/hinduism/
+  overview.md
+  01_hinduism_and_the_universal_claim.md
+  02_defining_hinduism.md
+```
 
-### Option B: GitHub Issue (for non-technical contributors)
+### `Format 1: Normal Note`
 
-1. Open a new issue using the "Propose a New Note" template
-2. Paste your note content (markdown plus frontmatter)
-3. A maintainer will review and create the PR on your behalf
-
-## Note Template
-
-Every note needs this exact structure:
+Use this for an ordinary published note.
 
 ```markdown
 ---
-{"dg-publish":true,"dg-path":"{idea}/{slug}.md","permalink":"/{idea}/{slug}/","title":"{Title}","dg-note-properties":{"type":"note","created":"YYYY-MM-DDTHH:mm","page_kind":"note","channel":"{channel-key}","author":"{Your Name}","series":"{channel}/{series-key}","order":{N},"ideas":["[[{idea}]]"],"contexts":[],"project":null,"before":"{prev-note-slug}","after":"{next-note-slug}","title":"{Title}","sources":[{"title":"Source Title","url":"https://example.com"}]}}
+{"dg-publish":true,"dg-path":"hinduism/example_note.md","permalink":"/hinduism/example-note/","title":"Example Note","dg-note-properties":{"type":"note","created":"2026-04-24T12:00","page_kind":"note","channel":"dawahwise","author":"Your Name","series":"dawahwise/universal-truth","order":8,"ideas":["[[hinduism]]"],"contexts":[],"project":null,"before":"hinduism/07_previous_note.md","after":null,"title":"Example Note","sources":[{"title":"Source title","url":"https://example.com"}]}}
 ---
 
-# {Title}
+# Example Note
 
 ## quick read
--
--
--
+
+- First key takeaway.
+- Second key takeaway.
+- Third key takeaway.
 
 ---
 
-## reading path
-
-{body content}
+Your note starts here.
 ```
 
-## Frontmatter Field Reference
+What matters:
 
-| Field | Required | Description |
-|-------|----------|-------------|
-| `page_kind` | Yes | `note` for content notes, `idea-overview` for hub pages |
-| `channel` | Yes | Must match a key in `channels.json` |
-| `author` | Yes | Your name, or the content author's name |
-| `title` | Yes | Display title |
-| `dg-publish` | Yes | Must be `true` |
-| `series` | Conditional | Required if this note belongs to a series |
-| `order` | Conditional | Required if `series` is set. Integer, 1-based |
-| `before` | Conditional | Wikilink to previous note in series |
-| `after` | Conditional | Wikilink to next note in series |
-| `ideas` | Yes | Array of wikilinks. First entry is the primary idea |
-| `sources` | No | Array of `{title, url}` objects |
-| `permalink` | Yes | URL path. Format: `/{idea}/{slug}/` |
+- `page_kind` must be `note`
+- `## quick read` is required for normal notes
+- `## quick read` should have 3 short bullet points
+- the horizontal rule `---` after `## quick read` is required
+- `series`, `order`, `before`, and `after` are only needed if the note belongs to a series
+- `sources` go in frontmatter, not in a loose list at the bottom
 
-## Content Rules
+### `Format 2: Idea Overview`
 
-1. Every note must have a `## quick read` section with exactly 3 bullet points
-2. The quick read section must be followed by a horizontal rule `---`
-3. Use Obsidian wikilinks `[[note-name|Display Text]]` for internal links
-4. Sources go in frontmatter, not inline text
-5. Do not use `## note` as a heading
+Use this for `overview.md` inside an idea folder.
 
-## Adding a New Series
+```markdown
+---
+{"dg-publish":true,"dg-path":"hinduism/overview.md","permalink":"/hinduism/","title":"Hinduism","dg-note-properties":{"type":"note","created":"2026-04-24T00:00","page_kind":"idea-overview","channel":"mohammed-efaz","author":"Your Name","sources":[],"ideas":["[[hinduism]]"],"contexts":[],"project":null,"title":"Hinduism"}}
+---
 
-A complete PR for a new series must include:
+# Hinduism
 
-1. All series notes in `src/site/notes/00_publish/{idea}/`
-2. Updated `src/site/_data/publish/series.json` with the new series entry
-3. Updated `before`/`after` on adjacent notes if this series connects to existing content
-4. Updated `home.json` if the series should be featured
+This page introduces the idea.
 
-## Adding a New Channel
+It should explain what the reader will find in this folder and where to start.
+```
 
-A complete PR for a new channel must include:
+What matters:
 
-1. Updated `src/site/_data/publish/channels.json`
-2. Logo asset in `src/site/img/channels/` (PNG or SVG, square, at least 64x64)
-3. At least one note using the new channel key
+- `page_kind` must be `idea-overview`
+- no `## quick read` is required here
+- no `## reading path` is required here
+- keep it short and orient the reader
 
-## Adding a New Idea
+### `Format 3: Home Page`
 
-A complete PR for a new idea must include:
+Do not edit this unless you were asked.
 
-1. New folder `src/site/notes/00_publish/{idea}/`
-2. `overview.md` hub page with `page_kind: idea-overview`
-3. At least one content note
-4. Updated `home.json` if the idea should be featured
+```markdown
+---
+{"dg-publish":true,"dg-path":"home.md","permalink":"/home/","title":"Home","hide":true,"tags":["gardenEntry"],"dg-note-properties":{"type":"note","created":"2026-04-24T00:00","page_kind":"home","channel":"mohammed-efaz","author":"Mohammed Efaz","ideas":[],"contexts":[],"project":null,"title":"Home"}}
+---
+```
 
-## Commit Message Conventions
+### `Required Fields At A Glance`
 
-- `content:` New or updated notes
-- `feat:` New structural features (new channel, new series type)
-- `fix:` Corrections to existing content
-- `chore:` Registry updates, build artifacts, PDFs
+For a normal note:
 
-## The PR Review Process
+- `page_kind`
+- `channel`
+- `author`
+- `title`
+- `dg-publish`
 
-Every PR goes through two automated reviews before a maintainer gives the final check.
+Usually also:
 
-### 1. Validation Bot
+- `ideas`
+- `sources`
 
-The validation bot runs immediately when you open or update a PR. It checks:
-- Build passes (`npm run build`)
-- Tests pass (`npm test`, 222 tests)
-- Frontmatter is valid YAML
-- Required fields are present
-- Channel/series/idea keys exist in registries
-- Sources are properly formatted
-- `## quick read` section is present
-- No conflicting permalinks
-- PDFs are present for changed notes (or the pre-push hook will generate them)
+Only when the note is in a series:
 
-The bot posts a sticky comment with results. Fix any failures, push new commits, and the bot updates its comment.
+- `series`
+- `order`
+- `before`
+- `after`
 
-### 2. Copilot Code Review
+### `Rules That Matter`
 
-GitHub Copilot also reviews every PR. It acts as a second pair of eyes with reasoning capability. It can catch issues the rigid bot misses:
-- Logic errors in frontmatter or content
-- Style and consistency issues
-- Missing context or incomplete explanations
-- Cross-file problems the bot cannot see
+- use the same frontmatter style already used in the repo
+- use a real channel key from `src/site/_data/publish/channels.json`
+- use a real series key from `src/site/_data/publish/series.json` if you set `series`
+- keep permalinks unique
+- use Obsidian wikilinks for internal links
+- do not invent a new format when the repo already has one
+- do not add `## reading path` by default
 
-Copilot comments directly on the diff. Address its feedback just as you would a human reviewer's.
+### `Adding A New Idea`
 
-### What This Means for You
+If you add a new idea, include all of this in one PR:
 
-Both the validation bot and Copilot must pass before a maintainer will merge. If either flags an issue, fix it and push. The checks re-run automatically. When both pass, the PR is ready for final review.
+1. the new folder in `src/site/notes/00_publish/{idea}/`
+2. `overview.md`
+3. at least one normal note in that folder
 
-## What Happens After Merge
+### `Adding A New Channel`
 
-1. The site redeploys automatically on Vercel
-2. A bot syncs your note to the private editorial vault
-3. The note becomes editable by the site owner in Obsidian
-4. Static PDFs are generated for the new note on the next local build
+If you add a new channel, include all of this in one PR:
 
-## Local Development
+1. the `channels.json` entry
+2. the logo in `src/site/img/channels/`
+3. at least one note using that channel key
+
+### `Adding A New Series`
+
+If you add a new series, include all of this in one PR:
+
+1. the notes themselves
+2. the `series.json` entry
+3. correct `series` and `order` values on the notes
+
+### `Local Check`
+
+If you want to test locally:
 
 ```bash
 git clone https://github.com/WhiteHades/library.git
 cd library
-npm install
-npm test        # Run tests
-npm run build   # Full build (requires Chromium for PDF generation)
+/home/efaz/.volta/bin/npm install
+/home/efaz/.volta/bin/npm test
+/home/efaz/.volta/bin/npm run build
 ```
 
-The `.env` file is auto-managed by the Digital Garden plugin. Do not commit it. Do not modify it unless you know what you are doing.
+### `After Merge`
 
-## Questions?
+- the site redeploys
+- the note syncs back into the private vault
+- the maintainer can keep refining it from there
 
-Open an issue with the "Question" label.
+### `If You Are Unsure`
+
+Open an issue or copy the nearest real example from the same idea folder and adjust it carefully.

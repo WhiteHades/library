@@ -14,9 +14,9 @@
 ## Checklist
 
 - [ ] I have read CONTRIBUTING.md
-- [ ] Frontmatter includes all required fields (`page_kind`, `channel`, `author`, `title`, `dg-publish`)
-- [ ] `## quick read` section is present with exactly 3 bullet points
-- [ ] Horizontal rule `---` follows the quick read section
+- [ ] I used the correct format for the page type in this PR
+- [ ] Frontmatter includes the required fields for that page type
+- [ ] If this is a normal note, it includes `## quick read` with 3 bullet points and a horizontal rule after it
 - [ ] Channel key exists in `channels.json` (if new channel, included in PR)
 - [ ] Series key exists in `series.json` (if applicable, included in PR)
 - [ ] Idea folder and `overview.md` exist (if new idea, included in PR)

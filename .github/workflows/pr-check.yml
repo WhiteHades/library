@@ -5,6 +5,11 @@ on:
     branches: [main]
     types: [opened, synchronize, reopened]
 
+permissions:
+  contents: read
+  issues: write
+  pull-requests: write
+
 jobs:
   validate:
     runs-on: ubuntu-22.04
@@ -42,42 +47,45 @@ jobs:
           VALIDATE_RESULT: ${{ steps.validate.outcome }}
         with:
           script: |
-            const { data: comments } = await github.rest.issues.listComments({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              issue_number: context.issue.number,
-            });
-
-            const botPrefix = "## PR Validation Bot";
-            const existing = comments.find((c) => c.body && c.body.startsWith(botPrefix));
-
-            const steps = [
-              { name: "Tests", result: process.env.TESTS_RESULT === "success" },
-              { name: "Build", result: process.env.BUILD_RESULT === "success" },
-              { name: "Structure validation", result: process.env.VALIDATE_RESULT === "success" },
-            ];
-
-            const allPass = steps.every((s) => s.result);
-            const statusLine = allPass
-              ? "All automated checks passed. Copilot review is also required before merge."
-              : "Some automated checks failed. Please review the errors below and push fixes.";
-
-            const body = `${botPrefix}\n\n${statusLine}\n\n| Check | Result |\n|-------|--------|\n` +
-              steps.map((s) => `| ${s.name} | ${s.result ? "Pass" : "Fail"} |`).join("\n") +
-              `\n\nCopilot will review this PR separately. Address both sets of feedback before requesting a final review.`;
-
-            if (existing) {
-              await github.rest.issues.updateComment({
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                comment_id: existing.id,
-                body,
-              });
-            } else {
-              await github.rest.issues.createComment({
+            try {
+              const { data: comments } = await github.rest.issues.listComments({
                 owner: context.repo.owner,
                 repo: context.repo.repo,
                 issue_number: context.issue.number,
-                body,
               });
+
+              const botPrefix = "## PR Validation Bot";
+              const existing = comments.find((c) => c.body && c.body.startsWith(botPrefix));
+
+              const steps = [
+                { name: "Tests", result: process.env.TESTS_RESULT === "success" },
+                { name: "Build", result: process.env.BUILD_RESULT === "success" },
+                { name: "Structure validation", result: process.env.VALIDATE_RESULT === "success" },
+              ];
+
+              const allPass = steps.every((s) => s.result);
+              const statusLine = allPass
+                ? "All automated checks passed."
+                : "Some automated checks failed. Please review the errors and push fixes.";
+
+              const body = `${botPrefix}\n\n${statusLine}\n\n| Check | Result |\n|-------|--------|\n` +
+                steps.map((s) => `| ${s.name} | ${s.result ? "Pass" : "Fail"} |`).join("\n");
+
+              if (existing) {
+                await github.rest.issues.updateComment({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  comment_id: existing.id,
+                  body,
+                });
+              } else {
+                await github.rest.issues.createComment({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  issue_number: context.issue.number,
+                  body,
+                });
+              }
+            } catch (error) {
+              console.log(`Could not post PR comment: ${error.message}`);
             }
