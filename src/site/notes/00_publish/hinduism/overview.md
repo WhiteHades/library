@@ -1,17 +1,13 @@
 ---
-{"dg-publish":true,"dg-path":"hinduism/overview.md","permalink":"/hinduism/","title":"Hinduism","dg-note-properties":{"type":"note","created":"2026-04-24T00:00","page_kind":"idea-overview","channel":"mohammed-efaz","sources":[],"ideas":["[[hinduism]]"],"contexts":[],"project":null,"title":"Hinduism"}}
+{"dg-publish":true,"dg-path":"hinduism/overview.md","permalink":"/hinduism/","title":"Hinduism","dg-note-properties":{"type":"note","created":"2026-04-24T00:00","page_kind":"idea-overview","channel":"mohammed-efaz","author":"Mohammed Efaz","sources":[],"ideas":["[[hinduism]]"],"contexts":[],"project":null,"title":"Hinduism"}}
 ---
 
 
 # Hinduism
 
-## quick read
+This idea hub collects distilled notes on Hindu thought, scripture, philosophy, social structure, and apologetic claims.
 
-- This idea hub collects distilled notes on Hindu thought, scripture, philosophy, social structure, and apologetic claims.
-- The current featured series comes from [[00_publish/hinduism/01_hinduism_and_the_universal_claim\|DawahWise's "Universal Truth" discussion]].
-- Future notes may come from multiple channels while still living physically inside this one `hinduism` publish folder.
-
-## note
+The current featured series comes from [[00_publish/hinduism/01_hinduism_and_the_universal_claim\|DawahWise's "Universal Truth" discussion]]. Future notes may come from multiple channels while still living physically inside this one `hinduism` publish folder.
 
 This page is the canonical public overview for the `hinduism` idea.
 
