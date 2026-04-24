@@ -48,4 +48,4 @@ MIT. The content is free to read, share, and build upon.
 
 ---
 
-Built and maintained by [Mohammed Efaz](https://mohammedefaz.com).
+Maintained by [Mohammed Efaz](https://mohammedefaz.com).
