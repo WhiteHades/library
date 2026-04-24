@@ -554,46 +554,6 @@ body {
         margin-bottom: 0;
     }
 
-    .nav-node-header {
-        display: flex;
-        align-items: center;
-        gap: 6px;
-    }
-
-    .folder-toggle {
-        appearance: none;
-        background: transparent;
-        border: none;
-        color: var(--text-faint);
-        padding: 0;
-        margin: 0;
-        width: 14px;
-        height: 14px;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        flex-shrink: 0;
-
-        &:hover {
-            color: var(--text-accent);
-        }
-    }
-
-    .nav-node-link {
-        text-decoration: none;
-        color: inherit;
-        min-width: 0;
-    }
-
-    .nav-node-link-static {
-        cursor: default;
-    }
-
-    .nav-node-active .nav-node-link {
-        color: var(--text-accent);
-    }
-
     .content > h1:first-of-type {
         display: none;
     }
@@ -690,7 +650,7 @@ body {
 
     .note-stat-item {
         display: inline-flex;
-        align-items: baseline;
+        align-items: center;
         gap: 8px;
         white-space: normal;
         position: relative;
@@ -735,17 +695,17 @@ body {
     .note-stat-value-with-avatar {
         display: inline-flex;
         align-items: center;
-        gap: 8px;
+        gap: 6px;
     }
 
     .note-channel-avatar {
-        width: 16px;
-        height: 16px;
+        width: 20px;
+        height: 20px;
         border-radius: 4px;
         display: block;
-        object-fit: cover;
+        object-fit: contain;
         flex-shrink: 0;
-        box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--background-modifier-border) 80%, transparent);
+        background: var(--background-secondary);
     }
 
     .note-stat-value-numeric {
