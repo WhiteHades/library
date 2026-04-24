@@ -7,6 +7,7 @@ const { buildPublishModel, getField, parseIdeaKey, humanizeKey } = require("../.
 const allSettings = settings.ALL_NOTE_SETTINGS;
 const defaultSettings = settings.DEFAULT_NOTE_SETTINGS;
 const NON_FICTION_BASE_WPM = 238;
+const DEFAULT_AUTHOR = "Mohammed Efaz";
 
 function getSourcePlatform(url) {
   if (typeof url !== "string" || !url.trim()) {
@@ -155,6 +156,12 @@ function formatDuration(seconds) {
   return `~${roundedMinutes} min`;
 }
 
+function toPdfUrl(url, prefix = "") {
+  if (typeof url !== "string" || !url.startsWith("/")) return null;
+  const trimmed = url.replace(/\/$/, "");
+  return `/pdf${prefix}${trimmed || "/index"}.pdf`;
+}
+
 function parseWikilinkLabel(value) {
   if (typeof value !== "string") return null;
 
@@ -301,14 +308,24 @@ module.exports = {
       return ideas.map(parseWikilinkLabel).filter(Boolean);
     },
     sourceEntries: (data) => normalizeSources(data),
+    authorName: (data) => getField(data, "author") || DEFAULT_AUTHOR,
+    showChannelMetadata: (data) => {
+      const channelKey = getField(data, "channel");
+      return Boolean(channelKey && channelKey !== "mohammed-efaz");
+    },
     rawNoteMarkdown: (data) => {
       const pageKind = getPageKind(data);
       if (!["note", "idea-overview"].includes(pageKind)) return "";
       return readNoteMarkdown(data.page?.inputPath);
     },
+    notePdfUrl: (data) => {
+      const pageKind = getPageKind(data);
+      if (!["note", "idea-overview"].includes(pageKind)) return null;
+      return toPdfUrl(data.page?.url);
+    },
     readingStats: (data) => {
       const pageKind = getPageKind(data);
-      if (!["note", "idea-overview", "home"].includes(pageKind)) return null;
+      if (pageKind !== "note") return null;
       return computeReadingStats(readNoteMarkdown(data.page?.inputPath));
     },
     moreFromSeries: (data) => {
@@ -339,26 +356,11 @@ module.exports = {
       if (!channelPage) return [];
       return channelPage.ideas.filter((idea) => idea.key !== currentIdeaKey).slice(0, 6);
     },
-    seriesPrintUrl: (data) => {
+    seriesPdfUrl: (data) => {
       const model = buildPublishModel(data);
       const seriesKey = getField(data, "series");
       if (!seriesKey || !model.seriesMap[seriesKey]) return null;
-      return `/series/${seriesKey}/?export=series-print`;
-    },
-    seriesExportPayload: (data) => {
-      const pageKind = getPageKind(data);
-      const model = buildPublishModel(data);
-      const seriesKey = getField(data, "series");
-      if (!["note", "series-page"].includes(pageKind) || !seriesKey || !model.seriesMap[seriesKey]) return null;
-      const series = model.seriesMap[seriesKey];
-      return {
-        title: series.title,
-        description: series.description || "",
-        notes: (series.notes || []).map((note) => ({
-          title: note.title,
-          url: note.url,
-        })),
-      };
+      return `/pdf/series/${seriesKey}.pdf`;
     },
     beforeNote: (data) => resolveSequenceNote(data.before ?? data["dg-note-properties"]?.before, data),
     afterNote: (data) => resolveSequenceNote(data.after ?? data["dg-note-properties"]?.after, data),
