@@ -2,7 +2,7 @@ class ChannelPage {
   data() {
     return {
       pagination: {
-        data: "publish.channels",
+        data: "publish.publicChannels",
         size: 1,
         alias: "channelEntry",
       },
@@ -35,13 +35,7 @@ class ChannelPage {
     }).join("");
 
     return `
-<h2 id="quick-read">quick read</h2>
-<ul>
-  <li>${data.channelEntry.name} is one of the source channels represented in this public library.</li>
-  <li>This page groups the channel's work by idea first, then by series and standalone notes.</li>
-  <li>Use this page when you want provenance-first browsing rather than idea-first browsing.</li>
-</ul>
-<h2 id="note">note</h2>
+<p>${data.channelEntry.name} is one of the source channels represented in this public library. This page groups the channel's work by idea first, then by series and standalone notes.</p>
 ${description}
 ${sections}`;
   }
