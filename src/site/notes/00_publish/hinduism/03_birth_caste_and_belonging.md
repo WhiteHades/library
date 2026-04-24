@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"dg-path":"hinduism/03_birth_caste_and_belonging.md","permalink":"/hinduism/03-birth-caste-and-belonging/","title":"3. Birth, Caste, and Belonging","dg-note-properties":{"type":"note","created":"2026-04-21T10:49","page_kind":"note","channel":"dawahwise","series":"dawahwise/universal-truth","order":3,"ideas":["[[hinduism]]"],"contexts":[],"project":null,"before":"hinduism/02_defining_hinduism.md","after":"hinduism/04_mission_and_the_problem_of_spread.md","title":"3. Birth, Caste, and Belonging","sources":[{"title":"If Hinduism is \"Universal Truth\", Why Did the World Reject It? · Part 1","url":"https://www.youtube.com/watch?v=_p_YEcEVs-4"},{"title":"If Hinduism is \"Universal Truth\", Why Did the World Reject It? · Part 2","url":"https://www.youtube.com/watch?v=jsfQULwDvU4"}]}}
+{"dg-publish":true,"dg-path":"hinduism/03_birth_caste_and_belonging.md","permalink":"/hinduism/03-birth-caste-and-belonging/","title":"3. Birth, Caste, and Belonging","dg-note-properties":{"type":"note","created":"2026-04-21T10:49","page_kind":"note","channel":"dawahwise","author":"Mohammed Efaz","series":"dawahwise/universal-truth","order":3,"ideas":["[[hinduism]]"],"contexts":[],"project":null,"before":"hinduism/02_defining_hinduism.md","after":"hinduism/04_mission_and_the_problem_of_spread.md","title":"3. Birth, Caste, and Belonging","sources":[{"title":"If Hinduism is \"Universal Truth\", Why Did the World Reject It? · Part 1","url":"https://www.youtube.com/watch?v=_p_YEcEVs-4"},{"title":"If Hinduism is \"Universal Truth\", Why Did the World Reject It? · Part 2","url":"https://www.youtube.com/watch?v=jsfQULwDvU4"}]}}
 ---
 
 
@@ -11,7 +11,7 @@
 - `Chandogya Upanishad 5.10.7` — one of the principal Upanishads (ancient philosophical texts forming the concluding portion of the Vedas) — states plainly: those who did good work in their past life are born as Brahmana, Kshatriya, or Vaishya; those who did bad work are born as dog, pig, or Chandala (the outcaste). That is a birth-based system, not a qualities-based system.
 - The `kalapani` taboo (literally "black water" — crossing the ocean could make you casteless) and the convert problem (you enter Hinduism at the bottom) explain why Hinduism stayed geographically concentrated. A religion that penalises outward movement and places the outsider at the lowest rung will struggle to become universal.
 
-## note
+---
 
 The caste question is not a side issue. It is one of the clearest reasons Hinduism never became a global religion in the way Christianity or Islam did. Not because individual Hindus are bad people — that would be a cheap argument. But because the system itself builds inequality into its structure of belonging.
 
