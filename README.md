@@ -28,13 +28,11 @@ Visit **[library.mohammedefaz.com](https://library.mohammedefaz.com/)** and expl
 
 ### `How to Contribute`
 
-Contributions from anyone with something meaningful to add.
+Since this is a collaborative effort, any contribution notes would from anyone with something meaningful to add.
 
 1. Read the [Contributing Guide](CONTRIBUTING.md)
 2. Follow the note template and frontmatter rules
 3. Open a pull request or file an issue
-
-Every submission is reviewed by both an automated validation bot and GitHub Copilot. Both must pass.
 
 ## License
 
