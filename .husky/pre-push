@@ -1,0 +1,56 @@
+#!/bin/sh
+# Skip in CI environments
+if [ -n "$CI" ] || [ -n "$VERCEL" ] || [ -n "$GITHUB_ACTIONS" ]; then
+  exit 0
+fi
+
+# Determine the default remote branch
+DEFAULT_BRANCH="main"
+REMOTE_BRANCH="origin/$DEFAULT_BRANCH"
+
+# Find the merge base between current HEAD and remote main
+MERGE_BASE=$(git merge-base HEAD "$REMOTE_BRANCH" 2>/dev/null)
+if [ -z "$MERGE_BASE" ]; then
+  # If no merge base, use the first commit
+  MERGE_BASE=$(git rev-list --max-parents=0 HEAD 2>/dev/null)
+fi
+
+# Check if any note markdown files changed
+CHANGED_NOTES=$(git diff --name-only "$MERGE_BASE" HEAD -- src/site/notes/ 2>/dev/null)
+if [ -z "$CHANGED_NOTES" ]; then
+  exit 0
+fi
+
+echo "[pre-push] Note changes detected. Regenerating PDFs..."
+
+# Run the full build to regenerate PDFs
+npm run build
+if [ $? -ne 0 ]; then
+  echo "[pre-push] Build failed. Aborting push."
+  exit 1
+fi
+
+# Check if PDFs were updated
+PDF_CHANGES=$(git status --porcelain src/site/pdf/ 2>/dev/null)
+if [ -z "$PDF_CHANGES" ]; then
+  echo "[pre-push] No PDF changes detected."
+  exit 0
+fi
+
+# Check if current HEAD has already been pushed
+PUSHED=$(git branch -r --contains HEAD 2>/dev/null | grep -c "origin/" || echo "0")
+
+if [ "$PUSHED" -eq "0" ]; then
+  # HEAD has not been pushed yet — safe to amend
+  echo "[pre-push] Amending commit with updated PDFs..."
+  git add src/site/pdf/
+  git commit --amend --no-edit
+else
+  # HEAD already pushed — create a new commit
+  echo "[pre-push] Creating new commit with updated PDFs..."
+  git add src/site/pdf/
+  git commit -m "chore: regenerate PDFs"
+fi
+
+echo "[pre-push] PDFs updated. Push will proceed."
+exit 0
