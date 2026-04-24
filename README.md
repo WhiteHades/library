@@ -2,7 +2,7 @@
 
 # The Library
 
-A curated, open knowledge collection on theology, philosophy, and comparative religion.
+An open knowledge collection on theology, philosophy, and comparative religion.
 
 [![Website](https://img.shields.io/badge/website-library.mohammedefaz.com-blue?style=flat-square)](https://library.mohammedefaz.com/)
 [![License](https://img.shields.io/badge/license-MIT-green?style=flat-square)](LICENSE)
@@ -15,7 +15,7 @@ A curated, open knowledge collection on theology, philosophy, and comparative re
 
 ## What This Is
 
-This is not a codebase. It is a thoroughfare of curated wisdom; a digital garden where ideas on faith, reason, and the human condition are planted, tended, and shared openly.
+This is not a codebase. It is a thoroughfare of gathered wisdom; a digital garden where ideas on faith, reason, and the human condition are planted, tended, and shared openly.
 
 The library hosts notes, series, and channels. Each piece is evidence-based, properly sourced, and written with the reader in mind. There are no half-measures here. A submission is either complete or it is not ready.
 
@@ -23,7 +23,7 @@ The library hosts notes, series, and channels. Each piece is evidence-based, pro
 
 Visit **[library.mohammedefaz.com](https://library.mohammedefaz.com/)** and explore:
 
-- **Channels** - Curated voices and organisations (DawahWise, and more)
+- **Channels** - Voices and organisations (DawahWise, and more)
 - **Series** - Thematic reading paths (Universal Truth, and more)
 - **Ideas** - Individual concepts explored in depth
 - **Notes** - Standalone pieces on specific topics
@@ -51,4 +51,4 @@ MIT. The content is free to read, share, and build upon.
 
 ## Who Runs This
 
-Curated by [Mohammed Efaz](https://mohammedefaz.com). The library is built with Eleventy and deployed on Vercel.
+Built and maintained by [Mohammed Efaz](https://mohammedefaz.com). Content sourced from DawahWise and other channels. The library is built with Eleventy and deployed on Vercel.
