@@ -1,0 +1,34 @@
+name: Sync Published Notes to Knowledge Vault
+
+on:
+  push:
+    branches: [main]
+    paths: ['src/site/notes/00_publish/**']
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Library
+        uses: actions/checkout@v4
+
+      - name: Checkout Knowledge
+        uses: actions/checkout@v4
+        with:
+          repository: WhiteHades/Knowledge
+          token: ${{ secrets.KNOWLEDGE_PAT }}
+          path: knowledge
+
+      - name: Sync Notes
+        run: |
+          rsync -av --delete src/site/notes/00_publish/ knowledge/00_publish/
+          cd knowledge
+          git config user.name "Library Bot"
+          git config user.email "bot@library.mohammedefaz.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No changes to sync"
+          else
+            git commit -m "sync: ingest published notes from library"
+            git push
+          fi
