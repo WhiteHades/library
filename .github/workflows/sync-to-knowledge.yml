@@ -22,7 +22,7 @@ jobs:
 
       - name: Sync Notes
         run: |
-          CHANGED_FILES=$(rsync -ani --delete --out-format='%i %n%L' src/site/notes/00_publish/ knowledge/00_publish/ | grep -E '^(>f|\*deleting|c)' || true)
+          CHANGED_FILES=$(rsync -acni --delete --out-format='%i %n%L' src/site/notes/00_publish/ knowledge/00_publish/ | grep -E '^(>f|\*deleting|c)' || true)
           if [ -z "$CHANGED_FILES" ]; then
             echo "Library and Knowledge notes are already in sync"
             exit 0
