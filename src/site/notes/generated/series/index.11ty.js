@@ -19,13 +19,7 @@ class SeriesIndexPage {
       .join("\n");
 
     return `
-<h2 id="quick-read">quick read</h2>
-<ul>
-  <li>This page indexes all reading series currently represented in the public library.</li>
-  <li>Series are grouped separately from ideas and channels so a reader can follow a focused reading path.</li>
-  <li>Each series page is generated from the series registry and note metadata.</li>
-</ul>
-<h2 id="note">note</h2>
+<p>This page indexes all reading series currently represented in the public library. Series are grouped separately from ideas and channels so a reader can follow a focused reading path.</p>
 <ul>${items}</ul>`;
   }
 }
