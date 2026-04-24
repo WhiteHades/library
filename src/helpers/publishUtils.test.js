@@ -82,5 +82,7 @@ describe("publishUtils", () => {
     expect(tree[0].label).toBe("Hinduism");
     expect(tree[0].children.map((child) => child.label)).toEqual(["Overview", "Channels", "Series"]);
     expect(tree[0].defaultOpen).toBe(true);
+    expect(tree[0].children.find((child) => child.label === "Channels").defaultOpen).toBe(true);
+    expect(tree[0].children.find((child) => child.label === "Series").defaultOpen).toBe(true);
   });
 });
