@@ -1,37 +1,21 @@
 {% if pageKind == "channel-index" %}
-  <h2 id="quick-read">quick read</h2>
-  <ul>
-    <li>This page indexes all source channels currently represented in the public library.</li>
-    <li>Channels are grouped separately from ideas so a reader can browse by provenance when needed.</li>
-    <li>Each channel page is generated from the channel registry and note metadata.</li>
-  </ul>
-  <h2 id="note">note</h2>
+  <p>This page indexes all source channels currently represented in the public library. Channels are grouped separately from ideas so a reader can browse by provenance when needed.</p>
   <ul>
     {% for channel in publishModel.channels %}
-      <li><a href="/channels/{{ channel.key }}/">{{ channel.name }}</a></li>
+      {% if not channel.hidden %}
+        <li><a href="/channels/{{ channel.key }}/">{{ channel.name }}</a></li>
+      {% endif %}
     {% endfor %}
   </ul>
 {% elif pageKind == "series-index" %}
-  <h2 id="quick-read">quick read</h2>
-  <ul>
-    <li>This page indexes all reading series currently represented in the public library.</li>
-    <li>Series are grouped separately from ideas and channels so a reader can follow a focused reading path.</li>
-    <li>Each series page is generated from the series registry and note metadata.</li>
-  </ul>
-  <h2 id="note">note</h2>
+  <p>This page indexes all reading series currently represented in the public library. Series are grouped separately from ideas and channels so a reader can follow a focused reading path.</p>
   <ul>
     {% for series in publishModel.series %}
       <li><a href="{{ series.url }}">{{ series.title }}</a></li>
     {% endfor %}
   </ul>
 {% elif pageKind == "channel-page" %}
-  <h2 id="quick-read">quick read</h2>
-  <ul>
-    <li>{{ channelInfo.name }} is one of the source channels represented in this public library.</li>
-    <li>This page groups the channel's work by idea first, then by series and standalone notes.</li>
-    <li>Use this page when you want provenance-first browsing rather than idea-first browsing.</li>
-  </ul>
-  <h2 id="note">note</h2>
+  <p>{{ channelInfo.name }} is one of the source channels represented in this public library. This page groups the channel's work by idea first, then by series and standalone notes.</p>
   {% if channelInfo and channelInfo.description %}
     <p>{{ channelInfo.description }}</p>
   {% endif %}
@@ -59,13 +43,7 @@
     {% endif %}
   {% endfor %}
 {% elif pageKind == "series-page" %}
-  <h2 id="quick-read">quick read</h2>
-  <ul>
-    <li>{{ seriesInfo.title }} is an ordered reading path generated from the series registry and note sequence metadata.</li>
-    <li>This page is the canonical landing page for the series.</li>
-    <li>Use the notes below to read in sequence.</li>
-  </ul>
-  <h2 id="note">note</h2>
+  <p>{{ seriesInfo.title }} is an ordered reading path generated from the series registry and note sequence metadata. Use the notes below to read in sequence.</p>
   {% if seriesInfo and seriesInfo.description %}
     <p>{{ seriesInfo.description }}</p>
   {% endif %}
