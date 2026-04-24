@@ -15,7 +15,7 @@ jobs:
       - name: Checkout Knowledge
         uses: actions/checkout@v4
         with:
-          repository: WhiteHades/Knowledge
+          repository: WhiteHades/knowledge
           token: ${{ secrets.KNOWLEDGE_PAT }}
           path: knowledge
 
