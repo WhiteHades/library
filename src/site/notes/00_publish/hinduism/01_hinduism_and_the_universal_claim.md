@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"dg-path":"hinduism/01_hinduism_and_the_universal_claim.md","permalink":"/hinduism/01-hinduism-and-the-universal-claim/","title":"1. Hinduism and the Universal Claim","dg-note-properties":{"type":"note","created":"2026-04-21T10:49","page_kind":"note","channel":"dawahwise","series":"dawahwise/universal-truth","order":1,"ideas":["[[hinduism]]"],"contexts":[],"project":null,"before":null,"after":"hinduism/02_defining_hinduism.md","title":"1. Hinduism and the Universal Claim","sources":[{"title":"If Hinduism is \"Universal Truth\", Why Did the World Reject It? · Part 1","url":"https://www.youtube.com/watch?v=_p_YEcEVs-4"},{"title":"If Hinduism is \"Universal Truth\", Why Did the World Reject It? · Part 2","url":"https://www.youtube.com/watch?v=jsfQULwDvU4"}]}}
+{"dg-publish":true,"dg-path":"hinduism/01_hinduism_and_the_universal_claim.md","permalink":"/hinduism/01-hinduism-and-the-universal-claim/","title":"1. Hinduism and the Universal Claim","dg-note-properties":{"type":"note","created":"2026-04-21T10:49","page_kind":"note","channel":"dawahwise","author":"Mohammed Efaz","series":"dawahwise/universal-truth","order":1,"ideas":["[[hinduism]]"],"contexts":[],"project":null,"before":null,"after":"hinduism/02_defining_hinduism.md","title":"1. Hinduism and the Universal Claim","sources":[{"title":"If Hinduism is \"Universal Truth\", Why Did the World Reject It? · Part 1","url":"https://www.youtube.com/watch?v=_p_YEcEVs-4"},{"title":"If Hinduism is \"Universal Truth\", Why Did the World Reject It? · Part 2","url":"https://www.youtube.com/watch?v=jsfQULwDvU4"}]}}
 ---
 
 
@@ -11,6 +11,8 @@
 - The question is not just "why did Hinduism not spread?" It is "what structural features of Hinduism prevented it from becoming a universal religion in the way that Christianity and Islam did?"
 - These chapters break that question into six hinges: definition, caste, mission, karma and rebirth, Advaita, and scriptural authority.
 
+---
+
 ## reading path
 
 2. [[00_publish/hinduism/02_defining_hinduism\|2. Defining Hinduism]]
@@ -19,8 +21,6 @@
 5. [[00_publish/hinduism/05_karma_and_moral_agency\|5. Karma and Moral Agency]]
 6. [[00_publish/hinduism/06_advaita_and_the_non_dual_problem\|6. Advaita and the Non-Dual Problem]]
 7. [[00_publish/hinduism/07_scripture_and_selective_reading\|7. Scripture and Selective Reading]]
-
----
 
 The question is simple, which is why it bites. Hinduism has been around for three to four thousand years by its own reckoning. It had a head start. It had a civilisation. It had philosophy, mathematics, astronomy, grammar, poetry, epic narrative. It had everything that other religions used to spread. And yet it stayed in India.
 
