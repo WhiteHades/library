@@ -1,8 +1,12 @@
 {
+    "$schema": "https://openapi.vercel.sh/vercel.json",
     "outputDirectory": "dist",
     "installCommand": "npm install",
     "buildCommand": "npm run build",
     "devCommand": "npm run start",
+    "github": {
+        "silent": true
+    },
     "routes": [
         { "handle": "filesystem" },
         { "src": "/(.*)", "status": 404, "dest": "/404" }
