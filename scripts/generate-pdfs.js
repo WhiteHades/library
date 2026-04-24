@@ -2,10 +2,9 @@ const fs = require("fs");
 const path = require("path");
 const http = require("http");
 const { globSync } = require("glob");
-const puppeteer = require("puppeteer-core");
+const puppeteer = require("puppeteer");
 
 const distDir = path.resolve(__dirname, "../dist");
-const chromiumPath = process.env.CHROMIUM_PATH || "/usr/bin/chromium";
 
 function contentTypeFor(filePath) {
   const extension = path.extname(filePath).toLowerCase();
@@ -75,11 +74,16 @@ async function main() {
 
   await new Promise((resolve) => server.listen(0, "127.0.0.1", resolve));
   const { port } = server.address();
-  const browser = await puppeteer.launch({
-    executablePath: chromiumPath,
+  const launchOptions = {
     headless: true,
     args: ["--no-sandbox", "--disable-setuid-sandbox"],
-  });
+  };
+
+  if (process.env.CHROMIUM_PATH) {
+    launchOptions.executablePath = process.env.CHROMIUM_PATH;
+  }
+
+  const browser = await puppeteer.launch(launchOptions);
 
   try {
     for (const file of exportFiles) {
