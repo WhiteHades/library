@@ -17,7 +17,7 @@ This is a public notebook of bite sized (yet robust and informative) theological
 
 Anyone is free to read, use, or pass on whatever is useful.
 
-## How to Browse
+### `How to Browse`
 
 Visit **[library.mohammedefaz.com](https://library.mohammedefaz.com/)** and explore:
 
@@ -26,7 +26,7 @@ Visit **[library.mohammedefaz.com](https://library.mohammedefaz.com/)** and expl
 - **Ideas** - Basically topics. Individual concepts explored in depth
 - **Notes** - Standalone pieces on specific topics
 
-## How to Contribute
+### `How to Contribute`
 
 Contributions from anyone with something meaningful to add.
 
@@ -35,12 +35,6 @@ Contributions from anyone with something meaningful to add.
 3. Open a pull request or file an issue
 
 Every submission is reviewed by both an automated validation bot and GitHub Copilot. Both must pass.
-
-## Principles
-
-- Evidence over assertion. Every claim needs a source.
-- Completeness over speed. A series needs all its notes. An idea needs its overview.
-- Clarity over cleverness. Write for the reader.
 
 ## License
 
