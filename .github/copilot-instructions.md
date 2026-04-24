@@ -59,6 +59,24 @@ When reviewing pull requests:
 - Suggest concrete fixes, not vague criticism
 - Remember: the site owner has final merge authority
 
+## Review Output Format
+
+For pull request reviews, do not write a general overview of the PR.
+
+- Do not summarise the whole change
+- Do not restate the diff unless it is necessary to explain the problem
+- Only comment when there is a real issue or a concrete fix to suggest
+- Keep each finding short and direct
+
+Use this exact shape for each finding:
+
+```text
+Issue: <what is wrong>
+Fix: <what to change and where>
+```
+
+If there is no issue worth flagging, do not pad the review with extra commentary.
+
 ## What Not to Do
 
 - Do not make commits or push changes to the PR branch

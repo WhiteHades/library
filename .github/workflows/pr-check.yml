@@ -36,7 +36,9 @@ jobs:
 
       - name: Validate frontmatter and structure
         id: validate
-        run: node scripts/validate-pr.js
+        run: |
+          set -o pipefail
+          node scripts/validate-pr.js 2>&1 | tee validation-output.txt
 
       - name: Comment PR with results
         if: always()
@@ -48,6 +50,7 @@ jobs:
         with:
           script: |
             try {
+              const fs = require("fs");
               const { data: comments } = await github.rest.issues.listComments({
                 owner: context.repo.owner,
                 repo: context.repo.repo,
@@ -64,12 +67,142 @@ jobs:
               ];
 
               const allPass = steps.every((s) => s.result);
-              const statusLine = allPass
-                ? "All automated checks passed."
-                : "Some automated checks failed. Please review the errors and push fixes.";
+              const validationOutput = fs.existsSync("validation-output.txt")
+                ? fs.readFileSync("validation-output.txt", "utf8")
+                : "";
 
-              const body = `${botPrefix}\n\n${statusLine}\n\n| Check | Result |\n|-------|--------|\n` +
-                steps.map((s) => `| ${s.name} | ${s.result ? "Pass" : "Fail"} |`).join("\n");
+              function formatValidationError(line) {
+                const message = line.trim().replace(/^-\s*/, "");
+
+                if (message.includes(': missing horizontal rule after quick read')) {
+                  const file = message.split(': missing horizontal rule after quick read')[0];
+                  return {
+                    issue: `\`${file}\` is missing the horizontal rule after \`## quick read\`.`,
+                    fix: `Add \`---\` immediately after the quick read bullets in \`${file}\`.`
+                  };
+                }
+
+                if (message.includes(': missing "## quick read" section')) {
+                  const file = message.split(': missing "## quick read" section')[0];
+                  return {
+                    issue: `\`${file}\` is missing the required \`## quick read\` section.`,
+                    fix: `Add a \`## quick read\` heading with short bullet points near the top of \`${file}\`.`
+                  };
+                }
+
+                if (message.includes(': "## quick read" section should contain bullet points')) {
+                  const file = message.split(': "## quick read" section should contain bullet points')[0];
+                  return {
+                    issue: `\`${file}\` has a malformed \`## quick read\` section.`,
+                    fix: `Use bullet points that start with \`-\` under \`## quick read\` in \`${file}\`.`
+                  };
+                }
+
+                if (message.includes(': missing required field')) {
+                  const [file, rest] = message.split(': missing required field ');
+                  return {
+                    issue: `\`${file}\` is missing a required frontmatter field ${rest}.`,
+                    fix: `Add that field to the frontmatter in \`${file}\` and match the existing note format.`
+                  };
+                }
+
+                if (message.includes(': unknown channel ')) {
+                  const [file, rest] = message.split(': unknown channel ');
+                  return {
+                    issue: `\`${file}\` references a channel that does not exist: ${rest}.`,
+                    fix: `Use a valid channel key from \`src/site/_data/publish/channels.json\` or add the new channel there first.`
+                  };
+                }
+
+                if (message.includes(': unknown series ')) {
+                  const [file, rest] = message.split(': unknown series ');
+                  return {
+                    issue: `\`${file}\` references a series that does not exist: ${rest}.`,
+                    fix: `Use a valid series key from \`src/site/_data/publish/series.json\` or add the new series there first.`
+                  };
+                }
+
+                if (message.includes(': has "series" but missing "order"')) {
+                  const file = message.split(': has "series" but missing "order"')[0];
+                  return {
+                    issue: `\`${file}\` sets \`series\` without an \`order\` value.`,
+                    fix: `Add an integer \`order\` field in the frontmatter of \`${file}\`.`
+                  };
+                }
+
+                if (message.includes(': malformed frontmatter - ')) {
+                  const file = message.split(': malformed frontmatter - ')[0];
+                  return {
+                    issue: `\`${file}\` has invalid frontmatter.`,
+                    fix: `Open \`${file}\` and fix the frontmatter syntax so it parses as valid YAML/JSON-in-frontmatter.`
+                  };
+                }
+
+                if (message.includes(': duplicate permalink ')) {
+                  const file = message.split(': duplicate permalink ')[0];
+                  return {
+                    issue: `\`${file}\` reuses a permalink that already exists.`,
+                    fix: `Change the \`permalink\` in \`${file}\` so it is unique.`
+                  };
+                }
+
+                if (message.includes(': sources[')) {
+                  const file = message.split(': sources[')[0];
+                  return {
+                    issue: `\`${file}\` has an invalid source entry in frontmatter.`,
+                    fix: `Make each source an object with both \`title\` and \`url\` in \`${file}\`.`
+                  };
+                }
+
+                return {
+                  issue: message,
+                  fix: "Open the named file and fix the reported validation problem in place."
+                };
+              }
+
+              let body;
+
+              if (allPass) {
+                body = `${botPrefix}\n\nIssue: None.\nFix: None.`;
+              } else {
+                const findings = [];
+
+                if (process.env.TESTS_RESULT !== "success") {
+                  findings.push({
+                    issue: "The test step failed.",
+                    fix: "Open the Actions test log for this run and fix the failing test or code path."
+                  });
+                }
+
+                if (process.env.BUILD_RESULT !== "success") {
+                  findings.push({
+                    issue: "The build step failed.",
+                    fix: "Open the Actions build log for this run and fix the reported build error."
+                  });
+                }
+
+                if (process.env.VALIDATE_RESULT !== "success") {
+                  const validationFindings = validationOutput
+                    .split("\n")
+                    .map((line) => line.trim())
+                    .filter((line) => line.startsWith("- "))
+                    .map(formatValidationError)
+                    .slice(0, 5);
+
+                  findings.push(...validationFindings);
+                }
+
+                if (findings.length === 0) {
+                  findings.push({
+                    issue: "One or more automated checks failed.",
+                    fix: "Open the failing Actions run and fix the reported error in the named file or step."
+                  });
+                }
+
+                body = `${botPrefix}\n\n` + findings
+                  .map((finding) => `Issue: ${finding.issue}\nFix: ${finding.fix}`)
+                  .join("\n\n");
+              }
 
               if (existing) {
                 await github.rest.issues.updateComment({
