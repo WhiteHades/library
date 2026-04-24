@@ -28,6 +28,8 @@ Visit **[library.mohammedefaz.com](https://library.mohammedefaz.com/)** and expl
 
 Since this is a collaborative effort, any contribution notes would from anyone with something meaningful to add.
 
+Small, precise pull requests are better than broad rewrites.
+
 1. Read the [Contributing Guide](CONTRIBUTING.md)
 2. Follow the note template and frontmatter rules
 3. Open a pull request or file an issue
