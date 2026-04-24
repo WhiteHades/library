@@ -1,0 +1,38 @@
+name: Propose a New Series
+description: Submit a new reading series
+labels: ["series", "needs-review"]
+body:
+  - type: input
+    id: key
+    attributes:
+      label: Series Key
+      placeholder: "e.g., dawahwise/new-topic"
+    validations:
+      required: true
+  - type: input
+    id: title
+    attributes:
+      label: Title
+    validations:
+      required: true
+  - type: input
+    id: channel
+    attributes:
+      label: Channel
+    validations:
+      required: true
+  - type: input
+    id: idea
+    attributes:
+      label: Primary Idea
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+  - type: textarea
+    id: notes
+    attributes:
+      label: Proposed Notes
+      description: List titles and intended order

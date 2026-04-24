@@ -1,0 +1,37 @@
+name: Propose a New Note
+description: Submit a new note for the library
+labels: ["content", "needs-review"]
+body:
+  - type: input
+    id: title
+    attributes:
+      label: Note Title
+      placeholder: "e.g., 8. The Problem of Evil in Hinduism"
+    validations:
+      required: true
+  - type: input
+    id: idea
+    attributes:
+      label: Idea
+      placeholder: "e.g., hinduism"
+    validations:
+      required: true
+  - type: input
+    id: channel
+    attributes:
+      label: Channel
+      placeholder: "e.g., dawahwise"
+    validations:
+      required: true
+  - type: input
+    id: series
+    attributes:
+      label: Series (if applicable)
+      placeholder: "e.g., dawahwise/universal-truth"
+  - type: textarea
+    id: content
+    attributes:
+      label: Note Content
+      description: Paste the full markdown including frontmatter
+    validations:
+      required: true
