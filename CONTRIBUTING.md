@@ -7,7 +7,7 @@ Keep it simple. Match the format already used in the repo. If you are unsure, co
 ### `Start Here`
 
 - Put published notes in `src/site/notes/00_publish/{idea}/`
-- Keep the existing JSON-in-frontmatter style
+- Use YAML frontmatter with top-level keys (Digital Garden converts this to JSON on export)
 - Use the right format for the page type you are adding
 - Do not add `## reading path` unless a maintainer explicitly asks for it
 
@@ -37,7 +37,24 @@ Use this for an ordinary published note.
 
 ```markdown
 ---
-{"dg-publish":true,"dg-path":"hinduism/example_note.md","permalink":"/hinduism/example-note/","title":"Example Note","dg-note-properties":{"type":"note","created":"2026-04-24T12:00","page_kind":"note","channel":"dawahwise","author":"Your Name","series":"dawahwise/universal-truth","order":8,"ideas":["[[hinduism]]"],"contexts":[],"project":null,"before":"hinduism/07_previous_note.md","after":null,"title":"Example Note","sources":[{"title":"Source title","url":"https://example.com"}]}}
+type: note
+created: 2026-04-24T12:00
+page_kind: note
+channel: dawahwise
+author: Your Name
+series: dawahwise/universal-truth
+order: 8
+sources:
+  - title: "Source title"
+    url: "https://example.com"
+ideas:
+  - "[[hinduism]]"
+contexts: []
+project:
+before: hinduism/07_previous_note.md
+after:
+dg-publish: true
+title: "Example Note"
 ---
 
 # Example Note
@@ -55,12 +72,14 @@ Your note starts here.
 
 What matters:
 
+- all metadata is at the top level (not nested inside `dg-note-properties`)
 - `page_kind` must be `note`
 - `## quick read` is required for normal notes
 - `## quick read` should have 3 short bullet points
 - the horizontal rule `---` after `## quick read` is required
 - `series`, `order`, `before`, and `after` are only needed if the note belongs to a series
 - `sources` go in frontmatter, not in a loose list at the bottom
+- `dg-publish: true` is required for Digital Garden to export the note
 
 ### `Format 2: Idea Overview`
 
@@ -68,7 +87,18 @@ Use this for `overview.md` inside an idea folder.
 
 ```markdown
 ---
-{"dg-publish":true,"dg-path":"hinduism/overview.md","permalink":"/hinduism/","title":"Hinduism","dg-note-properties":{"type":"note","created":"2026-04-24T00:00","page_kind":"idea-overview","channel":"mohammed-efaz","author":"Your Name","sources":[],"ideas":["[[hinduism]]"],"contexts":[],"project":null,"title":"Hinduism"}}
+type: note
+created: 2026-04-24T00:00
+page_kind: idea-overview
+channel: mohammed-efaz
+author: Your Name
+sources: []
+ideas:
+  - "[[hinduism]]"
+contexts: []
+project:
+dg-publish: true
+title: "Hinduism"
 ---
 
 # Hinduism
@@ -91,7 +121,19 @@ Do not edit this unless you were asked.
 
 ```markdown
 ---
-{"dg-publish":true,"dg-path":"home.md","permalink":"/home/","title":"Home","hide":true,"tags":["gardenEntry"],"dg-note-properties":{"type":"note","created":"2026-04-24T00:00","page_kind":"home","channel":"mohammed-efaz","author":"Mohammed Efaz","ideas":[],"contexts":[],"project":null,"title":"Home"}}
+type: note
+created: 2026-04-24T00:00
+page_kind: home
+channel: mohammed-efaz
+author: Mohammed Efaz
+ideas: []
+contexts: []
+project:
+dg-publish: true
+title: "Home"
+hide: true
+tags:
+  - gardenEntry
 ---
 ```
 
@@ -119,7 +161,8 @@ Only when the note is in a series:
 
 ### `Rules That Matter`
 
-- use the same frontmatter style already used in the repo
+- use YAML frontmatter with top-level keys (Digital Garden converts this to JSON on export)
+- never nest metadata inside `dg-note-properties` in the source
 - use a real channel key from `src/site/_data/publish/channels.json`
 - use a real series key from `src/site/_data/publish/series.json` if you set `series`
 - keep permalinks unique
@@ -165,9 +208,10 @@ cd library
 
 ### `After Merge`
 
-- the site redeploys
-- the note syncs back into the private vault
-- the maintainer can keep refining it from there
+- the site redeploys automatically via Vercel
+- contributor notes live in the Library repo only
+- metadata registries (`channels.json`, `series.json`) sync back to the private vault
+- the maintainer can keep refining published notes from the Knowledge vault
 
 ### `If You Are Unsure`
 
