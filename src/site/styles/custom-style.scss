@@ -303,115 +303,7 @@ body {
         text-wrap: pretty;
     }
 
-    .pdf-export-body {
-        background: #fff;
-        color: #111827;
-        print-color-adjust: exact;
-        -webkit-print-color-adjust: exact;
-    }
 
-    .pdf-export-content {
-        max-width: none;
-        width: 100%;
-        margin: 0;
-        padding-top: 0;
-        padding-bottom: 0;
-    }
-
-    .pdf-export-loading {
-        color: var(--text-muted);
-        font-size: 14px;
-    }
-
-    .pdf-export-error {
-        color: #b42318;
-        font-size: 14px;
-    }
-
-    .pdf-export-note {
-        width: 100%;
-    }
-
-    .pdf-export-note + .pdf-export-note {
-        margin-top: 32px;
-        padding-top: 28px;
-        border-top: 1px solid var(--background-modifier-border);
-    }
-
-    .pdf-export-note .sidebar-sources {
-        margin: 12px 0 16px;
-    }
-
-    .pdf-series-export {
-        display: flex;
-        flex-direction: column;
-        gap: 24px;
-    }
-
-    .pdf-export-series-header {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    .pdf-export-series-header h1 {
-        margin-bottom: 0;
-    }
-
-    .pdf-series-toc {
-        padding: 18px 0 20px;
-        border-top: 1px solid var(--background-modifier-border);
-        border-bottom: 1px solid var(--background-modifier-border);
-    }
-
-    .pdf-series-toc h2 {
-        margin-top: 0;
-    }
-
-    .pdf-series-toc-list {
-        margin: 0;
-        padding-left: 20px;
-        display: flex;
-        flex-direction: column;
-        gap: 6px;
-    }
-
-    .pdf-series-toc-item-level-2 {
-        margin-left: 16px;
-    }
-
-    .pdf-series-toc-item-level-3,
-    .pdf-series-toc-item-level-4 {
-        margin-left: 32px;
-    }
-
-    .pdf-series-toc a {
-        color: inherit;
-        text-decoration: none;
-    }
-
-    @page {
-        size: A4;
-        margin: 18mm 16mm;
-    }
-
-    @media print {
-        .pdf-export-content {
-            max-width: none;
-            margin: 0;
-            padding: 0;
-        }
-
-        .pdf-series-export .pdf-export-note {
-            break-before: page;
-            page-break-before: always;
-        }
-
-        .pdf-series-toc {
-            break-after: page;
-            page-break-after: always;
-        }
-    }
 
     .note-context-grid {
         margin-top: 40px;
@@ -787,5 +679,274 @@ body {
             text-align: left;
             align-items: flex-start;
         }
+    }
+}
+
+// --- PDF Export Styles ---
+// These must be outside the body {} nesting because .pdf-export-body is applied
+// to the body element itself, not a descendant. Previously they were nested inside
+// body {} which compiled to invalid selectors like "body .pdf-export-body".
+
+@page {
+    size: A4;
+    margin: 25mm;
+}
+
+body.pdf-export-body {
+    background: var(--background-primary, #fff);
+    color: var(--text-normal, #111827);
+    font-family: var(--red-graphite-text-font, "iA Writer Quattro V"), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-size: 11pt;
+    line-height: 1.65;
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+}
+
+body.pdf-export-body .pdf-export-content {
+    max-width: none;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body.pdf-export-body .pdf-export-loading {
+    color: var(--text-muted);
+    font-size: 14px;
+}
+
+body.pdf-export-body .pdf-export-error {
+    color: #b42318;
+    font-size: 14px;
+}
+
+body.pdf-export-body .pdf-export-note {
+    width: 100%;
+}
+
+body.pdf-export-body .pdf-export-note + .pdf-export-note {
+    margin-top: 32px;
+    padding-top: 28px;
+    border-top: 1px solid var(--background-modifier-border);
+}
+
+body.pdf-export-body .pdf-export-note .sidebar-sources {
+    margin: 12px 0 16px;
+}
+
+body.pdf-export-body .pdf-series-export {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+body.pdf-export-body .pdf-export-series-header {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+body.pdf-export-body .pdf-export-series-header h1 {
+    margin-bottom: 0;
+}
+
+body.pdf-export-body .pdf-series-toc {
+    padding: 18px 0 20px;
+    border-top: 1px solid var(--background-modifier-border);
+    border-bottom: 1px solid var(--background-modifier-border);
+}
+
+body.pdf-export-body .pdf-series-toc h2 {
+    margin-top: 0;
+}
+
+body.pdf-export-body .pdf-series-toc-list {
+    margin: 0;
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+body.pdf-export-body .pdf-series-toc-item-level-2 {
+    margin-left: 16px;
+}
+
+body.pdf-export-body .pdf-series-toc-item-level-3,
+body.pdf-export-body .pdf-series-toc-item-level-4 {
+    margin-left: 32px;
+}
+
+body.pdf-export-body .pdf-series-toc a {
+    color: inherit;
+    text-decoration: none;
+}
+
+// Typography overrides for PDF output
+body.pdf-export-body h1 {
+    font-size: 22pt;
+    font-weight: 600;
+    margin-top: 0;
+    margin-bottom: 16pt;
+    line-height: 1.2;
+    color: var(--text-normal);
+}
+
+body.pdf-export-body h2 {
+    font-size: 16pt;
+    font-weight: 600;
+    margin-top: 24pt;
+    margin-bottom: 10pt;
+    line-height: 1.3;
+    color: var(--text-normal);
+}
+
+body.pdf-export-body h3 {
+    font-size: 14pt;
+    font-weight: 600;
+    margin-top: 20pt;
+    margin-bottom: 8pt;
+    line-height: 1.3;
+    color: var(--text-normal);
+}
+
+body.pdf-export-body h4 {
+    font-size: 12pt;
+    font-weight: 600;
+    margin-top: 16pt;
+    margin-bottom: 6pt;
+    line-height: 1.3;
+    color: var(--text-normal);
+}
+
+body.pdf-export-body p {
+    margin-bottom: 10pt;
+    orphans: 3;
+    widows: 3;
+}
+
+body.pdf-export-body a {
+    color: var(--text-accent);
+    text-decoration: none;
+}
+
+body.pdf-export-body blockquote {
+    background: var(--background-primary-alt);
+    border-left: 4px solid var(--text-accent);
+    margin: 16pt 0;
+    padding: 12pt 16pt;
+    color: var(--text-normal);
+}
+
+body.pdf-export-body p > code,
+body.pdf-export-body li > code {
+    color: var(--text-accent);
+    background: var(--background-primary-alt);
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-family: var(--red-graphite-monospace-font, "Geist Mono"), monospace;
+    font-size: 0.9em;
+}
+
+body.pdf-export-body pre {
+    background: var(--background-primary-alt);
+    padding: 12pt 16pt;
+    border-radius: 6px;
+    overflow-x: auto;
+    margin: 16pt 0;
+}
+
+body.pdf-export-body pre code {
+    background: transparent;
+    padding: 0;
+    font-family: var(--red-graphite-monospace-font, "Geist Mono"), monospace;
+    font-size: 9pt;
+    line-height: 1.5;
+}
+
+body.pdf-export-body ul,
+body.pdf-export-body ol {
+    margin: 10pt 0;
+    padding-left: 24pt;
+}
+
+body.pdf-export-body li {
+    margin-bottom: 4pt;
+}
+
+body.pdf-export-body hr {
+    border: none;
+    border-top: 1px solid var(--background-modifier-border);
+    margin: 24pt 0;
+}
+
+// Callout styles preserved in PDF
+body.pdf-export-body .callout {
+    background: var(--background-primary-alt);
+    border-left: 4px solid rgb(var(--callout-color));
+    padding: 12pt 16pt;
+    margin: 16pt 0;
+    border-radius: 0 6px 6px 0;
+}
+
+body.pdf-export-body .callout-title {
+    font-weight: 600;
+    margin-bottom: 6pt;
+}
+
+body.pdf-export-body .callout-content {
+    color: var(--text-normal);
+}
+
+// Table styles for PDF
+body.pdf-export-body table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16pt 0;
+    font-size: 10pt;
+}
+
+body.pdf-export-body th,
+body.pdf-export-body td {
+    padding: 8pt 10pt;
+    border: 1px solid var(--background-modifier-border);
+    text-align: left;
+}
+
+body.pdf-export-body th {
+    background: var(--background-primary-alt);
+    font-weight: 600;
+}
+
+// Print-specific overrides
+@media print {
+    body.pdf-export-body .pdf-export-content {
+        max-width: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    body.pdf-export-body .pdf-series-export .pdf-export-note {
+        break-before: page;
+        page-break-before: always;
+    }
+
+    body.pdf-export-body .pdf-series-toc {
+        break-after: page;
+        page-break-after: always;
+    }
+
+    body.pdf-export-body h1,
+    body.pdf-export-body h2,
+    body.pdf-export-body h3,
+    body.pdf-export-body h4 {
+        break-after: avoid;
+        page-break-after: avoid;
+    }
+
+    body.pdf-export-body pre,
+    body.pdf-export-body blockquote,
+    body.pdf-export-body .callout {
+        break-inside: avoid;
+        page-break-inside: avoid;
     }
 }
