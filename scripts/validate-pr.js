@@ -37,8 +37,23 @@ function extractNoteProps(data) {
   return data;
 }
 
+function findDuplicates(items, keyFn) {
+  const seen = new Map();
+  const duplicates = [];
+  for (const item of items) {
+    const key = keyFn(item);
+    if (seen.has(key)) {
+      duplicates.push({ key, first: seen.get(key), second: item });
+    } else {
+      seen.set(key, item);
+    }
+  }
+  return duplicates;
+}
+
 function validate() {
   const errors = [];
+  const warnings = [];
   const channels = loadJson(CHANNELS_PATH);
   const series = loadJson(SERIES_PATH);
 
@@ -49,11 +64,27 @@ function validate() {
     errors.push("Cannot load series.json");
   }
 
+  if (channels) {
+    const channelDups = findDuplicates(channels, (c) => c.key);
+    for (const dup of channelDups) {
+      errors.push(`channels.json: duplicate channel key "${dup.key}"`);
+    }
+  }
+
+  if (series) {
+    const seriesDups = findDuplicates(series, (s) => s.key);
+    for (const dup of seriesDups) {
+      errors.push(`series.json: duplicate series key "${dup.key}"`);
+    }
+  }
+
   const channelKeys = new Set((channels || []).map((c) => c.key));
   const seriesKeys = new Set((series || []).map((s) => s.key));
 
   const mdFiles = findMarkdownFiles(NOTES_DIR);
   const seenPermalinks = new Map();
+  const seenPaths = new Map();
+  const seenTitles = new Map();
 
   for (const file of mdFiles) {
     const relative = path.relative(NOTES_DIR, file);
@@ -66,6 +97,12 @@ function validate() {
     }
 
     const data = extractNoteProps(parsed.data);
+
+    if (seenPaths.has(relative)) {
+      errors.push(`${relative}: duplicate file path`);
+    } else {
+      seenPaths.set(relative, true);
+    }
 
     for (const field of REQUIRED_FIELDS) {
       if (data[field] === undefined || data[field] === null || data[field] === "") {
@@ -90,6 +127,14 @@ function validate() {
         errors.push(`${relative}: duplicate permalink "${data.permalink}" (also in ${seenPermalinks.get(data.permalink)})`);
       } else {
         seenPermalinks.set(data.permalink, relative);
+      }
+    }
+
+    if (data.title) {
+      if (seenTitles.has(data.title)) {
+        warnings.push(`${relative}: duplicate title "${data.title}" (also in ${seenTitles.get(data.title)})`);
+      } else {
+        seenTitles.set(data.title, relative);
       }
     }
 
@@ -121,6 +166,14 @@ function validate() {
     }
   }
 
+  if (warnings.length) {
+    console.log("Warnings:");
+    for (const warning of warnings) {
+      console.log(`  ! ${warning}`);
+    }
+    console.log("");
+  }
+
   if (errors.length) {
     console.log("Validation failed:");
     for (const error of errors) {
@@ -129,6 +182,9 @@ function validate() {
     process.exit(1);
   } else {
     console.log(`Validation passed. ${mdFiles.length} note(s) checked.`);
+    if (warnings.length) {
+      console.log(`${warnings.length} warning(s) present.`);
+    }
     process.exit(0);
   }
 }

@@ -170,6 +170,24 @@ Only when the note is in a series:
 - do not invent a new format when the repo already has one
 - do not add `## reading path` by default
 
+### `Channels and Ideas`
+
+**Channels** are references to external content creators (YouTube channels, websites, etc.). You do not "own" a channel. If the channel already exists in `channels.json`, just reference it by its key. If it does not exist, add it.
+
+**Ideas** are shared thematic spaces. Multiple channels can contribute notes to the same idea. If `philosophy/` already exists, put your notes there. The idea grows organically.
+
+**What if a channel already exists?**
+
+Use the existing key. Example: if `dawahwise` is already in `channels.json`, reference `channel: dawahwise` in your note. Do not create a duplicate entry.
+
+**What if an idea already exists?**
+
+Put your notes in the existing folder. Example: if `00_publish/philosophy/` exists, add your note there. The idea is shared by design.
+
+**What if a series already exists?**
+
+You can add notes to an existing series if it is open. Set the correct `series` key, `order`, and `before/after` values. The PR bot validates series integrity.
+
 ### `Adding A New Idea`
 
 If you add a new idea, include all of this in one PR:

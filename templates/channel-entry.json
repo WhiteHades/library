@@ -1,0 +1,8 @@
+{
+  "key": "channel-youtube-handle",
+  "name": "Channel Display Name",
+  "platform": "youtube",
+  "url": "https://www.youtube.com/@ChannelHandle",
+  "logo": "/img/channels/channel-youtube-handle.png",
+  "description": "Brief description of this content channel."
+}
