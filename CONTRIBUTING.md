@@ -1,8 +1,6 @@
 # Contributing
 
-This repo is for published notes. No code. Just notes.
-
-## Setup
+### `Setup`
 
 Install [GitHub CLI](https://cli.github.com) and authenticate:
 
@@ -10,7 +8,7 @@ Install [GitHub CLI](https://cli.github.com) and authenticate:
 gh auth login
 ```
 
-## Add a Note
+### `Add a Note`
 
 1. Fork and clone:
 
@@ -49,14 +47,14 @@ gh pr create --title "add: your note title" --body "Added note about..."
 
 The bot checks your PR automatically. Fix any errors it reports.
 
-## Add a New Idea
+### `Add a New Idea`
 
 If the idea folder does not exist yet, also add:
 
 - `src/site/notes/00_publish/your-idea/overview.md` (copy from `templates/overview.md`)
 - At least one note in that folder
 
-## Rules
+### `Rules`
 
 - Use YAML frontmatter with top-level keys
 - `dg-publish: true` is required
