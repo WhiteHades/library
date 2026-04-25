@@ -22,7 +22,7 @@
 
 ---
 
-Hinduism has been around for three to four thousand years by its own reckoning. It had a head start and a civilisation. It had philosophy, mathematics, astronomy, grammar and poetry. It had everything that other religions used to spread. And yet it stayed in India.
+Hinduism has been around for three to four thousand years by its own reckoning. It had a head start and a civilisation. It had philosophy, mathematics, astronomy, grammar and poetry. It had everything that other religions used to spread. And yet, it stayed in India.
 
 Well, not entirely. The Chola dynasty spread east. Hindu temples appeared in Cambodia (Angkor Wat, the largest religious monument in the world), Thailand, Bali, Indonesia. But even in those places, Hinduism morphed. Some communities eat cow. Some worship local gods alongside Hindu ones. Some have a version of the Ramayana that looks nothing like the Indian original. The question is whether a religion that changes this much in transit, is still the same religion (readers are reminded of the *The Ship of Theseus*), or whether it has become something else entirely.
 
