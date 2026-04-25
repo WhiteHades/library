@@ -1,7 +1,6 @@
 ---
-{"dg-publish":true,"dg-path":"hinduism/04_mission_and_the_problem_of_spread.md","permalink":"/hinduism/04-mission-and-the-problem-of-spread/","title":"4. Mission and the Problem of Spread","dg-note-properties":{"permalink":"/hinduism/04-mission-and-the-problem-of-spread/","title":"4. Mission and the Problem of Spread"}}
+{"dg-publish": true, "dg-path": "hinduism/04_mission_and_the_problem_of_spread.md", "permalink": "/hinduism/04-mission-and-the-problem-of-spread/", "title": "4. Mission and the Problem of Spread", "dg-note-properties": {"permalink": "/hinduism/04-mission-and-the-problem-of-spread/", "title": "4. Mission and the Problem of Spread", "type": "note", "created": "2026-04-21T10:49", "page_kind": "note", "channel": "dawahwise", "author": "Mohammed Efaz", "series": "dawahwise/universal-truth", "order": 4, "sources": [{"title": "If Hinduism is \"Universal Truth\", Why Did the World Reject It? \u00b7 Part 1", "url": "https://www.youtube.com/watch?v=_p_YEcEVs-4"}, {"title": "If Hinduism is \"Universal Truth\", Why Did the World Reject It? \u00b7 Part 2", "url": "https://www.youtube.com/watch?v=jsfQULwDvU4"}], "ideas": ["[[hinduism]]"], "contexts": [], "project": null, "before": "hinduism/03_birth_caste_and_belonging.md", "after": "hinduism/05_karma_and_moral_agency.md"}}
 ---
-
 
 
 # 4. Mission and the Problem of Spread

@@ -1,7 +1,6 @@
 ---
-{"dg-publish":true,"dg-path":"hinduism/02_defining_hinduism.md","permalink":"/hinduism/02-defining-hinduism/","title":"2. Defining Hinduism","dg-note-properties":{"permalink":"/hinduism/02-defining-hinduism/","title":"2. Defining Hinduism"}}
+{"dg-publish": true, "dg-path": "hinduism/02_defining_hinduism.md", "permalink": "/hinduism/02-defining-hinduism/", "title": "2. Defining Hinduism", "dg-note-properties": {"permalink": "/hinduism/02-defining-hinduism/", "title": "2. Defining Hinduism", "type": "note", "created": "2026-04-21T23:30", "page_kind": "note", "channel": "dawahwise", "author": "Mohammed Efaz", "series": "dawahwise/universal-truth", "order": 2, "sources": [{"title": "If Hinduism is \"Universal Truth\", Why Did the World Reject It? \u00b7 Part 1", "url": "https://www.youtube.com/watch?v=_p_YEcEVs-4"}, {"title": "If Hinduism is \"Universal Truth\", Why Did the World Reject It? \u00b7 Part 2", "url": "https://www.youtube.com/watch?v=jsfQULwDvU4"}], "ideas": ["[[hinduism]]"], "contexts": [], "project": null, "before": "hinduism/01_hinduism_and_the_universal_claim.md", "after": "hinduism/03_birth_caste_and_belonging.md"}}
 ---
-
 
 
 # 2. Defining Hinduism
@@ -16,9 +15,11 @@
 
 `Sanatan` means eternal, without beginning or end. `Dharma` means the natural order, duty, the way things actually are. So, Hindus say this is not a religion that was founded by someone. This is how reality has always worked.
 
-Sometimes the category is narrow. Hinduism, the religion of India, rooted in the Vedas (the oldest Hindu scriptures, considered `shruti`, meaning "that which is heard", divine revelation), the Puranas (later mythological and devotional texts, considered `smriti`, meaning "that which is remembered"), the great epics, the temple traditions, and the caste system. But the moment it is examined closely, the category widens. Now `sanatan dharma` includes Buddhism, Jainism, and Sikhism too. They are all "dharmic" faiths. They all aim at the same liberation — whether called `moksha` (release from the cycle of rebirth), `nirvana` (Buddhist term for the same concept, literally "blowing out" of desire), or `kaivalya` (isolation of the pure self, used in Jainism and Yoga philosophy).
+Sometimes the category is narrow. Hinduism, the religion of India, rooted in the Vedas (the oldest Hindu scriptures, considered `shruti`, meaning "that which is heard", divine revelation), the Puranas (later mythological and devotional texts, considered `smriti`, meaning "that which is remembered"), the great epics, the temple traditions, and the caste system.
 
-That widening is clever, but it also changes the subject. If someone asks why Hinduism did not spread globally, and the answer is "well, we are actually five religions under one umbrella," the umbrella has not produced unity. It has produced a label under which people disagree about almost everything important. A Sikh can say, "I am from the dharmic tradition, but I am not a Hindu," and the label gives him no reason to stay.
+`Sanatan dharma` includes Buddhism, Jainism, and Sikhism too. They are all "dharmic" faiths. They all aim at the same liberation, whether called `moksha` (release from the cycle of rebirth), `nirvana` (Buddhist term for the same concept, literally "blowing out" of desire), or `kaivalya` (isolation of the pure self, used in Jainism and Yoga philosophy).
+
+So, If someone asks why Hinduism did not spread globally, and the answer is "well, we are actually five religions under one umbrella," the umbrella has not produced unity, because, It has produced a label under which people disagree about almost everything important. A Sikh can say, "I am from the dharmic tradition, but I am not a Hindu," and the label gives him no reason to stay.
 
 The instability keeps recurring at a deeper level too. One moment the supreme authority is the Vedas. Then it is the Bhagavad Gita ("Song of God" — a 700-verse philosophical dialogue between the warrior Arjuna and the god Krishna, often called the most practical Hindu text). Then it becomes a specific school: ISKCON (International Society for Krishna Consciousness, the Hare Krishna movement, a Gaudiya Vaishnava missionary organisation), or Advaita Vedanta (the non-dual school founded by Adi Shankaracharya in the 8th century, which says only Brahman — the absolute, impersonal reality — truly exists). Then someone else's school is rejected for teaching the wrong thing. The boundary between legitimate diversity and plain contradiction becomes hard to hold.
 
