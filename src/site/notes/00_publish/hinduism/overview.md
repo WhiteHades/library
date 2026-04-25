@@ -1,6 +1,7 @@
 ---
-{"dg-publish":true,"dg-path":"hinduism/overview.md","permalink":"/hinduism/overview/","title":"Hinduism","dg-note-properties":{"type":"note","created":"2026-04-24T00:00","page_kind":"idea-overview","channel":"mohammed-efaz","author":"Mohammed Efaz","sources":[],"ideas":["[[hinduism]]"],"contexts":[],"project":null,"title":"Hinduism"}}
+{"dg-publish":true,"dg-path":"hinduism/overview.md","permalink":"/hinduism/overview/","title":"Hinduism","dg-note-properties":{"permalink":"/hinduism/overview/","title":"Hinduism"}}
 ---
+
 
 
 # Hinduism

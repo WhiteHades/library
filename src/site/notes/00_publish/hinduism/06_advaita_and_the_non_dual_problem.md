@@ -1,6 +1,7 @@
 ---
-{"dg-publish":true,"dg-path":"hinduism/06_advaita_and_the_non_dual_problem.md","permalink":"/hinduism/06-advaita-and-the-non-dual-problem/","title":"6. Advaita and the Non-Dual Problem","dg-note-properties":{"type":"note","created":"2026-04-21T10:49","page_kind":"note","channel":"dawahwise","author":"Mohammed Efaz","series":"dawahwise/universal-truth","order":6,"sources":[{"title":"If Hinduism is \"Universal Truth\", Why Did the World Reject It? · Part 1","url":"https://www.youtube.com/watch?v=_p_YEcEVs-4"},{"title":"If Hinduism is \"Universal Truth\", Why Did the World Reject It? · Part 2","url":"https://www.youtube.com/watch?v=jsfQULwDvU4"}],"ideas":["[[hinduism]]"],"contexts":[],"project":null,"before":"hinduism/05_karma_and_moral_agency.md","after":"hinduism/07_scripture_and_selective_reading.md","title":"6. Advaita and the Non-Dual Problem"}}
+{"dg-publish":true,"dg-path":"hinduism/06_advaita_and_the_non_dual_problem.md","permalink":"/hinduism/06-advaita-and-the-non-dual-problem/","title":"6. Advaita and the Non-Dual Problem","dg-note-properties":{"permalink":"/hinduism/06-advaita-and-the-non-dual-problem/","title":"6. Advaita and the Non-Dual Problem"}}
 ---
+
 
 
 # 6. Advaita and the Non-Dual Problem

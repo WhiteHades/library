@@ -1,21 +1,22 @@
 ---
-{"dg-publish":true,"dg-path":"hinduism/02_defining_hinduism.md","permalink":"/hinduism/02-defining-hinduism/","title":"2. Defining Hinduism","dg-note-properties":{"type":"note","created":"2026-04-21T23:30","page_kind":"note","channel":"dawahwise","author":"Mohammed Efaz","series":"dawahwise/universal-truth","order":2,"sources":[{"title":"If Hinduism is \"Universal Truth\", Why Did the World Reject It? · Part 1","url":"https://www.youtube.com/watch?v=_p_YEcEVs-4"},{"title":"If Hinduism is \"Universal Truth\", Why Did the World Reject It? · Part 2","url":"https://www.youtube.com/watch?v=jsfQULwDvU4"}],"ideas":["[[hinduism]]"],"contexts":[],"project":null,"before":"hinduism/01_hinduism_and_the_universal_claim.md","after":"hinduism/03_birth_caste_and_belonging.md","title":"2. Defining Hinduism"}}
+{"dg-publish":true,"dg-path":"hinduism/02_defining_hinduism.md","permalink":"/hinduism/02-defining-hinduism/","title":"2. Defining Hinduism","dg-note-properties":{"permalink":"/hinduism/02-defining-hinduism/","title":"2. Defining Hinduism"}}
 ---
+
 
 
 # 2. Defining Hinduism
 
 ## quick read
 
-- `Sanatan dharma` (the "eternal way" — Hinduism's self-name, meaning a truth that has always existed rather than one founded at a specific point in history) can mean Hinduism, or it can widen to include Buddhism, Jainism, and Sikhism. The centre can be Krishna, or Shiva, or the divine feminine. The supreme god changes depending on whom you ask.
-- The Bhagavad Gita says you can worship any god and you will still be worshipping Krishna in the end. That sounds inclusive until you ask whether it applies to worshipping Satan. The philosophy says yes. But a universal truth that cannot distinguish between truth and error is not really universal — it is undefined.
-- Before asking whether Hinduism is universally true, you have to ask what Hinduism actually is. If the definition keeps shifting, the claim to universality is weakened before the larger question even begins.
+- `Sanatan dharma` (the "eternal way", Hinduism's self name, meaning a truth that has always existed rather than one founded at a specific point in history) can mean Hinduism, or it can widen to include Buddhism, Jainism, and Sikhism. The centre can be Krishna, or Shiva, or the divine feminine. The supreme god changes depending on whom you ask.
+- The Bhagavad Gita says you can worship any god and you will still be worshipping Krishna in the end.
+- Before asking whether Hinduism is universally true, you have to ask what Hinduism actually is.
 
 ---
 
-The word `sanatan dharma` carries a strong claim baked into its name. `Sanatan` means eternal, without beginning or end. `Dharma` means the natural order, duty, the way things actually are. The name says: this is not a religion that was founded by someone. This is how reality has always worked. That is a powerful label. The trouble is whether the label can stay attached to a single, clear thing.
+`Sanatan` means eternal, without beginning or end. `Dharma` means the natural order, duty, the way things actually are. So, Hindus say this is not a religion that was founded by someone. This is how reality has always worked.
 
-Sometimes the category is narrow — Hinduism, the religion of India, rooted in the Vedas (the oldest Hindu scriptures, considered `shruti`, meaning "that which is heard" — divine revelation), the Puranas (later mythological and devotional texts, considered `smriti`, meaning "that which is remembered"), the great epics, the temple traditions, and the caste system. But the moment it is examined closely, the category widens. Now `sanatan dharma` includes Buddhism, Jainism, and Sikhism too. They are all "dharmic" faiths. They all aim at the same liberation — whether called `moksha` (release from the cycle of rebirth), `nirvana` (Buddhist term for the same concept, literally "blowing out" of desire), or `kaivalya` (isolation of the pure self, used in Jainism and Yoga philosophy).
+Sometimes the category is narrow. Hinduism, the religion of India, rooted in the Vedas (the oldest Hindu scriptures, considered `shruti`, meaning "that which is heard", divine revelation), the Puranas (later mythological and devotional texts, considered `smriti`, meaning "that which is remembered"), the great epics, the temple traditions, and the caste system. But the moment it is examined closely, the category widens. Now `sanatan dharma` includes Buddhism, Jainism, and Sikhism too. They are all "dharmic" faiths. They all aim at the same liberation — whether called `moksha` (release from the cycle of rebirth), `nirvana` (Buddhist term for the same concept, literally "blowing out" of desire), or `kaivalya` (isolation of the pure self, used in Jainism and Yoga philosophy).
 
 That widening is clever, but it also changes the subject. If someone asks why Hinduism did not spread globally, and the answer is "well, we are actually five religions under one umbrella," the umbrella has not produced unity. It has produced a label under which people disagree about almost everything important. A Sikh can say, "I am from the dharmic tradition, but I am not a Hindu," and the label gives him no reason to stay.
 

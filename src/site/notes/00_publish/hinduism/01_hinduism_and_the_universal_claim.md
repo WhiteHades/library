@@ -1,6 +1,7 @@
 ---
-{"dg-publish":true,"dg-path":"hinduism/01_hinduism_and_the_universal_claim.md","permalink":"/hinduism/01-hinduism-and-the-universal-claim/","title":"1. Hinduism and the Universal Claim","dg-note-properties":{"type":"note","created":"2026-04-21T10:49","page_kind":"note","channel":"dawahwise","author":"Mohammed Efaz","series":"dawahwise/universal-truth","order":1,"sources":[{"title":"If Hinduism is \"Universal Truth\", Why Did the World Reject It? · Part 1","url":"https://www.youtube.com/watch?v=_p_YEcEVs-4"},{"title":"If Hinduism is \"Universal Truth\", Why Did the World Reject It? · Part 2","url":"https://www.youtube.com/watch?v=jsfQULwDvU4"}],"ideas":["[[hinduism]]"],"contexts":[],"project":null,"before":null,"after":"hinduism/02_defining_hinduism.md","title":"1. Hinduism and the Universal Claim"}}
+{"dg-publish":true,"dg-path":"hinduism/01_hinduism_and_the_universal_claim.md","permalink":"/hinduism/01-hinduism-and-the-universal-claim/","title":"1. Hinduism and the Universal Claim","dg-note-properties":{"permalink":"/hinduism/01-hinduism-and-the-universal-claim/","title":"1. Hinduism and the Universal Claim"}}
 ---
+
 
 
 # 1. Hinduism and the Universal Claim
