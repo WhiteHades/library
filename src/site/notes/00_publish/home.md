@@ -1,6 +1,7 @@
 ---
-{"dg-publish": true, "dg-path": "home.md", "permalink": "/home/", "title": "Home", "tags": ["gardenEntry"], "dg-note-properties": {"permalink": "/home/", "title": "Home", "hide": true, "tags": ["gardenEntry"], "type": "note", "created": "2026-04-21T10:49", "page_kind": "home", "channel": "mohammed-efaz", "author": "Mohammed Efaz", "ideas": [], "contexts": [], "project": null}}
+{"dg-publish":true,"dg-path":"home.md","permalink":"/home/","title":"Home","tags":["gardenEntry"],"dg-note-properties":{"permalink":"/home/","title":"Home","hide":true,"tags":["gardenEntry"],"type":"note","created":"2026-04-21T10:49","page_kind":"home","channel":"mohammed-efaz","author":"Mohammed Efaz","ideas":[],"contexts":[],"project":null}}
 ---
+
 
 
 # Home
