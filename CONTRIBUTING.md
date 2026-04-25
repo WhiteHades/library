@@ -208,7 +208,7 @@ cd library
 
 ### `After Merge`
 
-- the site redeploys automatically via Vercel
+- the site redeploys automatically
 - contributor notes live in the Library repo only
 - metadata registries (`channels.json`, `series.json`) sync back to the source vault
 - editorial oversight continues from the private source vault
