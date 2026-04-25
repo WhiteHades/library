@@ -23,13 +23,77 @@ jobs:
           token: ${{ secrets.KNOWLEDGE_PAT }}
           path: knowledge
 
+      - name: Check for Excluded Authors
+        id: check-authors
+        run: |
+          # --- CAVEAT ---
+          # If a note's frontmatter author field is "Mohammed Efaz" (case-insensitive),
+          # that note will NOT be synced to the Knowledge vault. This prevents
+          # overwriting the canonical copy in the private vault.
+          # ----------------
+
+          EXCLUDED_AUTHOR="mohammed efaz"
+          mkdir -p filtered_sync
+          HAS_EXCLUSIONS=false
+          HAS_ALLOWED=false
+
+          find src/site/notes/00_publish -type f -name "*.md" | while read -r file; do
+            # Extract author from YAML frontmatter (between first --- markers)
+            AUTHOR=$(sed -n '/^---$/,/^---$/p' "$file" | grep -i '^author:' | sed 's/^author:[[:space:]]*//i' | tr -d '"' | tr -d "'" | xargs)
+            
+            if [ -z "$AUTHOR" ]; then
+              # No author field - allow sync
+              rel_path="${file#src/site/notes/00_publish/}"
+              target_dir="filtered_sync/$(dirname "$rel_path")"
+              mkdir -p "$target_dir"
+              cp "$file" "$target_dir/"
+              echo "ALLOW:$file" >> author_results.txt
+              continue
+            fi
+            
+            # Normalize for comparison
+            AUTHOR_LOWER=$(echo "$AUTHOR" | tr '[:upper:]' '[:lower:]' | xargs)
+            
+            if [ "$AUTHOR_LOWER" = "$EXCLUDED_AUTHOR" ]; then
+              echo "SKIP:$file (author: $AUTHOR)" >> author_results.txt
+              HAS_EXCLUSIONS=true
+            else
+              rel_path="${file#src/site/notes/00_publish/}"
+              target_dir="filtered_sync/$(dirname "$rel_path")"
+              mkdir -p "$target_dir"
+              cp "$file" "$target_dir/"
+              echo "ALLOW:$file" >> author_results.txt
+            fi
+          done
+
+          # Output results for next steps
+          if grep -q '^SKIP:' author_results.txt 2>/dev/null; then
+            echo "::warning::The following files were NOT synced because their author is Mohammed Efaz:"
+            grep '^SKIP:' author_results.txt | sed 's/^SKIP://'
+            echo "has_exclusions=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "has_exclusions=false" >> "$GITHUB_OUTPUT"
+          fi
+
+          if grep -q '^ALLOW:' author_results.txt 2>/dev/null; then
+            echo "has_allowed=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "has_allowed=false" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Sync Notes
         run: |
           mkdir -p knowledge/00_publish
           mkdir -p knowledge/99_meta/publish-data
           mkdir -p knowledge/99_meta/publish-data/channel-assets
 
-          NOTE_CHANGES=$(rsync -acni --delete --out-format='%i %n%L' src/site/notes/00_publish/ knowledge/00_publish/ | grep -E '^(>f|\*deleting|c)' || true)
+          # Sync filtered notes (excluding Mohammed Efaz's notes)
+          if [ -d "filtered_sync" ] && [ "$(ls -A filtered_sync 2>/dev/null)" ]; then
+            NOTE_CHANGES=$(rsync -acni --delete --out-format='%i %n%L' filtered_sync/ knowledge/00_publish/ | grep -E '^(>f|\*deleting|c)' || true)
+          else
+            NOTE_CHANGES=""
+          fi
+
           DATA_CHANGES=$(rsync -acni --delete --out-format='%i %n%L' src/site/_data/publish/ knowledge/99_meta/publish-data/ | grep -E '^(>f|\*deleting|c)' || true)
           CHANNEL_ASSET_CHANGES=$(rsync -acni --delete --out-format='%i %n%L' src/site/img/channels/ knowledge/99_meta/publish-data/channel-assets/ | grep -E '^(>f|\*deleting|c)' || true)
 
@@ -41,7 +105,7 @@ jobs:
           if [ -n "$NOTE_CHANGES" ]; then
             echo "Note changes:"
             printf '%s\n' "$NOTE_CHANGES"
-            rsync -av --delete src/site/notes/00_publish/ knowledge/00_publish/
+            rsync -av --delete filtered_sync/ knowledge/00_publish/
           fi
 
           if [ -n "$DATA_CHANGES" ]; then
@@ -66,3 +130,16 @@ jobs:
             git commit -m "sync: ingest published notes from library"
             git push
           fi
+
+      - name: Report Sync Status
+        if: always()
+        run: |
+          echo "=== Sync Summary ==="
+          if [ "${{ steps.check-authors.outputs.has_exclusions }}" = "true" ]; then
+            echo "CAVEAT: Some files were excluded from sync because their author is Mohammed Efaz"
+            echo "       These files maintain their canonical copy in the Knowledge vault only."
+          fi
+          if [ "${{ steps.check-authors.outputs.has_allowed }}" = "true" ]; then
+            echo "OK: Other files were synced normally"
+          fi
+          echo "===================="
