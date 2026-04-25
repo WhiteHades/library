@@ -18,7 +18,7 @@ Most PRs only need one of these:
 1. a normal note
 2. an idea overview page
 
-The `home.md` page is maintainer territory unless you were specifically asked to edit it.
+The `home.md` page is editorial territory unless you were specifically asked to edit it.
 
 ### `Folder Shape`
 
@@ -124,8 +124,8 @@ Do not edit this unless you were asked.
 type: note
 created: 2026-04-24T00:00
 page_kind: home
-channel: mohammed-efaz
-author: Mohammed Efaz
+channel: editorial
+author: Site Owner
 ideas: []
 contexts: []
 project:
@@ -210,8 +210,8 @@ cd library
 
 - the site redeploys automatically via Vercel
 - contributor notes live in the Library repo only
-- metadata registries (`channels.json`, `series.json`) sync back to the private vault
-- the maintainer can keep refining published notes from the Knowledge vault
+- metadata registries (`channels.json`, `series.json`) sync back to the source vault
+- editorial oversight continues from the private source vault
 
 ### `If You Are Unsure`
 
