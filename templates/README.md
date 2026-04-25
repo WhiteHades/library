@@ -2,19 +2,24 @@
 
 Copy these templates when adding new content.
 
-## Adding a Normal Note
+## Quick Start
 
-Copy `note.md` into `src/site/notes/00_publish/{idea}/` and fill in your metadata.
+```bash
+gh repo fork WhiteHades/library --clone
+cd library
+cp templates/note.md src/site/notes/00_publish/your-idea/your-note.md
+```
 
-## Adding an Idea Overview
+## Templates
 
-Copy `overview.md` into `src/site/notes/00_publish/{idea}/overview.md`.
+- `note.md` - Standard note with YAML frontmatter
+- `overview.md` - Idea overview page
+- `channel-entry.json` - Channel registry example
+- `series-entry.json` - Series registry example
 
-## Adding a Channel
+## Rules
 
-Add an entry to `src/site/_data/publish/channels.json` using `channel-entry.json` as a guide.
-Upload the logo to `src/site/img/channels/`.
-
-## Adding a Series
-
-Add an entry to `src/site/_data/publish/series.json` using `series-entry.json` as a guide.
+- Match the format of nearby files
+- Use existing channel keys from `channels.json`
+- Use existing series keys from `series.json`
+- Run `npm test` before submitting

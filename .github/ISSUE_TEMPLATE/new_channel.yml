@@ -1,0 +1,36 @@
+name: Propose a New Channel
+
+description: Submit a new content creator channel
+
+labels: ["content", "needs-review"]
+
+body:
+  - type: input
+    id: key
+    attributes:
+      label: Channel Key
+      placeholder: "e.g., dawahwise"
+    validations:
+      required: true
+
+  - type: input
+    id: name
+    attributes:
+      label: Channel Name
+      placeholder: "e.g., DawahWise"
+    validations:
+      required: true
+
+  - type: input
+    id: url
+    attributes:
+      label: Channel URL
+      placeholder: "e.g., https://youtube.com/@dawahwise"
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: Proposed Notes
+      description: List the notes you plan to contribute using this channel
+    validations:
+      required: true
