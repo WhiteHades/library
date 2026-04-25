@@ -7,9 +7,9 @@ Keep it simple. Match the format already used in the repo. If you are unsure, co
 ### `Start Here`
 
 - Put published notes in `src/site/notes/00_publish/{idea}/`
-- Use YAML frontmatter with top-level keys (Digital Garden converts this to JSON on export)
+- Use YAML frontmatter with top-level keys
 - Use the right format for the page type you are adding
-- Do not add `## reading path` unless a maintainer explicitly asks for it
+- Do not add `## reading path` unless explicitly asked
 
 ### `What Most Contributors Will Submit`
 
@@ -72,14 +72,14 @@ Your note starts here.
 
 What matters:
 
-- all metadata is at the top level (not nested inside `dg-note-properties`)
+- all metadata is at the top level
 - `page_kind` must be `note`
 - `## quick read` is required for normal notes
 - `## quick read` should have 3 short bullet points
 - the horizontal rule `---` after `## quick read` is required
 - `series`, `order`, `before`, and `after` are only needed if the note belongs to a series
 - `sources` go in frontmatter, not in a loose list at the bottom
-- `dg-publish: true` is required for Digital Garden to export the note
+- `dg-publish: true` is required for the note to be published
 
 ### `Format 2: Idea Overview`
 
@@ -90,7 +90,7 @@ Use this for `overview.md` inside an idea folder.
 type: note
 created: 2026-04-24T00:00
 page_kind: idea-overview
-channel: mohammed-efaz
+channel: editorial
 author: Your Name
 sources: []
 ideas:
@@ -112,7 +112,6 @@ What matters:
 
 - `page_kind` must be `idea-overview`
 - no `## quick read` is required here
-- no `## reading path` is required here
 - keep it short and orient the reader
 
 ### `Format 3: Home Page`
@@ -161,8 +160,8 @@ Only when the note is in a series:
 
 ### `Rules That Matter`
 
-- use YAML frontmatter with top-level keys (Digital Garden converts this to JSON on export)
-- never nest metadata inside `dg-note-properties` in the source
+- use YAML frontmatter with top-level keys
+- never nest metadata inside `dg-note-properties`
 - use a real channel key from `src/site/_data/publish/channels.json`
 - use a real series key from `src/site/_data/publish/series.json` if you set `series`
 - keep permalinks unique
@@ -172,9 +171,9 @@ Only when the note is in a series:
 
 ### `Channels and Ideas`
 
-**Channels** are references to external content creators (YouTube channels, websites, etc.). You do not "own" a channel. If the channel already exists in `channels.json`, just reference it by its key. If it does not exist, add it.
+**Channels** are references to external content creators (YouTube channels, websites, etc.). You do not "own" a channel. If the channel already exists in `channels.json`, just reference it by its key.
 
-**Ideas** are shared thematic spaces. Multiple channels can contribute notes to the same idea. If `philosophy/` already exists, put your notes there. The idea grows organically.
+**Ideas** are shared thematic spaces. Multiple channels can contribute notes to the same idea. If `philosophy/` already exists, put your notes there.
 
 **What if a channel already exists?**
 
@@ -186,7 +185,7 @@ Put your notes in the existing folder. Example: if `00_publish/philosophy/` exis
 
 **What if a series already exists?**
 
-You can add notes to an existing series if it is open. Set the correct `series` key, `order`, and `before/after` values. The PR bot validates series integrity.
+You can add notes to an existing series. Set the correct `series` key, `order`, and `before/after` values. The PR bot validates series integrity.
 
 ### `Adding A New Idea`
 
@@ -201,8 +200,17 @@ If you add a new idea, include all of this in one PR:
 If you add a new channel, include all of this in one PR:
 
 1. the `channels.json` entry
-2. the logo in `src/site/img/channels/`
+2. the logo in `src/site/img/channels/` (optional but recommended)
 3. at least one note using that channel key
+
+**What if you cannot find a logo?**
+
+The site handles missing logos gracefully. The channel name will still display without an avatar. If you cannot find a proper logo, you can:
+- omit the `logo` field from `channels.json`
+- use a generic placeholder
+- leave it blank and a maintainer will add one later
+
+The note will still publish and display correctly.
 
 ### `Adding A New Series`
 
@@ -228,7 +236,7 @@ cd library
 
 - the site redeploys automatically
 - contributor notes live in the Library repo only
-- metadata registries (`channels.json`, `series.json`) sync back to the source vault
+- metadata registries sync back to the source vault
 - editorial oversight continues from the private source vault
 
 ### `If You Are Unsure`
