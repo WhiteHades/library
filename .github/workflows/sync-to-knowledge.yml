@@ -22,38 +22,94 @@ jobs:
           token: ${{ secrets.KNOWLEDGE_PAT }}
           path: knowledge
 
-      - name: Sync Metadata
+      - name: Sync Channel Assets
+        id: assets
         run: |
-          mkdir -p knowledge/99_meta/publish-data
           mkdir -p knowledge/99_meta/publish-data/channel-assets
 
-          DATA_CHANGES=$(rsync -acni --delete --out-format='%i %n%L' src/site/_data/publish/ knowledge/99_meta/publish-data/ | grep -E '^(>f|\*deleting|c)' || true)
-          CHANNEL_ASSET_CHANGES=$(rsync -acni --delete --out-format='%i %n%L' src/site/img/channels/ knowledge/99_meta/publish-data/channel-assets/ | grep -E '^(>f|\*deleting|c)' || true)
+          ASSET_CHANGES=$(rsync -acni --delete --out-format='%i %n%L' src/site/img/channels/ knowledge/99_meta/publish-data/channel-assets/ | grep -E '^(>f|\*deleting|c)' || true)
 
-          if [ -z "$DATA_CHANGES" ] && [ -z "$CHANNEL_ASSET_CHANGES" ]; then
-            echo "Library and Knowledge metadata files are already in sync"
-            exit 0
-          fi
-
-          if [ -n "$DATA_CHANGES" ]; then
-            echo "Publish data changes:"
-            printf '%s\n' "$DATA_CHANGES"
-            rsync -av --delete src/site/_data/publish/ knowledge/99_meta/publish-data/
-          fi
-
-          if [ -n "$CHANNEL_ASSET_CHANGES" ]; then
+          if [ -z "$ASSET_CHANGES" ]; then
+            echo "Channel assets already in sync"
+            echo "asset_changes=false" >> $GITHUB_OUTPUT
+          else
             echo "Channel asset changes:"
-            printf '%s\n' "$CHANNEL_ASSET_CHANGES"
+            printf '%s\n' "$ASSET_CHANGES"
             rsync -av --delete src/site/img/channels/ knowledge/99_meta/publish-data/channel-assets/
+            echo "asset_changes=true" >> $GITHUB_OUTPUT
           fi
 
+      - name: Sync Registries with Conflict Detection
+        run: |
+          set -e
+
+          sync_file() {
+            local src_path="$1"
+            local dest_file="$2"
+
+            if [ ! -f "src/site/_data/publish/$src_path" ]; then
+              echo "::warning::$src_path not found in Library, skipping"
+              return
+            fi
+
+            echo ""
+            echo "── checking $src_path ──"
+
+            if [ ! -f "knowledge/$dest_file" ]; then
+              echo "→ $dest_file does not exist in Knowledge yet"
+              echo "  creating: $dest_file"
+              cp "src/site/_data/publish/$src_path" "knowledge/$dest_file"
+              return
+            fi
+
+            local library_hash
+            library_hash=$(shasum "src/site/_data/publish/$src_path" | cut -d' ' -f1)
+
+            local knowledge_hash
+            knowledge_hash=$(shasum "knowledge/$dest_file" | cut -d' ' -f1)
+
+            if [ "$library_hash" = "$knowledge_hash" ]; then
+              echo "→ $dest_file already identical, skipping"
+              return
+            fi
+
+            local knowledge_author
+            knowledge_author=$(git -C knowledge log -1 --pretty=format:"%an" -- "$dest_file" 2>/dev/null || echo "")
+
+            if [ -z "$knowledge_author" ]; then
+              knowledge_author="Library Bot"
+            fi
+
+            if [ "$knowledge_author" = "Library Bot" ]; then
+              echo "→ $dest_file last touched by Library Bot, safe to overwrite"
+              cp "src/site/_data/publish/$src_path" "knowledge/$dest_file"
+            else
+              echo "→ CONFLICT: $dest_file was last edited by '$knowledge_author' in Knowledge"
+              echo "  Library-side changes:"
+              git log -1 --oneline -- "src/site/_data/publish/$src_path"
+              echo "  Knowledge-side changes:"
+              git -C knowledge log -1 --oneline -- "$dest_file"
+              echo "::warning::$dest_file has human changes in Knowledge. Manual merge required. Skipping."
+            fi
+          }
+
+          sync_file "channels.json" "99_meta/publish-data/channels.json"
+          sync_file "series.json" "99_meta/publish-data/series.json"
+          sync_file "home.json" "99_meta/publish-data/home.json"
+
+      - name: Commit and Push to Knowledge
+        run: |
           cd knowledge
           git config user.name "Library Bot"
           git config user.email "bot@library.mohammedefaz.com"
-          git add -A
+          git add 99_meta/publish-data/
+
           if git diff --cached --quiet; then
-            echo "No changes to sync"
-          else
-            git commit -m "sync: ingest published metadata from library"
-            git push
+            echo "No registry changes to push to Knowledge"
+            exit 0
           fi
+
+          git commit -m "sync: ingest published metadata from library [no-back-sync]"
+          git push
+          echo ""
+          echo "Metadata synced to Knowledge"
