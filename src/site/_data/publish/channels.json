@@ -3,6 +3,7 @@
     "key": "mohammed-efaz",
     "name": "Mohammed Efaz",
     "platform": "website",
+    "_test_sync": "roundtrip-verified",
     "url": "/home/",
     "logo": "/img/channels/mohammed-efaz.svg",
     "hidden": true,
