@@ -76,11 +76,18 @@ jobs:
             local knowledge_author
             knowledge_author=$(git -C knowledge log -1 --pretty=format:"%an" -- "$dest_file" 2>/dev/null || echo "")
 
+            local bot_in_history
+            bot_in_history=$(git -C knowledge log --author="Library Bot" --pretty=format:"%H" -- "$dest_file" 2>/dev/null | head -1)
+
             if [ -z "$knowledge_author" ]; then
               knowledge_author="Library Bot"
             fi
 
-            if [ "$knowledge_author" = "Library Bot" ]; then
+            if [ -z "$bot_in_history" ]; then
+              echo "→ $dest_file has never been touched by Library Bot (first run)"
+              echo "  bootstrapping: safe to sync"
+              cp "src/site/_data/publish/$src_path" "knowledge/$dest_file"
+            elif [ "$knowledge_author" = "Library Bot" ]; then
               echo "→ $dest_file last touched by Library Bot, safe to overwrite"
               cp "src/site/_data/publish/$src_path" "knowledge/$dest_file"
             else
